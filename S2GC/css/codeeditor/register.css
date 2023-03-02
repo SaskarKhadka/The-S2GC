@@ -1,0 +1,11 @@
+.register-container{
+    width: 15%;
+    height: 600px;
+    align-items: center;
+    text-align: center;
+}
+
+.register-box {
+    height: 500px;
+    border: 1px solid var(--dark);
+}

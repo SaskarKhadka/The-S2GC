@@ -1,0 +1,8 @@
+@import url('./global.css');
+@import url('./navbar.css');
+@import url('./codeeditor/register.css');
+@import url('./codeeditor/code.css');
+@import url('./memory/slider.css');
+@import url('./memory/table.css');
+@import url('./memory/toggle.css');
+@import url('./footer.css');

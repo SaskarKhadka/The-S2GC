@@ -1,0 +1,48 @@
+.memory-box {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    width: 25%;
+}
+
+#cellHead,
+#cellBody {
+    border: 1px solid var(--white);
+    padding: 4px;
+    text-align: center;
+    background-color: var(--dark);
+    color: var(--white);
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+
+.cellData {
+    border: 1px solid var(--gray);
+    padding: 4px;
+    text-align: center;
+    background-color: var(--white);
+    color: var(--dark);
+    font-size: 0.7rem;
+}
+
+
+.edit {
+    color: var(--red);
+}
+
+.edited {
+    background-color: var(--lightYellow);
+    color: var(--red);
+}
+
+
+/* hover styling */
+.hoverCell {
+    background-color: var(--lightYellow);
+}
+
+.directHoverCell {
+    background-color: var(--green);
+    color: var(--white);
+}

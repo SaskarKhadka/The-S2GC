@@ -1,0 +1,16 @@
+.body-content {
+    display: flex;
+    justify-content:space-around;
+}
+
+.code-editor-container {
+    width: 40%;
+    height: 600px;
+    align-items: center;
+    text-align: center;
+}
+
+.code-editor-box {
+    height: 500px;
+    border: 1px solid var(--dark);
+}
