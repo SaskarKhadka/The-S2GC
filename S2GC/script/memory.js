@@ -1,4 +1,5 @@
 //creating table dynamically
+const chars = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'];
 let memoryBox = document.getElementById('memory-view-box');
 let memoryTable;
 let tableHead;
@@ -29,58 +30,17 @@ function memorySlot(slotNo) {
                     cellBody.classList.add('cellData');
                     cellBody.setAttribute('onmouseenter', "addHoverEffect(this);")
                     cellBody.setAttribute('onmouseleave', "removeHoverEffect(this);")
-                    switch (j) {
-                        case 10:
-                            cellBody.setAttribute('id', `${value}A`);
-                            cellBody.setAttribute('title', `${value}A`);
-                            break;
-                        case 11:
-                            cellBody.setAttribute('id', `${value}B`);
-                            cellBody.setAttribute('title', `${value}B`);
-                            break;
-                        case 12:
-                            cellBody.setAttribute('id', `${value}C`);
-                            cellBody.setAttribute('title', `${value}C`);
-                            break;
-                        case 13:
-                            cellBody.setAttribute('id', `${value}D`);
-                            cellBody.setAttribute('title', `${value}D`);
-                            break;
-                        case 14:
-                            cellBody.setAttribute('id', `${value}E`);
-                            cellBody.setAttribute('title', `${value}E`);
-                            break;
-                        case 15:
-                            cellBody.setAttribute('id', `${value}F`);
-                            cellBody.setAttribute('title', `${value}F`);
-                            break;
-                        default:
-                            cellBody.setAttribute('id', `${value}${j}`);
-                            cellBody.setAttribute('title', `${value}${j}`);
-                    }
+                    cellBody.setAttribute('id', `${value}${chars[j]}`);
+                    cellBody.setAttribute('title', `${value}${j}`);
                 }
                 cellBody.appendChild(cellText);
                 rowBody.appendChild(cellBody);
             }
         }
-        createRowHead(i == -1 ?
-            '' : i == 10 ?
-                'A' : i == 11 ?
-                    'B' : i == 12 ?
-                        'C' : i == 13 ?
-                            'D' : i == 14 ?
-                                'E' : i == 15 ?
-                                    'F' : i);
+        createRowHead(i == -1 ? '' : chars[i]);
         if (i != -1) {
-            createRowBody(i == 10 ?
-                `${slotNo}A` : i == 11 ?
-                    `${slotNo}B` : i == 12 ?
-                        `${slotNo}C` : i == 13 ?
-                            `${slotNo}D` : i == 14 ?
-                                `${slotNo}E` : i == 15 ?
-                                    `${slotNo}F` : `${slotNo}${i}`);
+            createRowBody(`${slotNo}${chars[i]}`);
         }
-
         tableHead.appendChild(rowHead);
         tableBody.appendChild(rowBody)
         tableBody.classList.add('tableBody');
@@ -100,11 +60,5 @@ for (let k = 0; k <= 15; k++) {
     memoryTable.appendChild(tableHead);
     memoryTable.appendChild(tableBody);
     memoryBox.appendChild(memoryTable);
-    createTable(k == 10 ?
-        'A' : k == 11 ?
-            'B' : k == 12 ?
-                'C' : k == 13 ?
-                    'D' : k == 14 ?
-                        'E' : k == 15 ?
-                            'F' : k);
+    createTable(chars[k]);
 }
