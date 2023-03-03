@@ -1,9 +1,13 @@
-.memory-box {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    width: 25%;
+.memory-view-box table th{
+    font-weight:400;
 }
+
+.memory-view-box table{
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+}
+
 
 #cellHead,
 #cellBody {
@@ -15,7 +19,6 @@
     font-size: 0.8rem;
     font-weight: bold;
 }
-
 
 .cellData {
     border: 1px solid var(--gray);
@@ -45,4 +48,20 @@
 .directHoverCell {
     background-color: var(--green);
     color: var(--white);
+}
+
+
+
+@media only screen and (min-width:768px) {
+    .memory-box {
+        width: 30%;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .memory-box {
+        width: 80%;
+        margin-left: 10%;
+        margin-right: 10%;
+    }
 }

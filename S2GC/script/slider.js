@@ -19,19 +19,19 @@ function sliderChange(value) {
         }
     }
     if (value == 10) {
-        document.getElementById('memory-tableA').style.display = "block";
+        document.getElementById('memory-tableA').style.display = null;
     } else if (value == 11) {
-        document.getElementById('memory-tableB').style.display = "block";
+        document.getElementById('memory-tableB').style.display = null;
     } else if (value == 12) {
-        document.getElementById('memory-tableC').style.display = "block";
+        document.getElementById('memory-tableC').style.display = null;
     } else if (value == 13) {
-        document.getElementById('memory-tableD').style.display = "block";
+        document.getElementById('memory-tableD').style.display = null;
     } else if (value == 14) {
-        document.getElementById('memory-tableE').style.display = "block";
+        document.getElementById('memory-tableE').style.display = null;
     } else if (value == 15) {
-        document.getElementById('memory-tableF').style.display = "block";
+        document.getElementById('memory-tableF').style.display = null;
     } else {
-        document.getElementById(`memory-table${value}`).style.display = "block";
+        document.getElementById(`memory-table${value}`).style.display = null;
     }
 }
 sliderChange(0);
