@@ -1,9 +1,10 @@
 function addHoverEffect(obj) {
     let hoverId = obj.id;
-    let x = hoverId.slice(0, 2);
-    let y = hoverId.slice(2, 3);
-    let w = hoverId.slice(1, 2);
-    let z = hoverId.slice(0, 1);
+    let x = hoverId.slice(0, 3);//first 3 digit
+    let y = hoverId.slice(3, 4); //last 1 digit
+    let w = hoverId.slice(2, 3); //third digit
+    let z = hoverId.slice(0, 2); //first 2 digit
+    console.log(x, y, w, z);
     let horizontalIndex = chars.indexOf(y);
     let verticalIndex = chars.indexOf(w);
     document.getElementById(hoverId).classList.add('directHoverCell');
@@ -19,10 +20,10 @@ function addHoverEffect(obj) {
 
 function removeHoverEffect(obj) {
     let hoverId = obj.id;
-    let x = hoverId.slice(0, 2);
-    let y = hoverId.slice(2, 3);
-    let w = hoverId.slice(1, 2);
-    let z = hoverId.slice(0, 1);
+    let x = hoverId.slice(0, 3);
+    let y = hoverId.slice(3, 4);
+    let w = hoverId.slice(2, 3);
+    let z = hoverId.slice(0, 2);
     let horizontalIndex = chars.indexOf(y);
     let verticalIndex = chars.indexOf(w);
     document.getElementById(hoverId).classList.remove('directHoverCell');
@@ -36,3 +37,4 @@ function removeHoverEffect(obj) {
         }
     }
 }
+
