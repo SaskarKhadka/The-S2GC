@@ -1,4 +1,6 @@
-class AddressRegister {
+const Arithmetics = require("../arithmetics/arithmetics");
+
+class ProgramCounter {
   constructor(size) {
     this._size = size;
     this._value = Arithmetics.createStandardSize("0", this._size);
@@ -47,7 +49,7 @@ class AddressRegister {
         this._value = newVal;
       }
     } else {
-      throw "Cannot load Address Register";
+      throw "Cannot load PC";
     }
   }
 
@@ -56,7 +58,7 @@ class AddressRegister {
       this._inr = false;
       this._value = Arithmetics.increament(this._value)[0];
     } else {
-      throw "Cannot increament Address Register";
+      throw "Cannot increament PC";
     }
   }
 
@@ -65,7 +67,7 @@ class AddressRegister {
       this._clr = false;
       this._value = Arithmetics.createStandardSize("0", this._size);
     } else {
-      throw "Cannot clear Address Register";
+      throw "Cannot clear PC";
     }
   }
 }

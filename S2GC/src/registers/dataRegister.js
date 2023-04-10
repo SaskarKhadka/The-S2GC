@@ -1,4 +1,6 @@
-class BRegister {
+const Arithmetics = require("../arithmetics/arithmetics");
+
+class DataRegister {
   constructor(size) {
     this._size = size;
     this._value = Arithmetics.createStandardSize("0", this._size);
@@ -47,7 +49,7 @@ class BRegister {
         this._value = newVal;
       }
     } else {
-      throw "Cannot load B Register";
+      throw "Cannot load Data Register";
     }
   }
 
@@ -56,7 +58,7 @@ class BRegister {
       this._inr = false;
       this._value = Arithmetics.increament(this._value)[0];
     } else {
-      throw "Cannot increament B Register";
+      throw "Cannot increament Data Register";
     }
   }
 
@@ -65,7 +67,7 @@ class BRegister {
       this._clr = false;
       this._value = Arithmetics.createStandardSize("0", this._size);
     } else {
-      throw "Cannot clear B Register";
+      throw "Cannot clear Data Resgister";
     }
   }
 }

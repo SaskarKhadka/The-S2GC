@@ -1,10 +1,16 @@
-class Acumulator {
+const Arithmetics = require("../arithmetics/arithmetics");
+
+class Accumulator {
   constructor(size) {
     this._size = size;
     this._value = Arithmetics.createStandardSize("0", this._size);
     this._ld = false;
     this._inr = false;
     this._clr = false;
+  }
+
+  set() {
+    this._inr = true;
   }
 
   VALUE() {
@@ -69,3 +75,39 @@ class Acumulator {
     }
   }
 }
+
+const ac = new Accumulator(5);
+console.log(ac.VALUE());
+ac.set();
+ac.increamentValue();
+console.log(ac.VALUE());
+ac.set();
+ac.increamentValue();
+console.log(ac.VALUE());
+ac.set();
+ac.increamentValue();
+console.log(ac.VALUE());
+ac.set();
+ac.increamentValue();
+console.log(ac.VALUE());
+ac.set();
+ac.increamentValue();
+console.log(ac.VALUE());
+ac.set();
+ac.increamentValue();
+console.log(ac.VALUE());
+ac.set();
+ac.increamentValue();
+console.log(ac.VALUE());
+ac.set();
+ac.increamentValue();
+console.log(ac.VALUE());
+ac.set();
+ac.increamentValue();
+console.log(ac.VALUE());
+ac.set();
+ac.increamentValue();
+console.log(ac.VALUE());
+ac.set();
+ac.increamentValue();
+console.log(ac.VALUE());

@@ -1,3 +1,5 @@
+const Arithmetics = require("../arithmetics/arithmetics");
+
 class TemporaryRegister {
   constructor(size) {
     this._size = size;
