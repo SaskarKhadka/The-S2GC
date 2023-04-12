@@ -1,32 +1,5 @@
-
-
-.code-editor-container {
-    height: 600px;
-    align-items: center;
-}
-
-.code-editor-box {
-    height: 500px;
-    border: 1px solid var(--dark);
-}
-
-@media only screen and (min-width:768px) {
-    .body-content {
-        display: flex;
-        justify-content: space-around;
-    }
-    .code-editor-container {
-        width: 40%;
-    }
-}
-
-@media only screen and (max-width: 768px) {
-    .body-content {
-        display: block;
-    }
-    .code-editor-container {
-        width: 80%;
-        margin-left: 10%;
-        margin-right: 10%;
-    }
+.bus-container-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }

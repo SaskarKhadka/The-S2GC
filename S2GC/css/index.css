@@ -1,8 +1,26 @@
-@import url('./global.css');
-@import url('./navbar.css');
-@import url('./codeeditor/register.css');
-@import url('./codeeditor/code.css');
-@import url('./memory/slider.css');
-@import url('./memory/table.css');
-@import url('./memory/toggle.css');
-@import url('./footer.css');
+@import url("./global.css");
+@import url("./navbar.css");
+@import url("./bus/commonBus.css");
+@import url("./codeEditor/code.css");
+@import url("./codeeditor/model.css");
+@import url("./memory/slider.css");
+@import url("./memory/table.css");
+@import url("./memory/toggle.css");
+@import url("./footer.css");
+
+.body-content {
+  margin: 25px;
+}
+
+@media only screen and (min-width: 768px) {
+  .body-content {
+    display: flex;
+    justify-content: space-around;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .body-content {
+    display: block;
+  }
+}

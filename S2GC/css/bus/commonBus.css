@@ -1,0 +1,43 @@
+.bus-container {
+  height: 600px;
+  align-items: center;
+}
+
+.bus-box {
+  overflow-y: auto;
+  border: 1px solid var(--dark);
+
+  padding: 10px;
+}
+
+.test {
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.test img {
+  width: 800px;
+}
+
+@media only screen and (min-width: 768px) {
+  .bus-container {
+    width: 60%;
+  }
+  .test {
+    justify-content: center;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .bus-container {
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 5%;
+  }
+  .test {
+    justify-content: left;
+  }
+}

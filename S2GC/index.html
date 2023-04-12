@@ -47,36 +47,61 @@
         </header>
     </section>
 
-    <div id="body-content" class="body-content">
-        <div class="register-container" id="register-container">
-            <h3>Registers</h3>
-            <div class="register-box" id="register-box">
-
+    <div class="body-container" id="body-container">
+        <div id="myModal" class="modal">
+            <!-- Modal content -->
+            <div class="modal-content" id="modal-content">
+                <div class="modal-header" id="modal-header">
+                    <h3>S<sup>2</sup>GC</h3>
+                    <h3>Code Editor</h3>
+                    <span class="close">&times;</span>
+                </div>
+                <div class="modal-body" id="modal-body">
+                    <div class="editor-container" id="editor-container">
+                        <textarea class="code-editor" id="code-editor">Code Editor..</textarea>
+                    </div>
+                </div>
+                <div class="modal-footer" id="modal-footer">
+                    <button class="run-button" id="run-button">Run</button>
+                </div>
             </div>
         </div>
-        <div class="code-editor-container" id="code-editor-container">
-            <h3>Code Editor</h3>
-            <div class="code-editor-box" id="code-editor-box">
+        <div id="body-content" class="body-content">
+            <div class="bus-container" id="bus-container">
+                <div class="bus-container-header">
+                    <h3>Common Bus System</h3>
+                    <div class="model-button" id="model-button">
+                        <button class="btn btn-open" id="myBtn">Code Editor</button>
+                    </div>
+                </div>
+                <div class="bus-box" id="bus-box">
+                    <div class="test">
+                        <!-- start working from here common bus-->
+                        <img src="./assets/bus.png" class="busTestImage" alt="common bus system">
+                    </div>
+                </div>
+            </div>
 
-            </div>
-        </div>
-        <div class="memory-box">
-            <div class="headline-text">
-                <h3 class="hedline-title" id="headline-title">Memory View</h3>
-                <label class="switch">
-                    <input class="checkbox-input" id="checkbox-input" onclick="toggleMemorySlot(this.value);"
-                        type="checkbox" checked>
-                    <span class="checkbox-slider round"></span>
-                </label>
-            </div>
-            <div id="memory-view-box" class="memory-view-box">
-            </div>
-            <div class="slider">
-                <input class="slider-input" id="slider-input" type="range" min="0" max="15" value="0"
-                    oninput="sliderChange(this.value)"><span id="sliderValue">0</span>
+            <div class="memory-container">
+                <div class="headline-text">
+                    <h3 class="hedline-title" id="headline-title">Memory View</h3>
+                    <label class="switch">
+                        <input class="checkbox-input" id="checkbox-input" onclick="toggleMemorySlot(this.value);"
+                            type="checkbox" checked>
+                        <span class="checkbox-slider round"></span>
+                    </label>
+                </div>
+                <div class="slot-container">
+                    <div id="memory-view-box" class="memory-view-box"></div>
+                </div>
+                <div class="slider">
+                    <input class="slider-input" id="slider-input" type="range" min="0" max="15" value="0"
+                        oninput="sliderChange(this.value)"><span id="sliderValue">0</span>
+                </div>
             </div>
         </div>
     </div>
+
 
     <footer class="footer">
         <div class="footer-content">
@@ -95,13 +120,7 @@
             </p>
         </div>
     </footer>
-
-    <script defer src="./script/navbar.js"></script>
-    <script defer src="./script/memory.js"></script>
-    <script defer src="./script/slider.js"></script>
-    <script defer src="./script/hover.js"></script>
-    <script defer src="./script/edit.js"></script>
-    <script defer src="./script/toggle.js"></script>
+    <script defer src="./script/index.js"></script>
 </body>
 
 </html>

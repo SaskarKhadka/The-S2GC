@@ -1,67 +1,65 @@
-.memory-view-box table th{
-    font-weight:400;
+.slot-container {
+  overflow-y: auto;
+}
+.memory-view-box table th {
+  font-weight: 400;
 }
 
-.memory-view-box table{
-    width: 100%;
-    max-width: 100%;
-    overflow: hidden;
+.memory-view-box table {
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
 }
-
 
 #cellHead,
 #cellBody {
-    border: 1px solid var(--white);
-    padding: 4px;
-    text-align: center;
-    background-color: var(--dark);
-    color: var(--white);
-    font-size: 0.8rem;
-    font-weight: bold;
+  border: 1px solid var(--white);
+  padding: 4px;
+  text-align: center;
+  background-color: var(--dark);
+  color: var(--white);
+  font-size: 0.8rem;
+  font-weight: bold;
 }
 
 .cellData {
-    border: 1px solid var(--gray);
-    padding: 4px;
-    text-align: center;
-    background-color: var(--white);
-    color: var(--dark);
-    font-size: 0.7rem;
+  border: 1px solid var(--gray);
+  padding: 4px;
+  text-align: center;
+  background-color: var(--white);
+  color: var(--dark);
+  font-size: 0.7rem;
 }
 
-
 .edit {
-    color: var(--red);
+  color: var(--red);
 }
 
 .edited {
-    background-color: var(--lightYellow);
-    color: var(--red);
+  background-color: var(--lightYellow);
+  color: var(--red);
 }
-
 
 /* hover styling */
 .hoverCell {
-    background-color: var(--lightYellow);
+  background-color: var(--lightYellow);
 }
 
 .directHoverCell {
-    background-color: var(--green);
-    color: var(--white);
+  background-color: var(--green);
+  color: var(--white);
 }
 
-
-
-@media only screen and (min-width:768px) {
-    .memory-box {
-        width: 30%;
-    }
+@media only screen and (min-width: 768px) {
+  .memory-container {
+    width: 30%;
+  }
 }
 
 @media only screen and (max-width: 768px) {
-    .memory-box {
-        width: 80%;
-        margin-left: 10%;
-        margin-right: 10%;
-    }
+  .memory-container {
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+  }
 }
