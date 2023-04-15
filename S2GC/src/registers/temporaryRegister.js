@@ -2,33 +2,33 @@ const Arithmetics = require("../arithmetics/arithmetics");
 
 class TemporaryRegister {
   constructor(size) {
-    this._size = size;
-    this._value = Arithmetics.createStandardSize("0", this._size);
-    this._ld = false;
+    this.#size = size;
+    this.#value = Arithmetics.createStandardSize("0", this.#size);
+    this.#ld = false;
   }
 
   VALUE() {
-    return this._value;
+    return this.#value;
   }
 
   LD() {
-    return this._value;
+    return this.#value;
   }
 
   ldFlag(newVal) {
-    this._ld = newVal;
+    this.#ld = newVal;
   }
 
   loadValue(newVal) {
-    if (this._ld) {
-      this._ld = false;
-      if (newVal.length > this._size) {
-        this._value = newVal.substring(newVal.length - this._size);
-      } else if (newVal.length < this._size) {
-        newVal = Arithmetics.createStandardSize(newVal, this._size);
-        this._value = newVal;
+    if (this.#ld) {
+      this.#ld = false;
+      if (newVal.length > this.#size) {
+        this.#value = newVal.substring(newVal.length - this.#size);
+      } else if (newVal.length < this.#size) {
+        newVal = Arithmetics.createStandardSize(newVal, this.#size);
+        this.#value = newVal;
       } else {
-        this._value = newVal;
+        this.#value = newVal;
       }
     } else {
       throw "Cannot load Temporary Register";

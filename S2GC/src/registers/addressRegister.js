@@ -2,51 +2,51 @@ const Arithmetics = require("../arithmetics/arithmetics");
 
 class AddressRegister {
   constructor(size) {
-    this._size = size;
-    this._value = Arithmetics.createStandardSize("0", this._size);
-    this._ld = false;
-    this._inr = false;
-    this._clr = false;
+    this.#size = size;
+    this.#value = Arithmetics.createStandardSize("0", this.#size);
+    this.#ld = false;
+    this.#inr = false;
+    this.#clr = false;
   }
 
   VALUE() {
-    return this._value;
+    return this.#value;
   }
 
   LD() {
-    return this._value;
+    return this.#value;
   }
 
   INR() {
-    return this._inr;
+    return this.#inr;
   }
 
   CLR() {
-    return this._clr;
+    return this.#clr;
   }
 
   ldFlag(newVal) {
-    this._ld = newVal;
+    this.#ld = newVal;
   }
 
   inrFlag(newVal) {
-    this._inr = newVal;
+    this.#inr = newVal;
   }
 
   clrFlag(newVal) {
-    this._clr = newVal;
+    this.#clr = newVal;
   }
 
   loadValue(newVal) {
-    if (this._ld) {
-      this._ld = false;
-      if (newVal.length > this._size) {
-        this._value = newVal.substring(newVal.length - this._size);
-      } else if (newVal.length < this._size) {
-        newVal = Arithmetics.createStandardSize(newVal, this._size);
-        this._value = newVal;
+    if (this.#ld) {
+      this.#ld = false;
+      if (newVal.length > this.#size) {
+        this.#value = newVal.substring(newVal.length - this.#size);
+      } else if (newVal.length < this.#size) {
+        newVal = Arithmetics.createStandardSize(newVal, this.#size);
+        this.#value = newVal;
       } else {
-        this._value = newVal;
+        this.#value = newVal;
       }
     } else {
       throw "Cannot load Address Register";
@@ -54,18 +54,18 @@ class AddressRegister {
   }
 
   increamentValue() {
-    if (this._inr) {
-      this._inr = false;
-      this._value = Arithmetics.increament(this._value)[0];
+    if (this.#inr) {
+      this.#inr = false;
+      this.#value = Arithmetics.increament(this.#value)[0];
     } else {
       throw "Cannot increament Address Register";
     }
   }
 
   clearValue() {
-    if (this._clr) {
-      this._clr = false;
-      this._value = Arithmetics.createStandardSize("0", this._size);
+    if (this.#clr) {
+      this.#clr = false;
+      this.#value = Arithmetics.createStandardSize("0", this.#size);
     } else {
       throw "Cannot clear Address Register";
     }

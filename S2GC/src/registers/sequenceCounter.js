@@ -2,45 +2,45 @@ const Arithmetics = require("../arithmetics/arithmetics");
 
 class SequenceCounter {
   constructor(size) {
-    this._size = size;
-    this._value = Arithmetics.createStandardSize("0", this._size);
-    this._inr = false;
-    this._clr = false;
+    this.#size = size;
+    this.#value = Arithmetics.createStandardSize("0", this.#size);
+    this.#inr = false;
+    this.#clr = false;
   }
 
   VALUE() {
-    return this._value;
+    return this.#value;
   }
 
   INR() {
-    return this._inr;
+    return this.#inr;
   }
 
   CLR() {
-    return this._clr;
+    return this.#clr;
   }
 
   inrFlag(newVal) {
-    this._inr = newVal;
+    this.#inr = newVal;
   }
 
   clrFlag(newVal) {
-    this._clr = newVal;
+    this.#clr = newVal;
   }
 
   increamentValue() {
-    if (this._inr) {
-      this._inr = false;
-      this._value = Arithmetics.increament(this._value)[0];
+    if (this.#inr) {
+      this.#inr = false;
+      this.#value = Arithmetics.increament(this.#value)[0];
     } else {
       throw "Cannot increament Sequence Counter";
     }
   }
 
   clearValue() {
-    if (this._clr) {
-      this._clr = false;
-      this._value = Arithmetics.createStandardSize("0", this._size);
+    if (this.#clr) {
+      this.#clr = false;
+      this.#value = Arithmetics.createStandardSize("0", this.#size);
     } else {
       throw "Cannot clear Sequence Counter";
     }
