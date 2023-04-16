@@ -18,7 +18,7 @@
     <meta name="author" content="Chandan Kumar Mahato" />
 
     <title>S2GC</title>
-    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="../css/index.css">
 </head>
 
 <body class="scroll">
@@ -67,17 +67,53 @@
             </div>
         </div>
         <div id="body-content" class="body-content">
-            <div class="bus-container" id="bus-container">
-                <div class="bus-container-header">
+            <div class="common-bus-container" id="common-bus-container">
+                <div class="common-bus-container-header">
                     <h3>Common Bus System</h3>
                     <div class="model-button" id="model-button">
                         <button class="btn btn-open" id="myBtn">Code Editor</button>
                     </div>
                 </div>
-                <div class="bus-box" id="bus-box">
-                    <div class="test">
-                        <!-- start working from here common bus-->
-                        <img src="./assets/bus.png" class="busTestImage" alt="common bus system">
+                <div class="common-bus-box" id="common-bus-box">
+                    <div class="bus-container">
+                        <div class="bus-implementation-div">
+                            <div class="memory-box" id="memory-box">
+                                <span>Memory 8192*32</span>
+                            </div>
+                            <div class="memory-read-write">
+                                <div class="memory-write">
+                                    <span class="write-arrow">&#8592</span>
+                                    <span class="write-text">Write</span>
+                                </div>
+                                <div class="memory-read">
+                                    <span class="read-arrow">&#8594</span>
+                                    <span class="read-text">Read</span>
+                                </div>
+                            </div>
+                            <div class="memory-to-selection-1-div" id="memory-to-selection-1-div"> </div>
+                            <div class="bus-selector" id="bus-selector">
+                                <span class="bus-selector-1" id="bus-selector-1">1</span>
+                                <span class="bus-selector-2" id="bus-selector-2">2</span>
+                                <span class="bus-selector-3" id="bus-selector-3">3</span>
+                                <span class="bus-selector-6" id="bus-selector-6">6</span>
+                                <span class="bus-selector-0" id="bus-selector-0">0</span>
+                                <span class="bus-selector-7" id="bus-selector-7">7</span>
+                                <span class="bus-selector-4" id="bus-selector-4">4</span>
+                                <span class="bus-selector-5" id="bus-selector-5">5</span>
+                                <span class="bus-selector-8" id="bus-selector-8">8</span>
+                            </div>
+                            <div class="selection-lines" id="selection-lines">
+                                <span class="selection-0" id="selection-0">&#8593</span>
+                                <span class="selection-1" id="selection-1">&#8593</span>
+                                <span class="selection-2" id="selection-2">&#8593</span>
+                            </div>
+                            <div class="selection-no" id="selection-no">
+                                <span class="selection-text-0" id="selection-text-0">S0</span>
+                                <span class="selection-text-1" id="selection-text-1">S1</span>
+                                <span class="selection-text-2" id="selection-text-2">S2</span>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>
@@ -120,7 +156,7 @@
             </p>
         </div>
     </footer>
-    <script defer src="./script/index.js"></script>
+    <script defer src="../script/index.js"></script>
 </body>
 
 </html>

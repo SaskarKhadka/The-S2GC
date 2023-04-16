@@ -1,0 +1,91 @@
+.memory-box {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border: 1px solid var(--dark);
+}
+
+.memory-box span {
+  font-size: 10px;
+  font-weight: bold;
+}
+
+.memory-to-selection-1-div {
+  position: absolute;
+  text-align: left;
+  top: 60px;
+  left: 20px;
+  width: 3px;
+  height: 360px;
+  background-color: var(--dark);
+}
+
+.memory-to-selection-1-div::before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 10px;
+}
+
+.memory-to-selection-1-div::before {
+  border-color: transparent transparent var(--dark) transparent;
+  top: -13px;
+  left: 50%;
+  margin-left: -10px;
+}
+
+.memory-to-selection-1-div::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 10px;
+}
+
+.memory-to-selection-1-div::after {
+  border-color: var(--dark) transparent transparent transparent;
+  bottom: -2px;
+  left: 50%;
+  margin-left: -10px;
+  z-index: 1;
+}
+
+/* unset */
+/* .memory-to-selection-1-div::after {
+  content: unset;
+  position: unset;
+  width: unset;
+  height: unset;
+  border-style: unset;
+  border-width: unset;
+  border-color: unset;
+  bottom: unset;
+  left: unset;
+  margin-left: unset;
+  z-index: unset;
+} */
+
+.memory-read-write {
+  position: absolute;
+  top: 0;
+  left: 60px;
+}
+
+.read-arrow,
+.write-arrow {
+  font-size: 20px;
+}
+
+.read-text,
+.write-text {
+  font-size: 10px;
+}

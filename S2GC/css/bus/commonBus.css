@@ -1,43 +1,40 @@
-.bus-container {
+.common-bus-container {
   height: 600px;
   align-items: center;
 }
 
-.bus-box {
+.common-bus-box {
   overflow-y: auto;
   border: 1px solid var(--dark);
-
   padding: 10px;
 }
 
-.test {
+.bus-implementation-div {
+  position: relative;
   height: 500px;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.test img {
-  width: 800px;
-}
-
 @media only screen and (min-width: 768px) {
-  .bus-container {
+  .common-bus-container {
     width: 60%;
   }
-  .test {
+  .common-bus-container {
     justify-content: center;
   }
 }
 
 @media only screen and (max-width: 768px) {
-  .bus-container {
+  .common-bus-container {
     width: 80%;
     margin-left: 10%;
     margin-right: 10%;
     margin-top: 5%;
   }
-  .test {
+  .common-bus-container {
     justify-content: left;
   }
 }

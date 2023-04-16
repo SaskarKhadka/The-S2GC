@@ -1,0 +1,47 @@
+
+
+.bus-selector {
+  position: absolute;
+  display: flex;
+  width: 100%;
+  height: 40px;
+  background-color: var(--white);
+  align-items: baseline;
+  border: 1px solid var(--dark);
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  bottom: 50px;
+}
+
+.bus-selector span {
+  font-size: 20px;
+  display: inline-block;
+}
+
+.selection-lines {
+  position: absolute;
+  bottom: 20px;
+  text-align: right;
+  width: 90%;
+}
+
+.selection-0,
+.selection-1,
+.selection-2 {
+  padding: 5px;
+  font-size: 24px;
+}
+
+.selection-no {
+  position: absolute;
+  bottom: 0;
+  text-align: right;
+  width: 90%;
+}
+
+.selection-text-0,
+.selection-text-1,
+.selection-text-2 {
+  padding: 2px;
+}
