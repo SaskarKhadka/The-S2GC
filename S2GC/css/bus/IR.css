@@ -1,0 +1,67 @@
+.IR-container {
+  position: absolute;
+  bottom: 250px; /*change this*/
+  left: 560px; /*change this*/
+}
+
+.IR-box {
+  width: 100px;
+  height: 40px;
+  border: 2px solid var(--dark);
+  align-items: center;
+  justify-content: center;
+}
+
+.IR-content,
+.IR-content-value {
+  font-size: 12px;
+  text-align: center;
+}
+
+.IR-L-signal {
+  position: absolute;
+  top: 32px;
+  font-size: 25px;
+}
+
+.IR-L-text {
+  position: absolute;
+  bottom: -50px;
+  font-size: 20px;
+}
+
+.IR-to-selection-4 {
+  position: absolute;
+  left: 35px;
+  width: 3px;
+  height: 160px; /*change this*/
+  background-color: var(--dark);
+}
+
+.IR-to-selection-4::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 10px;
+  border-color: transparent transparent var(--dark) transparent;
+  top: -11px;
+  left: 50%;
+  margin-left: -10px;
+}
+
+.IR-to-selection-4::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 10px;
+  border-color: var(--dark) transparent transparent transparent;
+  bottom: -11px;
+  left: 50%;
+  margin-left: -10px;
+  z-index: 1;
+}

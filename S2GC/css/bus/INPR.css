@@ -1,0 +1,41 @@
+.INPR-container {
+  position: absolute;
+  bottom: 450px;
+  left: 150px;
+}
+
+.INPR-box {
+  width: 80px;
+  height: 40px;
+  border: 2px solid var(--dark);
+  align-items: center;
+  justify-content: center;
+}
+.INPR-content,
+.INPR-content-value {
+  font-size: 12px;
+  text-align: center;
+}
+
+.INPR-to-ALU {
+  position: absolute;
+  top: 20px;
+  left: 80px;
+  width: 45px;
+  height: 3px;
+  background-color: var(--dark);
+}
+
+.INPR-to-ALU::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 10px;
+  border-color: transparent transparent transparent var(--dark);
+  top: 50%;
+  right: -11px;
+  margin-top: -10px;
+  z-index: 1;
+}

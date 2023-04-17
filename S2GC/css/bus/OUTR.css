@@ -1,0 +1,53 @@
+.OUTR-container {
+  position: absolute;
+  bottom: 175px;
+  left: 725px;
+}
+
+.OUTR-box {
+  width: 80px;
+  height: 40px;
+  border: 2px solid var(--dark);
+  align-items: center;
+  justify-content: center;
+}
+
+.OUTR-content,
+.OUTR-content-value {
+  font-size: 12px;
+  text-align: center;
+}
+
+.OUTR-L-signal {
+  position: absolute;
+  top: 32px;
+  font-size: 25px;
+}
+
+.OUTR-L-text {
+  position: absolute;
+  bottom: -50px;
+  font-size: 20px;
+}
+
+.bus-to-OUTR {
+  position: absolute;
+  left: 35px;
+  width: 3px;
+  height: 85px; /*change this*/
+  background-color: var(--dark);
+}
+
+.bus-to-OUTR::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 10px;
+  border-color: transparent transparent var(--dark) transparent;
+  top: -11px;
+  left: 50%;
+  margin-left: -10px;
+}

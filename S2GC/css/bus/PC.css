@@ -1,0 +1,67 @@
+.PC-container {
+  position: absolute;
+  bottom: 250px; /*change this*/
+  left: 130px; /*change this*/
+}
+
+.PC-box {
+  width: 100px;
+  height: 40px;
+  border: 2px solid var(--dark);
+  align-items: center;
+  justify-content: center;
+}
+
+.PC-content,
+.PC-content-value {
+  font-size: 12px;
+  text-align: center;
+}
+
+.PC-LIC-signal {
+  position: absolute;
+  top: 32px;
+  font-size: 25px;
+}
+
+.PC-LIC-text {
+  position: absolute;
+  bottom: -50px;
+  font-size: 20px;
+}
+
+.PC-to-selection-3 {
+  position: absolute;
+  left: 75px;
+  width: 3px;
+  height: 160px; /*change this*/
+  background-color: var(--dark);
+}
+
+.PC-to-selection-3::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 10px;
+  border-color: transparent transparent var(--dark) transparent;
+  top: -11px;
+  left: 50%;
+  margin-left: -10px;
+}
+
+.PC-to-selection-3::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 10px;
+  border-color: var(--dark) transparent transparent transparent;
+  bottom: -11px;
+  left: 50%;
+  margin-left: -10px;
+  z-index: 1;
+}

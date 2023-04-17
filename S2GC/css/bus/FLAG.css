@@ -1,0 +1,109 @@
+.FLAG-container {
+  position: absolute;
+  bottom: 425px;
+  left: 625px;
+}
+
+.FLAG-C,
+.FLAG-V,
+.FLAG-S,
+.FLAG-Z {
+  display: flex;
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--dark);
+  align-items: center;
+  justify-content: center;
+}
+
+.ALU-to-C {
+  position: absolute;
+  top: 10px;
+  left: -52px;
+  width: 45px;
+  height: 2px;
+  background-color: var(--dark);
+}
+
+.ALU-to-C::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 10px;
+  border-color: transparent transparent transparent var(--dark);
+  top: 50%;
+  left: 100%;
+  margin-top: -10px;
+  z-index: 1;
+}
+
+.ALU-to-V {
+  position: absolute;
+  top: 30px;
+  left: -52px;
+  width: 45px;
+  height: 2px;
+  background-color: var(--dark);
+}
+
+.ALU-to-V::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 10px;
+  border-color: transparent transparent transparent var(--dark);
+  top: 50%;
+  left: 100%;
+  margin-top: -10px;
+  z-index: 1;
+}
+
+.ALU-to-S {
+  position: absolute;
+  top: 50px;
+  left: -52px;
+  width: 45px;
+  height: 2px;
+  background-color: var(--dark);
+}
+
+.ALU-to-S::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 10px;
+  border-color: transparent transparent transparent var(--dark);
+  top: 50%;
+  left: 100%;
+  margin-top: -10px;
+  z-index: 1;
+}
+
+.ALU-to-Z {
+  position: absolute;
+  top: 70px;
+  left: -52px;
+  width: 45px;
+  height: 2px;
+  background-color: var(--dark);
+}
+
+.ALU-to-Z::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 10px;
+  border-color: transparent transparent transparent var(--dark);
+  top: 50%;
+  left: 100%;
+  margin-top: -10px;
+  z-index: 1;
+}

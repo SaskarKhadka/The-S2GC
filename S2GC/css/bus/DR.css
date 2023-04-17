@@ -1,0 +1,67 @@
+.DR-container {
+  position: absolute;
+  bottom: 350px;
+  left: 225px;
+}
+
+.DR-box {
+  width: 100px;
+  height: 40px;
+  border: 2px solid var(--dark);
+  align-items: center;
+  justify-content: center;
+}
+
+.DR-content,
+.DR-content-value {
+  font-size: 12px;
+  text-align: center;
+}
+
+.DR-LIC-signal {
+  position: absolute;
+  top: 32px; /*change this*/
+  font-size: 25px; /*change this*/
+}
+
+.DR-LIC-text {
+  position: absolute;
+  bottom: -50px;
+  font-size: 20px;
+}
+
+.DR-to-selection-6 {
+  position: absolute;
+  left: 75px;
+  width: 3px;
+  height: 260px; /*change this*/
+  background-color: var(--dark);
+}
+
+.DR-to-selection-6::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 10px;
+  border-color: transparent transparent var(--dark) transparent;
+  top: -11px;
+  left: 50%;
+  margin-left: -10px;
+}
+
+.DR-to-selection-6::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 10px;
+  border-color: var(--dark) transparent transparent transparent;
+  bottom: -11px;
+  left: 50%;
+  margin-left: -10px;
+  z-index: 1;
+}

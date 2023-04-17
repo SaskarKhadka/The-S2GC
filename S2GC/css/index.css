@@ -9,6 +9,17 @@
 @import url("./footer.css");
 @import url("./bus/busDetails.css");
 @import url("./bus/memoryBox.css");
+@import url("./bus/AR.css");
+@import url("./bus/PC.css");
+@import url("./bus/DR.css");
+@import url("./bus/B.css");
+@import url("./bus/AC.css");
+@import url("./bus/ALU.css");
+@import url("./bus/INPR.css");
+@import url("./bus/FLAG.css");
+@import url("./bus/IR.css");
+@import url("./bus/TR.css");
+@import url("./bus/OUTR.css");
 
 .body-content {
   margin: 25px;

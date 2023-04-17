@@ -1,0 +1,90 @@
+.AR-container {
+  position: absolute;
+  bottom: 150px; /*change this*/
+  left: 40px; /*change this*/
+}
+
+.AR-box {
+  width: 100px;
+  height: 40px;
+  border: 2px solid var(--dark);
+  align-items: center;
+  justify-content: center;
+}
+
+.AR-content,
+.AR-content-value {
+  font-size: 12px;
+  text-align: center;
+}
+
+.AR-LIC-signal {
+  position: absolute;
+  top: 32px;
+  font-size: 25px;
+}
+
+.AR-LIC-text {
+  position: absolute;
+  bottom: -50px;
+  font-size: 20px;
+}
+
+.AR-to-selection-2 {
+  position: absolute;
+  left: 75px;
+  width: 3px;
+  height: 60px; /*change this*/
+  background-color: var(--dark);
+}
+
+.AR-to-selection-2::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 10px;
+  border-color: transparent transparent var(--dark) transparent;
+  top: -11px;
+  left: 50%;
+  margin-left: -10px;
+}
+
+.AR-to-selection-2::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 10px;
+  border-color: var(--dark) transparent transparent transparent;
+  bottom: -11px;
+  left: 50%;
+  margin-left: -10px;
+  z-index: 1;
+}
+
+.AR-to-memory {
+  position: absolute;
+  top: -250px;
+  left: 5px;
+  width: 3px;
+  height: 250px;
+  background-color: var(--dark);
+}
+
+.AR-to-memory::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 10px;
+  border-color: transparent transparent var(--dark) transparent;
+  top: -11px;
+  left: 50%;
+  margin-left: -10px;
+}

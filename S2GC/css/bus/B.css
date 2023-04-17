@@ -1,0 +1,67 @@
+.B-container {
+  position: absolute;
+  bottom: 275px; /*change this*/
+  left: 325px; /*change this*/
+}
+
+.B-box {
+  width: 100px;
+  height: 40px;
+  border: 2px solid var(--dark);
+  align-items: center;
+  justify-content: center;
+}
+
+.B-content,
+.B-content-value {
+  font-size: 12px;
+  text-align: center;
+}
+
+.B-LIC-signal {
+  position: absolute;
+  top: 32px;
+  font-size: 25px;
+}
+
+.B-LIC-text {
+  position: absolute;
+  bottom: -50px;
+  font-size: 20px;
+}
+
+.B-to-selection-0 {
+  position: absolute;
+  left: 75px;
+  width: 3px;
+  height: 185px; /*change this*/
+  background-color: var(--dark);
+}
+
+.B-to-selection-0::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 10px;
+  border-color: transparent transparent var(--dark) transparent;
+  top: -11px;
+  left: 50%;
+  margin-left: -10px;
+}
+
+.B-to-selection-0::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 10px;
+  border-color: var(--dark) transparent transparent transparent;
+  bottom: -11px;
+  left: 50%;
+  margin-left: -10px;
+  z-index: 1;
+}

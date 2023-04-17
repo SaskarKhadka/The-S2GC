@@ -16,7 +16,7 @@
   font-weight: bold;
 }
 
-.memory-to-selection-1-div {
+.memory-to-selection-1 {
   position: absolute;
   text-align: left;
   top: 60px;
@@ -26,32 +26,26 @@
   background-color: var(--dark);
 }
 
-.memory-to-selection-1-div::before {
+.memory-to-selection-1::before {
   content: "";
   position: absolute;
   width: 0;
   height: 0;
   border-style: solid;
   border-width: 10px;
-}
-
-.memory-to-selection-1-div::before {
   border-color: transparent transparent var(--dark) transparent;
   top: -13px;
   left: 50%;
   margin-left: -10px;
 }
 
-.memory-to-selection-1-div::after {
+.memory-to-selection-1::after {
   content: "";
   position: absolute;
   width: 0;
   height: 0;
   border-style: solid;
   border-width: 10px;
-}
-
-.memory-to-selection-1-div::after {
   border-color: var(--dark) transparent transparent transparent;
   bottom: -2px;
   left: 50%;
