@@ -53,20 +53,18 @@
   z-index: 1;
 }
 
-/* unset */
-/* .memory-to-selection-1-div::after {
-  content: unset;
-  position: unset;
-  width: unset;
-  height: unset;
-  border-style: unset;
-  border-width: unset;
-  border-color: unset;
-  bottom: unset;
-  left: unset;
-  margin-left: unset;
-  z-index: unset;
-} */
+.memory-to-selection-1-top::before {
+  border-color: transparent transparent var(--green) transparent;
+}
+.memory-to-selection-1-top::after {
+  border-width: 0px;
+}
+.memory-to-selection-1-bottom::after {
+  border-color: var(--green) transparent transparent transparent;
+}
+.memory-to-selection-1-bottom::before {
+  border-width: 0px;
+}
 
 .memory-read-write {
   position: absolute;

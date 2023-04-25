@@ -34,3 +34,10 @@
     margin-top: 5%;
   }
 }
+
+.bus-value-box {
+  position: absolute;
+  bottom: 20px;
+  color: var(--dark);
+  font-weight: bold;
+}

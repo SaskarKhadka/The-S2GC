@@ -39,6 +39,10 @@
   z-index: 1;
 }
 
+.ALU-to-C-top::after {
+  border-color: transparent transparent transparent var(--green);
+}
+
 .ALU-to-V {
   position: absolute;
   top: 30px;
@@ -60,6 +64,10 @@
   left: 100%;
   margin-top: -10px;
   z-index: 1;
+}
+
+.ALU-to-V-top::after {
+  border-color: transparent transparent transparent var(--green);
 }
 
 .ALU-to-S {
@@ -85,6 +93,10 @@
   z-index: 1;
 }
 
+.ALU-to-S-top::after {
+  border-color: transparent transparent transparent var(--green);
+}
+
 .ALU-to-Z {
   position: absolute;
   top: 70px;
@@ -106,4 +118,8 @@
   left: 100%;
   margin-top: -10px;
   z-index: 1;
+}
+
+.ALU-to-Z-top::after {
+  border-color: transparent transparent transparent var(--green);
 }

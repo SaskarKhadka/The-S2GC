@@ -9,6 +9,18 @@
     --gray: #9d9d9d;
     --white: #ffffff;
     --poppins: "Poppins", sans-serif;
+
+    --activeSignalOn: #ff0000;
+    --activeSignalOff: #333333;
+
+    --transferSignalOn: #699d00;
+    --transferSignalOff: #333333;
+
+    --activeBoxOn: #c6fd58;
+    --activeBoxOff: #ffffff;
+
+    --activeBorderOn: 2px solid #ff0000;
+    --activeBorderOff: 2px solid #333333;
 }
 
 body.dark-theme {

@@ -51,3 +51,7 @@
   left: 50%;
   margin-left: -10px;
 }
+
+.bus-to-OUTR-top::after {
+  border-color: transparent transparent var(--green) transparent;
+}

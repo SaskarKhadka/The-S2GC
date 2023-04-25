@@ -40,6 +40,10 @@
   margin-left: -10px;
 }
 
+.DR-to-ALU-top::before {
+  border-color: transparent transparent var(--green) transparent;
+}
+
 .B-to-ALU {
   position: absolute;
   top: 80px;
@@ -77,6 +81,19 @@
   z-index: 1;
 }
 
+.B-to-ALU-top::before {
+  border-color: transparent transparent var(--green) transparent;
+}
+.B-to-ALU-top::after {
+  border-width: 0px;
+}
+.B-to-ALU-bottom::after {
+  border-color: var(--green) transparent transparent transparent;
+}
+.B-to-ALU-bottom::before {
+  border-width: 0px;
+}
+
 .AC-to-ALU {
   position: absolute;
   top: 80px;
@@ -112,4 +129,17 @@
   left: 50%;
   margin-left: -10px;
   z-index: 1;
+}
+
+.AC-to-ALU-top::before {
+  border-color: transparent transparent var(--green) transparent;
+}
+.AC-to-ALU-top::after {
+  border-width: 0px;
+}
+.AC-to-ALU-bottom::after {
+  border-color: var(--green) transparent transparent transparent;
+}
+.AC-to-ALU-bottom::before {
+  border-width: 0px;
 }

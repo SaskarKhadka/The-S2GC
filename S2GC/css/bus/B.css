@@ -65,3 +65,16 @@
   margin-left: -10px;
   z-index: 1;
 }
+
+.B-to-selection-0-top::before {
+  border-color: transparent transparent var(--green) transparent;
+}
+.B-to-selection-0-top::after {
+  border-width: 0px;
+}
+.B-to-selection-0-bottom::after {
+  border-color: var(--green) transparent transparent transparent;
+}
+.B-to-selection-0-bottom::before {
+  border-width: 0px;
+}

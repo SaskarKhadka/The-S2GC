@@ -39,3 +39,7 @@
   margin-top: -10px;
   z-index: 1;
 }
+
+.INPR-to-ALU-top::after {
+  border-color: transparent transparent transparent var(--green);
+}

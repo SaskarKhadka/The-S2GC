@@ -65,3 +65,16 @@
   margin-left: -10px;
   z-index: 1;
 }
+
+.IR-to-selection-4-top::before {
+  border-color: transparent transparent var(--green) transparent;
+}
+.IR-to-selection-4-top::after {
+  border-width: 0px;
+}
+.IR-to-selection-4-bottom::after {
+  border-color: var(--green) transparent transparent transparent;
+}
+.IR-to-selection-4-bottom::before {
+  border-width: 0px;
+}

@@ -66,6 +66,19 @@
   z-index: 1;
 }
 
+.AR-to-selection-2-top::before {
+  border-color: transparent transparent var(--green) transparent;
+}
+.AR-to-selection-2-top::after {
+  border-width: 0px;
+}
+.AR-to-selection-2-bottom::after {
+  border-color: var(--green) transparent transparent transparent;
+}
+.AR-to-selection-2-bottom::before {
+  border-width: 0px;
+}
+
 .AR-to-memory {
   position: absolute;
   top: -250px;
@@ -87,4 +100,8 @@
   top: -11px;
   left: 50%;
   margin-left: -10px;
+}
+
+.AR-to-memory-top::before {
+  border-color: transparent transparent var(--green) transparent;
 }
