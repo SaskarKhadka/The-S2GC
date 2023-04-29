@@ -37,23 +37,19 @@ function ALUtoCColors() {
   topArrowOn("ALU-to-C");
   transferSignalOn("ALU-to-C");
   activeBoxOn("FLAG-C");
-  activeSignalOn("Flag-C-content");
 }
 function ALUtoVColors() {
   topArrowOn("ALU-to-V");
   transferSignalOn("ALU-to-V");
   activeBoxOn("FLAG-V");
-  activeSignalOn("Flag-V-content");
 }
 function ALUtoSColors() {
   topArrowOn("ALU-to-S");
   transferSignalOn("ALU-to-S");
   activeBoxOn("FLAG-S");
-  activeSignalOn("Flag-S-content");
 }
 function ALUtoZColors() {
   topArrowOn("ALU-to-Z");
   transferSignalOn("ALU-to-Z");
   activeBoxOn("FLAG-Z");
-  activeSignalOn("Flag-Z-content");
 }

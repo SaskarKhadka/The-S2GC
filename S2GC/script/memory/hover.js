@@ -4,7 +4,6 @@ function addHoverEffect(obj) {
   let y = hoverId.slice(3, 4); //last 1 digit
   let w = hoverId.slice(2, 3); //third digit
   let z = hoverId.slice(0, 2); //first 2 digit
-  console.log(x, y, w, z);
   let horizontalIndex = chars.indexOf(y);
   let verticalIndex = chars.indexOf(w);
   document.getElementById(hoverId).classList.add("directHoverCell");

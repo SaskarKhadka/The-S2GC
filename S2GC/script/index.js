@@ -28,6 +28,7 @@ let scriptList = [
   "../script/bus/INPR/INPR.js",
   "../script/bus/ALU/ALUColors.js",
   "../script/bus/ALU/ALU.js",
+  "../script/bus/FlipFlop/FF.js",
   "../script/codeEditor/model.js",
 ];
 scriptList.forEach(function (s) {

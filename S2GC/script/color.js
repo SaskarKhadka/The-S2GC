@@ -9,6 +9,13 @@ function selectionColors(S0, S1, S2) {
   S2 !== null ? activeSignalOn(`selection-text-${S2}`) : null;
 }
 
+function toggeFF(FF) {
+  let element = document.getElementById(`FF-${FF}-value`);
+  element.innerHTML == "0"
+    ? (element.innerHTML = "1")
+    : (element.innerHTML = "0");
+}
+
 function activeSignalOn(signalID) {
   IDArray.push({ id: "signalID", value: signalID });
   let element = document.getElementById(signalID);
@@ -37,6 +44,7 @@ function activeBoxOn(boxID) {
   IDArray.push({ id: "boxID", value: boxID });
   let element = document.getElementById(boxID);
   element.style.setProperty("background-color", "var(--activeBoxOn)");
+  element.style.setProperty("color", "var(--activeBoxOnText)");
 }
 
 function borderOn(boxBorderID) {
@@ -66,6 +74,7 @@ function signalOff() {
       }
       if (object.id === "boxID") {
         element.style.setProperty("background-color", "var(--activeBoxOff)");
+        element.style.setProperty("color", "var(--activeBoxOffText)");
       }
       if (object.id === "boxBorderID") {
         element.style.setProperty("border", "var(--activeBorderOff)");

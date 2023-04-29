@@ -30,15 +30,19 @@ function ALUtoAC() {
 
 function ALUtoC() {
   ALUtoCColors();
+  toggeFF("C");
 }
 function ALUtoV() {
   ALUtoVColors();
+  toggeFF("V");
 }
 function ALUtoS() {
   ALUtoSColors();
+  toggeFF("S");
 }
 function ALUtoZ() {
   ALUtoZColors();
+  toggeFF("Z");
 }
 
 // DRtoALU();

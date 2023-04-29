@@ -17,7 +17,9 @@
     --transferSignalOff: #333333;
 
     --activeBoxOn: #c6fd58;
+    --activeBoxOnText: #ff0000;
     --activeBoxOff: #ffffff;
+     --activeBoxOffText: #333333;
 
     --activeBorderOn: 2px solid #ff0000;
     --activeBorderOff: 2px solid #333333;

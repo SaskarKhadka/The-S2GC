@@ -3,18 +3,27 @@
   bottom: 425px;
   left: 275px;
 }
-
 .ALU-box {
+  position: relative;
   width: 300px;
   height: 80px;
   border: 2px solid var(--dark);
-  align-items: center;
+  display: flex;
   justify-content: center;
+  align-items: center;
 }
-.ALU-content,
-.ALU-content-value {
+.ALU-content {
+  position: absolute;
+  top: 40%;
+  transform: translateY(-50%);
   font-size: 12px;
-  text-align: center;
+}
+.ALU-content-value {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 12px;
 }
 
 .DR-to-ALU {

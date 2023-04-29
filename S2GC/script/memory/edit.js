@@ -43,7 +43,6 @@ var editable = {
       editable.selected = null;
       editable.value = "";
       if (evt !== false) {
-        console.log(cell.innerHTML);
       }
     }
   },

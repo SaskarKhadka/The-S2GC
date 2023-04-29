@@ -17,6 +17,7 @@
 @import url("./bus/ALU.css");
 @import url("./bus/INPR.css");
 @import url("./bus/FLAG.css");
+@import url("./bus/flipflop.css");
 @import url("./bus/IR.css");
 @import url("./bus/TR.css");
 @import url("./bus/OUTR.css");
