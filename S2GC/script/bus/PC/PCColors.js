@@ -1,4 +1,5 @@
 function PCLoadColors() {
+  selectionColors(0, 1, null);
   activeBoxOn("PC-box");
   activeSignalOn("PC-load-signal");
   activeSignalOn("PC-load-text");
@@ -20,6 +21,7 @@ function PCClearColors() {
 }
 
 function PCtoBusColors() {
+  selectionColors(0, 1, null);
   activeBoxOn("bus-selector");
   bottomArrowOn("PC-to-selection-3");
   transferSignalOn("PC-to-selection-3");

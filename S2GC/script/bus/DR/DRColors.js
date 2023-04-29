@@ -1,4 +1,5 @@
 function DRLoadColors() {
+  selectionColors(null, 1, 2);
   activeBoxOn("DR-box");
   activeSignalOn("DR-load-signal");
   activeSignalOn("DR-load-text");
@@ -20,6 +21,7 @@ function DRClearColors() {
 }
 
 function DRtoBusColors() {
+  selectionColors(null, 1, 2);
   activeBoxOn("bus-selector");
   bottomArrowOn("DR-to-selection-6");
   transferSignalOn("DR-to-selection-6");
@@ -27,4 +29,3 @@ function DRtoBusColors() {
   activeSignalOn("bus-content-value");
   borderOn("DR-box");
 }
-

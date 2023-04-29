@@ -1,4 +1,5 @@
 function TRLoadColors() {
+  selectionColors(0, null, 2);
   activeBoxOn("TR-box");
   activeSignalOn("TR-load-signal");
   activeSignalOn("TR-load-text");
@@ -20,6 +21,7 @@ function TRClearColors() {
 }
 
 function TRtoBusColors() {
+  selectionColors(0, null, 2);
   activeBoxOn("bus-selector");
   bottomArrowOn("TR-to-selection-5");
   transferSignalOn("TR-to-selection-5");

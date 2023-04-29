@@ -1,5 +1,14 @@
 var IDArray = [];
 
+function selectionColors(S0, S1, S2) {
+  S0 !== null ? activeSignalOn(`selection-${S0}`) : null;
+  S1 !== null ? activeSignalOn(`selection-${S1}`) : null;
+  S2 !== null ? activeSignalOn(`selection-${S2}`) : null;
+  S0 !== null ? activeSignalOn(`selection-text-${S0}`) : null;
+  S1 !== null ? activeSignalOn(`selection-text-${S1}`) : null;
+  S2 !== null ? activeSignalOn(`selection-text-${S2}`) : null;
+}
+
 function activeSignalOn(signalID) {
   IDArray.push({ id: "signalID", value: signalID });
   let element = document.getElementById(signalID);
@@ -31,13 +40,9 @@ function activeBoxOn(boxID) {
 }
 
 function borderOn(boxBorderID) {
+  IDArray.push({ id: "boxBorderID", value: boxBorderID });
   let element = document.getElementById(boxBorderID);
   element.style.setProperty("border", "var(--activeBorderOn)");
-}
-
-function borderOff(boxBorderID) {
-  let element = document.getElementById(boxBorderID);
-  element.style.setProperty("border", "var(--activeBorderOff)");
 }
 
 function signalOff() {
@@ -62,7 +67,7 @@ function signalOff() {
       if (object.id === "boxID") {
         element.style.setProperty("background-color", "var(--activeBoxOff)");
       }
-      if (Object.id === "boxBorderId") {
+      if (object.id === "boxBorderID") {
         element.style.setProperty("border", "var(--activeBorderOff)");
       }
     });

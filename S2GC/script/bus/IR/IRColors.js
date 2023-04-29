@@ -1,4 +1,5 @@
 function IRLoadColors() {
+  selectionColors(null, null, 2);
   activeBoxOn("IR-box");
   activeSignalOn("IR-load-signal");
   activeSignalOn("IR-load-text");
@@ -8,6 +9,7 @@ function IRLoadColors() {
 }
 
 function IRtoBusColors() {
+  selectionColors(null, null, 2);
   activeBoxOn("bus-selector");
   bottomArrowOn("IR-to-selection-4");
   transferSignalOn("IR-to-selection-4");

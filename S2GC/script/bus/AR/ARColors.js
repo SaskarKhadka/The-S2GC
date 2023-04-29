@@ -1,4 +1,5 @@
 function ARLoadColors() {
+  selectionColors(null, 1, null);
   activeBoxOn("AR-box");
   activeSignalOn("AR-load-signal");
   activeSignalOn("AR-load-text");
@@ -20,6 +21,7 @@ function ARClearColors() {
 }
 
 function ARtoBusColors() {
+  selectionColors(null, 1, null);
   activeBoxOn("bus-selector");
   bottomArrowOn("AR-to-selection-2");
   transferSignalOn("AR-to-selection-2");

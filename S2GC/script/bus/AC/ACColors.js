@@ -1,4 +1,5 @@
 function ACLoadColors() {
+  selectionColors(0, 1, 2);
   activeBoxOn("AC-box");
   activeSignalOn("AC-load-signal");
   activeSignalOn("AC-load-text");
@@ -20,6 +21,7 @@ function ACClearColors() {
 }
 
 function ACtoBusColors() {
+  selectionColors(0, 1, 2);
   activeBoxOn("bus-selector");
   bottomArrowOn("AC-to-selection-7");
   transferSignalOn("AC-to-selection-7");
