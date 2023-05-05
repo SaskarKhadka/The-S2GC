@@ -1,4 +1,6 @@
 class I1flipFlop {
+  #state;
+
   constructor() {
     this.#state = "0";
   }

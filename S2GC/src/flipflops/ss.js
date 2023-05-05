@@ -1,4 +1,6 @@
 class SSflipFlop {
+  #state;
+
   constructor() {
     this.#state = "0";
   }

@@ -78,5 +78,3 @@ class Arithmetics {
     return result;
   }
 }
-
-module.exports = Arithmetics;

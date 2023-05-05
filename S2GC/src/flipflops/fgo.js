@@ -1,4 +1,6 @@
 class FGOflipFlop {
+  #state;
+
   constructor() {
     this.#state = "0";
   }

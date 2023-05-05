@@ -1,4 +1,6 @@
 class RflipFlop {
+  #state;
+
   constructor() {
     this.#state = "0";
   }

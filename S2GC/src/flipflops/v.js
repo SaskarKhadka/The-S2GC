@@ -1,4 +1,6 @@
 class VflipFlop {
+  #state;
+
   constructor() {
     this.#state = "0";
   }

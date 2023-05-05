@@ -1,6 +1,6 @@
-const Arithmetics = require("../arithmetics/arithmetics");
-
 class Bus {
+  #size;
+  #value;
   constructor(size) {
     this.#size = size;
     this.#value = Arithmetics.createStandardSize("0", size);

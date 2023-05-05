@@ -1,6 +1,9 @@
-const Arithmetics = require("../arithmetics/arithmetics");
-
 class BRegister {
+  #size;
+  #value;
+  #clr;
+  #inr;
+  #ld;
   constructor(size) {
     this.#size = size;
     this.#value = Arithmetics.createStandardSize("0", this.#size);

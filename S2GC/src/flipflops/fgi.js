@@ -1,4 +1,6 @@
 class FGIflipFlop {
+  #state;
+
   constructor() {
     this.#state = "0";
   }

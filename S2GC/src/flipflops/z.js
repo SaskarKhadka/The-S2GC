@@ -1,4 +1,6 @@
 class ZflipFlop {
+  #state;
+
   constructor() {
     this.#state = "0";
   }

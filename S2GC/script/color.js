@@ -16,6 +16,11 @@ function toggeFF(FF) {
     : (element.innerHTML = "0");
 }
 
+function changeStateFF(FF, value) {
+  let element = document.getElementById(`FF-${FF}-value`);
+  element.innerHTML = value;
+}
+
 function activeSignalOn(signalID) {
   IDArray.push({ id: "signalID", value: signalID });
   let element = document.getElementById(signalID);

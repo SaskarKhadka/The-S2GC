@@ -1,6 +1,8 @@
-const Arithmetics = require("../arithmetics/arithmetics");
-
 class SequenceCounter {
+  #size;
+  #value;
+  #clr;
+  #inr;
   constructor(size) {
     this.#size = size;
     this.#value = Arithmetics.createStandardSize("0", this.#size);

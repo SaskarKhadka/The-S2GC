@@ -1,4 +1,6 @@
 class IENflipFlop {
+  #state;
+
   constructor() {
     this.#state = "0";
   }

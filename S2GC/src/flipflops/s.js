@@ -1,4 +1,6 @@
 class SflipFlop {
+  #state;
+
   constructor() {
     this.#state = "0";
   }

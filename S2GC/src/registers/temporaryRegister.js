@@ -1,6 +1,7 @@
-const Arithmetics = require("../arithmetics/arithmetics");
-
 class TemporaryRegister {
+  #size;
+  #value;
+  #ld;
   constructor(size) {
     this.#size = size;
     this.#value = Arithmetics.createStandardSize("0", this.#size);
