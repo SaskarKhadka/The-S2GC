@@ -1,4 +1,4 @@
-class ExecuteMRIOperations {
+class MRIOperations {
   #mriOperations;
 
   constructor() {
@@ -98,23 +98,30 @@ class ExecuteMRIOperations {
       D14T6: this.#isNotImmediateAddressing()
         ? [this.#ramToBus, this.#busToDR]
         : [],
-      D14T7: [this.#acToBus, this.#busToTR],
-      D14T8: [this.#drToALU, this.#transferDR, this.#aluToAC],
-      D14T9: [
-        this.#acToALU,
-        this.#complementAC,
+      // D14T7: [this.#acToBus, this.#busToTR],
+      // D14T8: [this.#drToALU, this.#transferDR, this.#aluToAC],
+      // D14T9: [
+      //   this.#acToALU,
+      //   this.#complementAC,
+      //   this.#aluToAC,
+      //   this.#trToBus,
+      //   this.#busToDR,
+      // ],
+      // D14T10: [this.#acDRToALU, this.#addACandDR, this.#aluToAC],
+      // D14T11: [this.#incrementAC, this.#aluToPSW, this.#resetCounter],
+      D14T7: [
+        this.#acDRToALU,
+        this.#subACandDR,
         this.#aluToAC,
-        this.#trToBus,
-        this.#busToDR,
+        this.#aluToPSW,
+        this.#resetCounter,
       ],
-      D14T10: [this.#acDRToALU, this.#addACandDR, this.#aluToAC],
-      D14T11: [this.#incrementAC, this.#aluToPSW, this.#resetCounter],
       D15T6: this.#isNotImmediateAddressing()
         ? [this.#ramToBus, this.#busToDR]
         : [],
       D15T7: [
         this.#acDRToALU,
-        this.#subACandDR,
+        this.#testACandDR,
         this.#aluToPSW,
         this.#resetCounter,
       ],
@@ -123,18 +130,28 @@ class ExecuteMRIOperations {
         : [],
       D16T7: [
         this.#acDRToALU,
-        this.#subBandDR,
+        this.#testBandDR,
         this.#aluToPSW,
         this.#resetCounter,
       ],
-      D17T6: this.#zState() ? [this.#arToBus, this.#busToPC] : [],
-      D18T6: !this.#zState() ? [this.#arToBus, this.#busToPC] : [],
+      D17T6: this.#zState()
+        ? [this.#arToBus, this.#busToPC, this.#resetCounter]
+        : [],
+      D18T6: !this.#zState()
+        ? [this.#arToBus, this.#busToPC, this.#resetCounter]
+        : [],
       D19T6:
-        this.#sXORv() || this.#zState() ? [this.#arToBus, this.#busToPC] : [],
-      D20T6: this.#sXORv() ? [this.#arToBus, this.#busToPC] : [],
+        this.#sXORv() || this.#zState()
+          ? [this.#arToBus, this.#busToPC, this.#resetCounter]
+          : [],
+      D20T6: this.#sXORv()
+        ? [this.#arToBus, this.#busToPC, this.#resetCounter]
+        : [],
       D21T6: !this.#sXORv() ? [this.#arToBus, this.#busToPC] : [],
       D22T6:
-        !this.#sXORv() && !this.#zState() ? [this.#arToBus, this.#busToPC] : [],
+        !this.#sXORv() && !this.#zState()
+          ? [this.#arToBus, this.#busToPC, this.#resetCounter]
+          : [],
     };
   }
 
@@ -157,169 +174,147 @@ class ExecuteMRIOperations {
   }
 
   #ramToBus() {
-    ram.readFlag(true);
-    const ramValue = ram.getValue();
-    bus.setValue(ramValue);
     memoryRead();
   }
+
   #xorACandDR() {
-    // set ALU to xor
-    const acValue = accumulator.VALUE();
-    const drValue = dataReg.VALUE();
-    alu.xor(acValue, drValue);
+    setALUOperation("XOR");
   }
+
   #andACandDR() {
-    // set alu to and
-    const acValue = accumulator.VALUE();
-    const drValue = dataReg.VALUE();
-    alu.and(acValue, drValue);
+    setALUOperation("AND");
   }
-  #orACandDR() {
-    // set alu to or
-    const acValue = accumulator.VALUE();
-    const drValue = dataReg.VALUE();
-    alu.or(acValue, drValue);
-  }
-  #addACandDR() {
-    // set alu to add
-    const acValue = accumulator.VALUE();
-    const drValue = dataReg.VALUE();
-    alu.add(acValue, drValue);
-  }
+
   #subACandDR() {
-    // set alu to sub
-    // const acValue = accumulator.VALUE();
-    // const drValue = dataReg.VALUE();
-    // alu.xor(acValue, drValue);
-    // TODO: SUB;
+    setALUOperation("SUB");
   }
-  #subBandDR() {
-    // set alu to sub
-    // const acValue = accumulator.VALUE();
-    // const drValue = dataReg.VALUE();
-    // alu.xor(acValue, drValue);
+
+  #orACandDR() {
+    setALUOperation("OR");
   }
+
+  #addACandDR() {
+    setALUOperation("ADD");
+    //
+  }
+
+  #testACandDR() {
+    setALUOperation("TEST AC");
+  }
+
+  #testBandDR() {
+    setALUOperation("TEST B");
+  }
+
   #complementAC() {
-    // set alu to complement
-    const acValue = accumulator.VALUE();
-    alu.complement(acValue);
+    setALUOperation("COMPLEMENT AC");
   }
 
   #drToALU() {
     DRtoALU();
   }
+
   #aluToAC() {
     ALUtoAC();
   }
+
   #aluToB() {
     ALUtoB();
   }
+
   #acToALU() {
     ACtoALU();
   }
+
   #acDRToALU() {
     ACtoALU();
     DRtoALU();
   }
+
   #transferDR() {
-    // set ALU to trasnfer
+    setALUOperation("TRANSFER DR");
   }
 
   #aluToPSW() {
-    // const drValue = dataReg.VALUE();
-    // const acValue = accumulator.VALUE();
-    // const aluValue = alu.value();
+    ALUtoC();
+    ALUtoV();
+    ALUtoS();
+    ALUtoZ();
   }
+
   #drToBus() {
-    const drValue = dataReg.VALUE();
-    bus.setValue(drValue);
     DRtoBUS();
   }
 
   #acToBus() {
-    const acValue = accumulator.VALUE();
-    bus.setValue(acValue);
     ACtoBUS();
   }
+
   #busToRam() {
-    ram.writeFlag(true);
-    const busValue = bus.value();
-    ram.setValue(busValue);
     memoryWrite();
   }
+
   #bToBus() {
-    const bValue = bReg.VALUE();
-    bus.setValue(bValue);
     BtoBUS();
   }
+
   #busToDR() {
-    dataReg.ldFlag(true);
-    const busValue = bus.value();
-    dataReg.loadValue(busValue);
     loadDR();
   }
+
   #incrementDR() {
-    dataReg.inrFlag(true);
-    dataReg.increamentValue();
     incrementDR();
   }
+
   #incrementPC() {
-    programCounter.inrFlag(true);
-    programCounter.increamentValue();
     incrementPC();
   }
+
   #arToBus() {
-    const arValue = addressReg.VALUE();
-    bus.setValue(arValue);
     ARtoBUS();
   }
+
   #busToPC() {
-    programCounter.ldFlag(true);
-    const busValue = bus.value();
-    programCounter.loadValue(busValue);
     loadPC();
   }
+
   #pcToBus() {
-    const pcValue = programCounter.VALUE();
-    bus.setValue(pcValue);
     PCtoBUS();
   }
+
   #incrementAR() {
-    addressReg.inrFlag(true);
-    addressReg.increamentValue();
     incrementAR();
   }
 
   #busToTR() {
-    temporaryReg.ldFlag(true);
-    const busValue = bus.value();
-    temporaryReg.loadValue(busValue);
     loadTR();
   }
 
   #trToBus() {
-    const trValue = temporaryReg.VALUE();
-    bus.setValue(trValue);
     TRtoBUS();
   }
 
   #incrementAC() {
-    accumulator.inrFlag(true);
-    accumulator.clearValue();
     incrementAC();
   }
+
   #resetCounter() {
     sequenceCounter.clrFlag(true);
     sequenceCounter.clearValue();
     // clear SC
   }
 
-  performOperations(condition) {
+  async performOperations(condition) {
     if (this.#mriOperations[condition] == undefined) throw "Invalid operation";
     let operations = this.#mriOperations[condition];
     for (let operation of operations) {
       operation();
-      signalOff();
+      await new Promise((resolve) =>
+        setTimeout(() => {
+          signalOff();
+          resolve();
+        }, 2000)
+      );
     }
   }
 }
