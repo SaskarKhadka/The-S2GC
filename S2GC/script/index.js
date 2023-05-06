@@ -1,4 +1,6 @@
 let scriptList = [
+  "../script/bus/constants.js",
+  "../src/arithmetics/arithmetics.js",
   "../script/color.js",
   "../script/navBar/navbar.js",
   "../script/memory/memory.js",
@@ -30,7 +32,6 @@ let scriptList = [
   "../script/bus/ALU/ALU.js",
   "../script/bus/FlipFlop/FF.js",
   "../script/codeEditor/model.js",
-  "../src/arithmetics/arithmetics.js",
   "../src/decoder/decoder.js",
   "../src/bus/bus.js",
   "../src/flipflops/c.js",
@@ -61,6 +62,7 @@ let scriptList = [
   "../src/operations/rriOperations.js",
   "../src/operations/resolveEffectiveAddressOperations.js",
 ];
+
 scriptList.forEach(function (s) {
   let script = document.createElement("script"); //creating <script> element
   script.src = s;

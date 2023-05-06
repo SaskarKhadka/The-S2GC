@@ -1,7 +1,10 @@
 let ARContentID = document.getElementById("AR-content-value");
 function loadAR() {
   let busValue = document.getElementById("bus-content-value").innerHTML;
-  ARContentID.innerHTML = busValue;
+  const busValueBin = Arithmetics.decimalToBinary(parseInt(busValue));
+  ARContentID.innerHTML = Arithmetics.binaryToDecimal(
+    busValueBin.slice(busSize - arSize)
+  );
   ARLoadColors();
 }
 

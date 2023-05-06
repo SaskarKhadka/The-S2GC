@@ -9,7 +9,7 @@ function selectionColors(S0, S1, S2) {
   S2 !== null ? activeSignalOn(`selection-text-${S2}`) : null;
 }
 
-function toggeFF(FF) {
+function toggleFF(FF) {
   let element = document.getElementById(`FF-${FF}-value`);
   element.innerHTML == "0"
     ? (element.innerHTML = "1")
