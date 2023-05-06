@@ -10,45 +10,37 @@ class FetchOperations {
   }
 
   #pcToBus() {
-    const pcValue = programCounter.VALUE();
-    bus.setValue(pcValue);
     PCtoBUS();
   }
 
   #busToAR() {
-    addressReg.ldFlag(true);
-    const busValue = bus.value();
-    addressReg.loadValue(busValue);
-    BUStoAR();
+    loadAR();
   }
 
   #ramToBus() {
-    ram.readFlag(true);
-    const ramValue = ram.getValue();
-    bus.setValue(ramValue);
-    // call
+    memoryRead();
   }
 
   #busToIR() {
-    instructionReg.ldFlag(true);
-    const busValue = bus.value();
-    instructionReg.loadValue(busValue);
     loadIR();
   }
 
   #incrementPC() {
-    programCounter.inrFlag(true);
     incrementPC();
-    programCounter.increamentValue();
   }
 
-  performOperations(condition) {
+  async performOperations(condition) {
     if (this.#fetchOperations[condition] == undefined)
       throw "Invalid decode operation";
     let operations = this.#fetchOperations[condition];
     for (let operation of operations) {
       operation();
-      signalOff();
+      await new Promise((resolve) =>
+        setTimeout(() => {
+          signalOff();
+          resolve();
+        }, 2000)
+      );
     }
   }
 }

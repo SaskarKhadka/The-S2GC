@@ -4,38 +4,44 @@ class DecodeOperations {
   constructor() {
     this.#decodeOperations = {
       "R'T3": [this.#decodeAddressingModeAndInstructionType],
-      "R'T4": [this.#irToBus, this.#busToAR],
+      "R'T4": this.#isNotImmediateAddressing()
+        ? [this.#irToBus, this.#busToAR]
+        : [],
     };
   }
+
+  #isNotImmediateAddressing() {
+    return getValue(i1Id) != "1" || getValue(i0Id) != "0";
+  }
+
   #decodeAddressingModeAndInstructionType() {
-    const irData = instructionReg.VALUE();
-    changeStateFF("I1", irData[0]);
-    i1FF.changeState(irData[0]);
-    changeStateFF("I0", irData[1]);
-    i0FF.changeState(irData[1]);
-    const inst = instructionReg.VALUE(2, 7);
+    const irData = getValue(irId);
+    changeState("I1", irData[0]);
+    changeState("I0", irData[1]);
+    const irBin = Arithmetics.decimalToBinary(irData);
+    const inst = Arithmetics.createStandardSize(irBin, 32).slice(2, 7);
     instDecoder.selectOutput(inst);
   }
   #irToBus() {
-    const irData = instructionReg.VALUE();
-    bus.setValue(irData);
-    IRtoBus();
+    IRtoBUS();
   }
 
   #busToAR() {
-    const operand = bus.value().splice(19);
-    addressReg.inrFlag(true);
-    addressReg.loadValue(operand);
     loadAR();
   }
 
-  performOperations(condition) {
+  async performOperations(condition) {
     if (this.#decodeOperations[condition] == undefined)
       throw "Invalid decode operation";
     let operations = this.#decodeOperations[condition];
     for (let operation of operations) {
       operation();
-      signalOff();
+      await new Promise((resolve) =>
+        setTimeout(() => {
+          signalOff();
+          resolve();
+        }, 2000)
+      );
     }
   }
 }
