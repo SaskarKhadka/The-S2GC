@@ -31,6 +31,8 @@ let scriptList = [
   "../script/bus/ALU/ALUColors.js",
   "../script/bus/ALU/ALU.js",
   "../script/bus/FlipFlop/FF.js",
+  "../script/bus/SC/SC.js",
+  "../script/bus/SC/SCColors.js",
   "../script/codeEditor/model.js",
   "../src/decoder/decoder.js",
   // "../src/bus/bus.js",

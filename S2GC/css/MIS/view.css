@@ -1,0 +1,29 @@
+.MIS-container {
+  height: 600px;
+  align-items: center;
+}
+
+.MIS-box {
+  overflow-y: auto;
+  border: 1px solid var(--dark);
+  padding: 10px;
+  height: 520px;
+  border: 2px solid var(--dark);
+}
+
+.MIS-title {
+  text-align: center;
+}
+
+@media only screen and (min-width: 768px) {
+  .MIS-container {
+    width: 20%;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .MIS-container {
+    width: 90%;
+    margin-left: 5%;
+  }
+}

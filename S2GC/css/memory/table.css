@@ -1,3 +1,8 @@
+.memory-container {
+  width: 90%;
+  margin-left: 5%;
+}
+
 .slot-container {
   overflow-y: auto;
 }
@@ -48,18 +53,4 @@
 .directHoverCell {
   background-color: var(--green);
   color: var(--white);
-}
-
-@media only screen and (min-width: 768px) {
-  .memory-container {
-    width: 30%;
-  }
-}
-
-@media only screen and (max-width: 768px) {
-  .memory-container {
-    width: 80%;
-    margin-left: 10%;
-    margin-right: 10%;
-  }
 }

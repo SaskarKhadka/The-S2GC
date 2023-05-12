@@ -92,6 +92,22 @@
                                 </div>
                             </div>
                             <div class="memory-to-selection-1" id="memory-to-selection-1"> </div>
+                            <div class="SC-container">
+                                <div class="SC-headline">Sequnce Counter</div>
+                                <div class="SC-box" id="SC-box">
+                                    <span class="SC-content-value" id="SC-content-value">0000</span>
+                                </div>
+                                <div class="SC-change-box" id="SC-change-box">
+                                    <div class="SC-increment" id="SC-increment">
+                                        <span class="increment-arrow" id="increment-arrow">&#8592</span>
+                                        <span class="increment-text" id="increment-text">Increment</span>
+                                    </div>
+                                    <div class="SC-clear" id="SC-clear">
+                                        <span class="clear-arrow" id="clear-arrow">&#8592</span>
+                                        <span class="clear-text" id="clear-text">clear</span>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="AR-container" id="AR-container">
                                 <div class="AR-to-memory" id="AR-to-memory"></div>
                                 <div class="AR-box" id="AR-box">
@@ -194,7 +210,8 @@
                                     <div class="ALU-content-value" id="ALU-content-operation">AND</div>
                                     <div class="ALU-content-value" id="ALU-content-value" style="display: none"></div>
                                     <div class="ALU-content-value" id="ALU-content-carry" style="display: none"></div>
-                                    <div class="ALU-content-value" id="ALU-content-overflow" style="display: none"></div>
+                                    <div class="ALU-content-value" id="ALU-content-overflow" style="display: none">
+                                    </div>
                                 </div>
                                 <div class="DR-to-ALU" id="DR-to-ALU"></div>
                                 <div class="B-to-ALU" id="B-to-ALU"></div>
@@ -344,22 +361,28 @@
                 </div>
             </div>
 
-            <div class="memory-container">
-                <div class="headline-text">
-                    <h3 class="hedline-title" id="headline-title">Memory View</h3>
-                    <label class="switch">
-                        <input class="checkbox-input" id="checkbox-input" onclick="toggleMemorySlot(this.value);"
-                            type="checkbox" checked>
-                        <span class="checkbox-slider round"></span>
-                    </label>
+            <div class="MIS-container" id="MIS-container">
+                <h3 class="MIS-title">Micro Instruction View</h3>
+                <div class="MIS-box" id="MIS-box">
+
                 </div>
-                <div class="slot-container">
-                    <div id="memory-view-box" class="memory-view-box"></div>
-                </div>
-                <div class="slider">
-                    <input class="slider-input" id="slider-input" type="range" min="0" max="15" value="0"
-                        oninput="sliderChange(this.value)"><span id="sliderValue">0</span>
-                </div>
+            </div>
+        </div>
+        <div class="memory-container">
+            <div class="headline-text">
+                <h3 class="hedline-title" id="headline-title">Memory View</h3>
+                <label class="switch">
+                    <input class="checkbox-input" id="checkbox-input" onclick="toggleMemorySlot(this.value);"
+                        type="checkbox" checked>
+                    <span class="checkbox-slider round"></span>
+                </label>
+            </div>
+            <div class="slot-container">
+                <div id="memory-view-box" class="memory-view-box"></div>
+            </div>
+            <div class="slider">
+                <input class="slider-input" id="slider-input" type="range" min="0" max="15" value="0"
+                    oninput="sliderChange(this.value)"><span id="sliderValue">0</span>
             </div>
         </div>
     </div>

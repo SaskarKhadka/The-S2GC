@@ -1,0 +1,41 @@
+.SC-container {
+  position: absolute;
+  top: 120px;
+  left: 70px;
+}
+.SC-headline {
+  position: absolute;
+  font-size: 10px;
+  font-weight: bold;
+  padding: 5px;
+  left: -15px;
+  top: -25px;
+  width: 100px;
+}
+.SC-box {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border: 1px solid var(--dark);
+}
+.SC-change-box {
+  position: absolute;
+  width: 100px;
+  left: 60px;
+}
+
+.increment-arrow,
+.clear-arrow {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.increment-text,
+.clear-text {
+  font-size: 10px;
+  font-weight: bold;
+}
