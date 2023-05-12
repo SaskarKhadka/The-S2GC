@@ -375,51 +375,63 @@
                 <div class="editor-container" id="editor-container">
                     <textarea class="code-editor" id="code-editor">Code Editor...</textarea>
                 </div>
+
+                <div class="memory-container">
+                    <div class="headline-text">
+                        <h3 class="hedline-title" id="headline-title">Data View</h3>
+                        <label class="switch">
+                            <input class="checkbox-input" id="checkbox-input" onclick="toggleMemorySlot(this.value);"
+                                type="checkbox" checked>
+                            <span class="checkbox-slider round"></span>
+                        </label>
+                    </div>
+                    <div class="slot-container">
+                        <div id="memory-view-box" class="memory-view-box"></div>
+                    </div>
+                    <div class="editor-footer" id="editor-footer">
+                        <button class="run-button" id="run-button">Run</button>
+                    </div>
+                </div>
             </div>
-            <div class="editor-footer" id="editor-footer">
-                <button class="run-button" id="run-button">Run</button>
+            <div class="memory-container">
+                <div class="headline-text">
+                    <h3 class="hedline-title" id="headline-title">Memory View</h3>
+                    <label class="switch">
+                        <input class="checkbox-input" id="checkbox-input" onclick="toggleMemorySlot(this.value);"
+                            type="checkbox" checked>
+                        <span class="checkbox-slider round"></span>
+                    </label>
+                </div>
+                <div class="slot-container">
+                    <div id="memory-view-box" class="memory-view-box"></div>
+                </div>
+                <div class="slider">
+                    <input class="slider-input" id="slider-input" type="range" min="0" max="15" value="0"
+                        oninput="sliderChange(this.value)"><span id="sliderValue">0</span>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="memory-container">
-        <div class="headline-text">
-            <h3 class="hedline-title" id="headline-title">Memory View</h3>
-            <label class="switch">
-                <input class="checkbox-input" id="checkbox-input" onclick="toggleMemorySlot(this.value);"
-                    type="checkbox" checked>
-                <span class="checkbox-slider round"></span>
-            </label>
-        </div>
-        <div class="slot-container">
-            <div id="memory-view-box" class="memory-view-box"></div>
-        </div>
-        <div class="slider">
-            <input class="slider-input" id="slider-input" type="range" min="0" max="15" value="0"
-                oninput="sliderChange(this.value)"><span id="sliderValue">0</span>
-        </div>
-    </div>
-    </div>
 
 
-    <footer class="footer">
-        <div class="footer-content">
-            <p class="pull-left">
-                © 2023
-                <a href="#" target="_blank"><span>Developed by S<sup>2</sup>GC</span></a>
-            </p>
-            <p class="pull-right">Made with
-                <a href="#" target="_blank">javaScript</a>
-                ,
-                <a href="#" target="_blank">HTML</a>
-                ,
-                <a href="#" target="_blank">CSS</a>
-                and
-                <span style="color:red">💖</span>
-            </p>
-        </div>
-    </footer>
-    <script defer src="../script/index.js"></script>
-    <script src="https://kit.fontawesome.com/9be156cf78.js" crossorigin="anonymous"></script>
+        <footer class="footer">
+            <div class="footer-content">
+                <p class="pull-left">
+                    © 2023
+                    <a href="#" target="_blank"><span>Developed by S<sup>2</sup>GC</span></a>
+                </p>
+                <p class="pull-right">Made with
+                    <a href="#" target="_blank">javaScript</a>
+                    ,
+                    <a href="#" target="_blank">HTML</a>
+                    ,
+                    <a href="#" target="_blank">CSS</a>
+                    and
+                    <span style="color:red">💖</span>
+                </p>
+            </div>
+        </footer>
+        <script defer src="../script/index.js"></script>
+        <script src="https://kit.fontawesome.com/9be156cf78.js" crossorigin="anonymous"></script>
 </body>
 
 </html>
