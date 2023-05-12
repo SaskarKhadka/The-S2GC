@@ -1,7 +1,7 @@
 .SC-container {
   position: absolute;
   top: 120px;
-  left: 70px;
+  left: 100px;
 }
 .SC-headline {
   position: absolute;
@@ -36,6 +36,6 @@
 
 .increment-text,
 .clear-text {
-  font-size: 10px;
-  font-weight: bold;
+  font-size: 14px;
+  font-weight: bolder;
 }

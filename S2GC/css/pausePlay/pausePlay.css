@@ -1,0 +1,36 @@
+.pause-play-box {
+  display: flex;
+}
+.backward,
+.play,
+.forward,
+.pause,
+.reset {
+  margin: 5px;
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+  text-align: center;
+  color: white;
+  border-radius: 3px;
+}
+
+.backward {
+  background-color: var(--dark);
+}
+
+.play {
+  background-color: var(--green);
+}
+
+.forward {
+  background-color: var(--dark);
+}
+
+.pause {
+  background-color: var(--red);
+}
+
+.reset {
+  background-color: var(--red);
+}

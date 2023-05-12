@@ -1,5 +1,63 @@
-.common-bus-container-header {
+.editor-box {
+  height: 600px;
+  text-align: center;
+}
+.editor-body {
+  height: 470px;
+}
+.code-editor {
+  width: 100%;
+  height: 450px;
+  resize: none;
+  font-size: 16px;
+  font-weight: bold;
+  border: 2px solid var(--dark);
+}
+
+.editor-header {
   display: flex;
   justify-content: space-between;
+  border: 1px solid var(--dark);
+}
+
+.program-type {
+  background-color: var(--dark);
+  color: var(--white);
+  border: 2px solid var(--dark);
+}
+
+.refresh-icon {
+  display: flex;
+  width: 30px;
+  padding-left: 10px;
+  cursor: pointer;
   align-items: center;
+}
+
+.editor-footer {
+  padding-top: 10px;
+}
+
+.run-button {
+  width: 100%;
+  height: 40px;
+  border-radius: 10px;
+  background-color: var(--dark);
+  color: var(--white);
+  font-weight: bold;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+@media only screen and (min-width: 768px) {
+  .editor-box {
+    width: 20%;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .editor-box {
+    width: 90%;
+    margin-left: 5%;
+  }
 }

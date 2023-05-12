@@ -47,344 +47,357 @@
         </header>
     </section>
 
-    <div class="body-container" id="body-container">
-        <div id="myModal" class="modal">
-            <!-- Modal content -->
-            <div class="modal-content" id="modal-content">
-                <div class="modal-header" id="modal-header">
-                    <h3>S<sup>2</sup>GC</h3>
-                    <h3>Code Editor</h3>
-                    <span class="close">&times;</span>
-                </div>
-                <div class="modal-body" id="modal-body">
-                    <div class="editor-container" id="editor-container">
-                        <textarea class="code-editor" id="code-editor">Code Editor..</textarea>
+
+    <button id="my-button-hi">Hi</button>
+    <div id="body-content" class="body-content">
+        <div class="common-bus-container" id="common-bus-container">
+            <div class="common-bus-container-header">
+                <h3>Common Bus System</h3>
+                <dvi class="pause-play-box" id="pause-play-box">
+                    <div onclick={pause()} class="pause" id="pause">
+                        <i class="fa fa-pause"></i>
                     </div>
-                </div>
-                <div class="modal-footer" id="modal-footer">
-                    <button class="run-button" id="run-button">Run</button>
-                </div>
+                    <div onclick={playBackward()} class="backward" id="backward">
+                        <i class="fa fa-backward"></i>
+                    </div>
+                    <div onclick={playForward()} class="forward" id="forward">
+                        <i class="fa fa-forward"></i>
+                    </div>
+                    <div onclick={play()} class="play" id="play">
+                        <i class="fa fa-play"></i>
+                    </div>
+                    <div onclick={reset()} class="reset" id="reset">
+                        <i class="fa fa-refresh"></i>
+                    </div>
+
+                </dvi>
             </div>
-        </div>
-        <button id="my-button-hi">Hi</button>
-        <div id="body-content" class="body-content">
-            <div class="common-bus-container" id="common-bus-container">
-                <div class="common-bus-container-header">
-                    <h3>Common Bus System</h3>
-                    <div class="model-button" id="model-button">
-                        <button class="btn btn-open" id="myBtn">Code Editor</button>
-                    </div>
-                </div>
-                <div class="common-bus-box" id="common-bus-box">
-                    <div class="bus-container">
-                        <div class="bus-implementation-div">
-                            <div class="memory-box" id="memory-box">
-                                <span>Memory 8192*32</span>
+            <div class="common-bus-box" id="common-bus-box">
+                <div class="bus-container">
+                    <div class="bus-implementation-div">
+                        <div class="memory-box" id="memory-box">
+                            <span>Memory 8192*32</span>
+                        </div>
+                        <div class="memory-read-write" id="memory-read-write">
+                            <div class="memory-write" id="memory-write">
+                                <span class="write-arrow" id="write-arrow">&#8592</span>
+                                <span class="write-text" id="write-text">Write</span>
                             </div>
-                            <div class="memory-read-write" id="memory-read-write">
-                                <div class="memory-write" id="memory-write">
-                                    <span class="write-arrow" id="write-arrow">&#8592</span>
-                                    <span class="write-text" id="write-text">Write</span>
-                                </div>
-                                <div class="memory-read" id="memory-read">
-                                    <span class="read-arrow" id="read-arrow">&#8594</span>
-                                    <span class="read-text" id="read-text">Read</span>
-                                </div>
+                            <div class="memory-read" id="memory-read">
+                                <span class="read-arrow" id="read-arrow">&#8594</span>
+                                <span class="read-text" id="read-text">Read</span>
                             </div>
-                            <div class="memory-to-selection-1" id="memory-to-selection-1"> </div>
-                            <div class="SC-container">
-                                <div class="SC-headline">Sequnce Counter</div>
-                                <div class="SC-box" id="SC-box">
-                                    <span class="SC-content-value" id="SC-content-value">0000</span>
-                                </div>
-                                <div class="SC-change-box" id="SC-change-box">
-                                    <div class="SC-increment" id="SC-increment">
-                                        <span class="increment-arrow" id="increment-arrow">&#8592</span>
-                                        <span class="increment-text" id="increment-text">Increment</span>
-                                    </div>
-                                    <div class="SC-clear" id="SC-clear">
-                                        <span class="clear-arrow" id="clear-arrow">&#8592</span>
-                                        <span class="clear-text" id="clear-text">clear</span>
-                                    </div>
-                                </div>
+                        </div>
+                        <div class="memory-to-selection-1" id="memory-to-selection-1"> </div>
+                        <div class="SC-container">
+                            <div class="SC-headline">Sequnce Counter</div>
+                            <div class="SC-box" id="SC-box">
+                                <span class="SC-content-value" id="SC-content-value">0000</span>
                             </div>
-                            <div class="AR-container" id="AR-container">
-                                <div class="AR-to-memory" id="AR-to-memory"></div>
-                                <div class="AR-box" id="AR-box">
-                                    <div class="AR-content" id="AR-content">AR</div>
-                                    <div class="AR-content-value" id="AR-content-value">1010</div>
+                            <div class="SC-change-box" id="SC-change-box">
+                                <div class="SC-increment" id="SC-increment">
+                                    <span class="increment-arrow" id="increment-arrow">&#8592</span>
+                                    <span class="increment-text" id="increment-text">I</span>
                                 </div>
-                                <div class="AR-LIC-container" id="AR-LIC-container">
-                                    <div class="AR-LIC-signal" id="AR-LIC-signal">
-                                        <span class="AR-load-signal" id="AR-load-signal">|</span>
-                                        <span class="AR-increment-signal" id="AR-increment-signal">|</span>
-                                        <span class="AR-clear-signal" id="AR-clear-signal">|</span>
-                                    </div>
-                                    <div class="AR-LIC-text" id="AR-LIC-text">
-                                        <span class="AR-load-text" id="AR-load-text">L</span>
-                                        <span class="AR-increment-text" id="AR-increment-text">I</span>
-                                        <span class="AR-clear-text" id="AR-clear-text">C</span>
-                                    </div>
-                                </div>
-                                <div class="AR-to-selection-2" id="AR-to-selection-2"></div>
-                            </div>
-                            <div class="PC-container" id="PC-container">
-                                <div class="PC-box" id="PC-box">
-                                    <div class="PC-content" id="PC-content">PC</div>
-                                    <div class="PC-content-value" id="PC-content-value">4096</div>
-                                </div>
-                                <div class="PC-LIC-container" id="PC-LIC-container">
-                                    <div class="PC-LIC-signal" id="PC-LIC-signal">
-                                        <span class="PC-load-signal" id="PC-load-signal">|</span>
-                                        <span class="PC-increment-signal" id="PC-increment-signal">|</span>
-                                        <span class="PC-clear-signal" id="PC-clear-signal">|</span>
-                                    </div>
-                                    <div class="PC-LIC-text" id="PC-LIC-text">
-                                        <span class="PC-load-text" id="PC-load-text">L</span>
-                                        <span class="PC-increment-text" id="PC-increment-text">I</span>
-                                        <span class="PC-clear-text" id="PC-clear-text">C</span>
-                                    </div>
-                                </div>
-                                <div class="PC-to-selection-3" id="PC-to-selection-3"></div>
-                            </div>
-                            <div class="DR-container" id="DR-container">
-                                <div class="DR-box" id="DR-box">
-                                    <div class="DR-content" id="DR-content">DR</div>
-                                    <div class="DR-content-value" id="DR-content-value">1014</div>
-                                </div>
-                                <div class="DR-LIC-container" id="DR-LIC-container">
-                                    <div class="DR-LIC-signal" id="DR-LIC-signal">
-                                        <span class="DR-load-signal" id="DR-load-signal">|</span>
-                                        <span class="DR-increment-signal" id="DR-increment-signal">|</span>
-                                        <span class="DR-clear-signal" id="DR-clear-signal">|</span>
-                                    </div>
-                                    <div class="DR-LIC-text" id="DR-LIC-text">
-                                        <span class="DR-load-text" id="DR-load-text">L</span>
-                                        <span class="DR-increment-text" id="DR-increment-text">I</span>
-                                        <span class="DR-clear-text" id="DR-clear-text">C</span>
-                                    </div>
-                                </div>
-                                <div class="DR-to-selection-6" id="DR-to-selection-6"></div>
-                            </div>
-                            <div class="B-container" id="B-container">
-                                <div class="B-box" id="B-box">
-                                    <div class="B-content" id="B-content">B</div>
-                                    <div class="B-content-value" id="B-content-value">1010</div>
-                                </div>
-                                <div class="B-LIC-container" id="B-LIC-container">
-                                    <div class="B-LIC-signal" id="B-LIC-signal">
-                                        <span class="B-load-signal" id="B-load-signal">|</span>
-                                        <span class="B-increment-signal" id="B-increment-signal">|</span>
-                                        <span class="B-clear-signal" id="B-clear-signal">|</span>
-                                    </div>
-                                    <div class="B-LIC-text" id="B-LIC-text">
-                                        <span class="B-load-text" id="B-load-text">L</span>
-                                        <span class="B-increment-text" id="B-increment-text">I</span>
-                                        <span class="B-clear-text" id="B-clear-text">C</span>
-                                    </div>
-                                </div>
-                                <div class="B-to-selection-0" id="B-to-selection-0"></div>
-                            </div>
-                            <div class="AC-container" id="AC-container">
-                                <div class="AC-box" id="AC-box">
-                                    <div class="AC-content" id="AC-content">AC</div>
-                                    <div class="AC-content-value" id="AC-content-value">1012</div>
-                                </div>
-                                <div class="AC-LIC-container" id="AC-LIC-container">
-                                    <div class="AC-LIC-signal" id="AC-LIC-signal">
-                                        <span class="AC-load-signal" id="AC-load-signal">|</span>
-                                        <span class="AC-increment-signal" id="AC-increment-signal">|</span>
-                                        <span class="AC-clear-signal" id="AC-clear-signal">|</span>
-                                    </div>
-                                    <div class="AC-LIC-text" id="AC-LIC-text">
-                                        <span class="AC-load-text" id="AC-load-text">L</span>
-                                        <span class="AC-increment-text" id="AC-increment-text">I</span>
-                                        <span class="AC-clear-text" id="AC-clear-text">C</span>
-                                    </div>
-                                </div>
-                                <div class="AC-to-selection-7" id="AC-to-selection-7"></div>
-                            </div>
-                            <div class="ALU-container" id="ALU-container">
-                                <div class="ALU-box" id="ALU-box">
-                                    <div class="ALU-content" id="ALU-content">ALU</div>
-                                    <div class="ALU-content-value" id="ALU-content-operation">AND</div>
-                                    <div class="ALU-content-value" id="ALU-content-value" style="display: none"></div>
-                                    <div class="ALU-content-value" id="ALU-content-carry" style="display: none"></div>
-                                    <div class="ALU-content-value" id="ALU-content-overflow" style="display: none">
-                                    </div>
-                                </div>
-                                <div class="DR-to-ALU" id="DR-to-ALU"></div>
-                                <div class="B-to-ALU" id="B-to-ALU"></div>
-                                <div class="AC-to-ALU" id="AC-to-ALU"></div>
-                            </div>
-                            <div class="INPR-container" id="INPR-container">
-                                <div class="INPR-box" id="INPR-box">
-                                    <div class="INPR-content" id="INPR-content">INPR</div>
-                                    <div class="INPR-content-value" id="INPR-content-value">1010</div>
-                                </div>
-                                <div class="INPR-to-ALU" id="INPR-to-ALU"></div>
-                            </div>
-                            <div class="FLAG-container" id="FLAG-container">
-                                <div class="ALU-to-FLAG-box" id="ALU-to-FLAG-box">
-                                    <div class="ALU-to-C" id="ALU-to-C"></div>
-                                    <div class="ALU-to-V" id="ALU-to-V"></div>
-                                    <div class="ALU-to-S" id="ALU-to-S"></div>
-                                    <div class="ALU-to-Z" id="ALU-to-Z"></div>
-                                </div>
-                                <div class="FLAG-box" id="FLAG-box">
-                                    <div class="FLAG-C" id="FLAG-C">
-                                        <span class="FF-C" id="FF-C">C:
-                                            <span class="FF-C-value" id="FF-C-value">0</span>
-                                        </span>
-                                    </div>
-                                    <div class="FLAG-V" id="FLAG-V">
-                                        <span class="FF-V" id="FF-V">V:
-                                            <span class="FF-V-value" id="FF-V-value">0</span>
-                                        </span>
-                                    </div>
-                                    <div class="FLAG-S" id="FLAG-S">
-                                        <span class="FF-S" id="FF-s">S:
-                                            <span class="FF-S-value" id="FF-S-value">0</span>
-                                        </span>
-                                    </div>
-                                    <div class="FLAG-Z" id="FLAG-Z">
-                                        <span class="FF-Z" id="FF-Z">Z:
-                                            <span class="FF-Z-value" id="FF-Z-value">0</span>
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="Flip-Flop-container" id="Flip-Flop-container">
-                                <div class="FF I0" id="FF-I0">I0:
-                                    <span class="FF-I0-value" id="FF-I0-value">0</span>
-                                </div>
-                                <div class="FF I1" id="FF-I1">I1:
-                                    <span class="FF-I1-value" id="FF-I1-value">0</span>
-                                </div>
-                                <div class="FF R" id="FF-R">R:
-                                    <span class="FF-R-value" id="FF-R-value">0</span>
-                                </div>
-                                <div class="FF IEN" id="FF-IEN">IEN:
-                                    <span class="FF-IEN-value" id="FF-IEN-value">0</span>
-                                </div>
-                                <div class="FF SS" id="FF-SS">SS:
-                                    <span class="FF-SS-value" id="FF-SS-value">0</span>
-                                </div>
-                                <div class="FF FGI" id="FF-FGI">FGI:
-                                    <span class="FF-FGI-value" id="FF-FGI-value">0</span>
-                                </div>
-                                <div class="FF FGO" id="FF-FGO">FGO:
-                                    <span class="FF-FGO-value" id="FF-FGO-value">0</span>
-                                </div>
-                            </div>
-                            <div class="IR-container" id="IR-container">
-                                <div class="IR-box" id="IR-box">
-                                    <div class="IR-content" id="IR-content">IR</div>
-                                    <div class="IR-content-value" id="IR-content-value">101111</div>
-                                </div>
-                                <div class="IR-L-container" id="IR-L-container">
-                                    <div class="IR-L-signal" id="IR-L-signal">
-                                        <span class="IR-load-signal" id="IR-load-signal">|</span>
-                                    </div>
-                                    <div class="IR-L-text" id="IR-L-text">
-                                        <span class="IR-load-text" id="IR-load-text">L</span>
-                                    </div>
-                                </div>
-                                <div class="IR-to-selection-4" id="IR-to-selection-4"></div>
-                            </div>
-                            <div class="TR-container" id="TR-container">
-                                <div class="TR-box" id="TR-box">
-                                    <div class="TR-content" id="TR-content">TR</div>
-                                    <div class="TR-content-value" id="TR-content-value">1010</div>
-                                </div>
-                                <div class="TR-LIC-container" id="TR-LIC-container">
-                                    <div class="TR-LIC-signal" id="TR-LIC-signal">
-                                        <span class="TR-load-signal" id="TR-load-signal">|</span>
-                                        <span class="TR-increment-signal" id="TR-increment-signal">|</span>
-                                        <span class="TR-clear-signal" id="TR-clear-signal">|</span>
-                                    </div>
-                                    <div class="TR-LIC-text" id="TR-LIC-text">
-                                        <span class="TR-load-text" id="TR-load-text">L</span>
-                                        <span class="TR-increment-text" id="TR-increment-text">I</span>
-                                        <span class="TR-clear-text" id="TR-clear-text">C</span>
-                                    </div>
-                                </div>
-                                <div class="TR-to-selection-5" id="TR-to-selection-5"></div>
-                            </div>
-                            <div class="OUTR-container" id="OUTR-container">
-                                <div class="OUTR-box" id="OUTR-box">
-                                    <div class="OUTR-content" id="OUTR-content">OUTR</div>
-                                    <div class="OUTR-content-value" id="OUTR-content-value">1010</div>
-                                </div>
-                                <div class="OUTR-L-container" id="OUTR-L-container">
-                                    <div class="OUTR-L-signal" id="OUTR-L-signal">
-                                        <span class="OUTR-load-signal" id="OUTR-load-signal">|</span>
-                                    </div>
-                                    <div class="OUTR-L-text" id="OUTR-L-text">
-                                        <span class="OUTR-load-text" id="OUTR-load-text">L</span>
-                                    </div>
-                                </div>
-                                <div class="bus-to-OUTR" id="bus-to-OUTR"></div>
-                            </div>
-                            <div class="bus-selector" id="bus-selector">
-                                <span class="bus-selector-1" id="bus-selector-1">1</span>
-                                <span class="bus-selector-2" id="bus-selector-2">2</span>
-                                <span class="bus-selector-3" id="bus-selector-3">3</span>
-                                <span class="bus-selector-6" id="bus-selector-6">6</span>
-                                <span class="bus-selector-0" id="bus-selector-0">0</span>
-                                <span class="bus-selector-7" id="bus-selector-7">7</span>
-                                <span class="bus-selector-4" id="bus-selector-4">4</span>
-                                <span class="bus-selector-5" id="bus-selector-5">5</span>
-                                <span class="bus-selector-8" id="bus-selector-8"> </span>
-                            </div>
-                            <div class="bus-value-box" id="bus-value-box">
-                                <span id="bus-content-label">Bus Value: </span>
-                                <span id="bus-content-value">0001</span>
-                            </div>
-                            <div class="selection-lines" id="selection-lines">
-                                <span class="selection-2" id="selection-2">&#8593</span>
-                                <span class="selection-1" id="selection-1">&#8593</span>
-                                <span class="selection-0" id="selection-0">&#8593</span>
-                            </div>
-
-                            <div class="selection-no" id="selection-no">
-
-                                <div>
-                                    <span class="selection-text-2" id="selection-text-2">S2</span>
-                                    <span class="selection-text-1" id="selection-text-1">S1</span>
-                                    <span class="selection-text-0" id="selection-text-0">S0</span>
+                                <div class="SC-clear" id="SC-clear">
+                                    <span class="clear-arrow" id="clear-arrow">&#8592</span>
+                                    <span class="clear-text" id="clear-text">C</span>
                                 </div>
                             </div>
                         </div>
+                        <div class="AR-container" id="AR-container">
+                            <div class="AR-to-memory" id="AR-to-memory"></div>
+                            <div class="AR-box" id="AR-box">
+                                <div class="AR-content" id="AR-content">AR</div>
+                                <div class="AR-content-value" id="AR-content-value">1010</div>
+                            </div>
+                            <div class="AR-LIC-container" id="AR-LIC-container">
+                                <div class="AR-LIC-signal" id="AR-LIC-signal">
+                                    <span class="AR-load-signal" id="AR-load-signal">|</span>
+                                    <span class="AR-increment-signal" id="AR-increment-signal">|</span>
+                                    <span class="AR-clear-signal" id="AR-clear-signal">|</span>
+                                </div>
+                                <div class="AR-LIC-text" id="AR-LIC-text">
+                                    <span class="AR-load-text" id="AR-load-text">L</span>
+                                    <span class="AR-increment-text" id="AR-increment-text">I</span>
+                                    <span class="AR-clear-text" id="AR-clear-text">C</span>
+                                </div>
+                            </div>
+                            <div class="AR-to-selection-2" id="AR-to-selection-2"></div>
+                        </div>
+                        <div class="PC-container" id="PC-container">
+                            <div class="PC-box" id="PC-box">
+                                <div class="PC-content" id="PC-content">PC</div>
+                                <div class="PC-content-value" id="PC-content-value">4096</div>
+                            </div>
+                            <div class="PC-LIC-container" id="PC-LIC-container">
+                                <div class="PC-LIC-signal" id="PC-LIC-signal">
+                                    <span class="PC-load-signal" id="PC-load-signal">|</span>
+                                    <span class="PC-increment-signal" id="PC-increment-signal">|</span>
+                                    <span class="PC-clear-signal" id="PC-clear-signal">|</span>
+                                </div>
+                                <div class="PC-LIC-text" id="PC-LIC-text">
+                                    <span class="PC-load-text" id="PC-load-text">L</span>
+                                    <span class="PC-increment-text" id="PC-increment-text">I</span>
+                                    <span class="PC-clear-text" id="PC-clear-text">C</span>
+                                </div>
+                            </div>
+                            <div class="PC-to-selection-3" id="PC-to-selection-3"></div>
+                        </div>
+                        <div class="DR-container" id="DR-container">
+                            <div class="DR-box" id="DR-box">
+                                <div class="DR-content" id="DR-content">DR</div>
+                                <div class="DR-content-value" id="DR-content-value">1014</div>
+                            </div>
+                            <div class="DR-LIC-container" id="DR-LIC-container">
+                                <div class="DR-LIC-signal" id="DR-LIC-signal">
+                                    <span class="DR-load-signal" id="DR-load-signal">|</span>
+                                    <span class="DR-increment-signal" id="DR-increment-signal">|</span>
+                                    <span class="DR-clear-signal" id="DR-clear-signal">|</span>
+                                </div>
+                                <div class="DR-LIC-text" id="DR-LIC-text">
+                                    <span class="DR-load-text" id="DR-load-text">L</span>
+                                    <span class="DR-increment-text" id="DR-increment-text">I</span>
+                                    <span class="DR-clear-text" id="DR-clear-text">C</span>
+                                </div>
+                            </div>
+                            <div class="DR-to-selection-6" id="DR-to-selection-6"></div>
+                        </div>
+                        <div class="B-container" id="B-container">
+                            <div class="B-box" id="B-box">
+                                <div class="B-content" id="B-content">B</div>
+                                <div class="B-content-value" id="B-content-value">1010</div>
+                            </div>
+                            <div class="B-LIC-container" id="B-LIC-container">
+                                <div class="B-LIC-signal" id="B-LIC-signal">
+                                    <span class="B-load-signal" id="B-load-signal">|</span>
+                                    <span class="B-increment-signal" id="B-increment-signal">|</span>
+                                    <span class="B-clear-signal" id="B-clear-signal">|</span>
+                                </div>
+                                <div class="B-LIC-text" id="B-LIC-text">
+                                    <span class="B-load-text" id="B-load-text">L</span>
+                                    <span class="B-increment-text" id="B-increment-text">I</span>
+                                    <span class="B-clear-text" id="B-clear-text">C</span>
+                                </div>
+                            </div>
+                            <div class="B-to-selection-0" id="B-to-selection-0"></div>
+                        </div>
+                        <div class="AC-container" id="AC-container">
+                            <div class="AC-box" id="AC-box">
+                                <div class="AC-content" id="AC-content">AC</div>
+                                <div class="AC-content-value" id="AC-content-value">1012</div>
+                            </div>
+                            <div class="AC-LIC-container" id="AC-LIC-container">
+                                <div class="AC-LIC-signal" id="AC-LIC-signal">
+                                    <span class="AC-load-signal" id="AC-load-signal">|</span>
+                                    <span class="AC-increment-signal" id="AC-increment-signal">|</span>
+                                    <span class="AC-clear-signal" id="AC-clear-signal">|</span>
+                                </div>
+                                <div class="AC-LIC-text" id="AC-LIC-text">
+                                    <span class="AC-load-text" id="AC-load-text">L</span>
+                                    <span class="AC-increment-text" id="AC-increment-text">I</span>
+                                    <span class="AC-clear-text" id="AC-clear-text">C</span>
+                                </div>
+                            </div>
+                            <div class="AC-to-selection-7" id="AC-to-selection-7"></div>
+                        </div>
+                        <div class="ALU-container" id="ALU-container">
+                            <div class="ALU-box" id="ALU-box">
+                                <div class="ALU-content" id="ALU-content">ALU</div>
+                                <div class="ALU-content-value" id="ALU-content-operation">AND</div>
+                                <div class="ALU-content-value" id="ALU-content-value" style="display: none"></div>
+                                <div class="ALU-content-value" id="ALU-content-carry" style="display: none"></div>
+                                <div class="ALU-content-value" id="ALU-content-overflow" style="display: none">
+                                </div>
+                            </div>
+                            <div class="DR-to-ALU" id="DR-to-ALU"></div>
+                            <div class="B-to-ALU" id="B-to-ALU"></div>
+                            <div class="AC-to-ALU" id="AC-to-ALU"></div>
+                        </div>
+                        <div class="INPR-container" id="INPR-container">
+                            <div class="INPR-box" id="INPR-box">
+                                <div class="INPR-content" id="INPR-content">INPR</div>
+                                <div class="INPR-content-value" id="INPR-content-value">1010</div>
+                            </div>
+                            <div class="INPR-to-ALU" id="INPR-to-ALU"></div>
+                        </div>
+                        <div class="FLAG-container" id="FLAG-container">
+                            <div class="ALU-to-FLAG-box" id="ALU-to-FLAG-box">
+                                <div class="ALU-to-C" id="ALU-to-C"></div>
+                                <div class="ALU-to-V" id="ALU-to-V"></div>
+                                <div class="ALU-to-S" id="ALU-to-S"></div>
+                                <div class="ALU-to-Z" id="ALU-to-Z"></div>
+                            </div>
+                            <div class="FLAG-box" id="FLAG-box">
+                                <div class="FLAG-C" id="FLAG-C">
+                                    <span class="FF-C" id="FF-C">C:
+                                        <span class="FF-C-value" id="FF-C-value">0</span>
+                                    </span>
+                                </div>
+                                <div class="FLAG-V" id="FLAG-V">
+                                    <span class="FF-V" id="FF-V">V:
+                                        <span class="FF-V-value" id="FF-V-value">0</span>
+                                    </span>
+                                </div>
+                                <div class="FLAG-S" id="FLAG-S">
+                                    <span class="FF-S" id="FF-s">S:
+                                        <span class="FF-S-value" id="FF-S-value">0</span>
+                                    </span>
+                                </div>
+                                <div class="FLAG-Z" id="FLAG-Z">
+                                    <span class="FF-Z" id="FF-Z">Z:
+                                        <span class="FF-Z-value" id="FF-Z-value">0</span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="Flip-Flop-container" id="Flip-Flop-container">
+                            <div class="FF I0" id="FF-I0">I0:
+                                <span class="FF-I0-value" id="FF-I0-value">0</span>
+                            </div>
+                            <div class="FF I1" id="FF-I1">I1:
+                                <span class="FF-I1-value" id="FF-I1-value">0</span>
+                            </div>
+                            <div class="FF R" id="FF-R">R:
+                                <span class="FF-R-value" id="FF-R-value">0</span>
+                            </div>
+                            <div class="FF IEN" id="FF-IEN">IEN:
+                                <span class="FF-IEN-value" id="FF-IEN-value">0</span>
+                            </div>
+                            <div class="FF SS" id="FF-SS">SS:
+                                <span class="FF-SS-value" id="FF-SS-value">0</span>
+                            </div>
+                            <div class="FF FGI" id="FF-FGI">FGI:
+                                <span class="FF-FGI-value" id="FF-FGI-value">0</span>
+                            </div>
+                            <div class="FF FGO" id="FF-FGO">FGO:
+                                <span class="FF-FGO-value" id="FF-FGO-value">0</span>
+                            </div>
+                        </div>
+                        <div class="IR-container" id="IR-container">
+                            <div class="IR-box" id="IR-box">
+                                <div class="IR-content" id="IR-content">IR</div>
+                                <div class="IR-content-value" id="IR-content-value">101111</div>
+                            </div>
+                            <div class="IR-L-container" id="IR-L-container">
+                                <div class="IR-L-signal" id="IR-L-signal">
+                                    <span class="IR-load-signal" id="IR-load-signal">|</span>
+                                </div>
+                                <div class="IR-L-text" id="IR-L-text">
+                                    <span class="IR-load-text" id="IR-load-text">L</span>
+                                </div>
+                            </div>
+                            <div class="IR-to-selection-4" id="IR-to-selection-4"></div>
+                        </div>
+                        <div class="TR-container" id="TR-container">
+                            <div class="TR-box" id="TR-box">
+                                <div class="TR-content" id="TR-content">TR</div>
+                                <div class="TR-content-value" id="TR-content-value">1010</div>
+                            </div>
+                            <div class="TR-LIC-container" id="TR-LIC-container">
+                                <div class="TR-LIC-signal" id="TR-LIC-signal">
+                                    <span class="TR-load-signal" id="TR-load-signal">|</span>
+                                    <span class="TR-increment-signal" id="TR-increment-signal">|</span>
+                                    <span class="TR-clear-signal" id="TR-clear-signal">|</span>
+                                </div>
+                                <div class="TR-LIC-text" id="TR-LIC-text">
+                                    <span class="TR-load-text" id="TR-load-text">L</span>
+                                    <span class="TR-increment-text" id="TR-increment-text">I</span>
+                                    <span class="TR-clear-text" id="TR-clear-text">C</span>
+                                </div>
+                            </div>
+                            <div class="TR-to-selection-5" id="TR-to-selection-5"></div>
+                        </div>
+                        <div class="OUTR-container" id="OUTR-container">
+                            <div class="OUTR-box" id="OUTR-box">
+                                <div class="OUTR-content" id="OUTR-content">OUTR</div>
+                                <div class="OUTR-content-value" id="OUTR-content-value">1010</div>
+                            </div>
+                            <div class="OUTR-L-container" id="OUTR-L-container">
+                                <div class="OUTR-L-signal" id="OUTR-L-signal">
+                                    <span class="OUTR-load-signal" id="OUTR-load-signal">|</span>
+                                </div>
+                                <div class="OUTR-L-text" id="OUTR-L-text">
+                                    <span class="OUTR-load-text" id="OUTR-load-text">L</span>
+                                </div>
+                            </div>
+                            <div class="bus-to-OUTR" id="bus-to-OUTR"></div>
+                        </div>
+                        <div class="bus-selector" id="bus-selector">
+                            <span class="bus-selector-1" id="bus-selector-1">1</span>
+                            <span class="bus-selector-2" id="bus-selector-2">2</span>
+                            <span class="bus-selector-3" id="bus-selector-3">3</span>
+                            <span class="bus-selector-6" id="bus-selector-6">6</span>
+                            <span class="bus-selector-0" id="bus-selector-0">0</span>
+                            <span class="bus-selector-7" id="bus-selector-7">7</span>
+                            <span class="bus-selector-4" id="bus-selector-4">4</span>
+                            <span class="bus-selector-5" id="bus-selector-5">5</span>
+                            <span class="bus-selector-8" id="bus-selector-8"> </span>
+                        </div>
+                        <div class="bus-value-box" id="bus-value-box">
+                            <span id="bus-content-label">Bus Value: </span>
+                            <span id="bus-content-value">0001</span>
+                        </div>
+                        <div class="MIS-box" id="MIS-box">
+                            <span class="MIS-value">micro instruction here</span>
+                        </div>
+                        <div class="selection-lines" id="selection-lines">
+                            <span class="selection-2" id="selection-2">&#8593</span>
+                            <span class="selection-1" id="selection-1">&#8593</span>
+                            <span class="selection-0" id="selection-0">&#8593</span>
+                        </div>
 
+                        <div class="selection-no" id="selection-no">
+
+                            <div>
+                                <span class="selection-text-2" id="selection-text-2">S2</span>
+                                <span class="selection-text-1" id="selection-text-1">S1</span>
+                                <span class="selection-text-0" id="selection-text-0">S0</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="editor-box" id="editor-box">
+            <h3>Code Editor</h3>
+            <div class="editor-body" id="editor-body">
+                <div class="editor-header" id="editor-header">
+                    <div>
+                        <span class="program-type" id="program-type">main.asm</span>
+                    </div>
+                    <div onclick={refreshEditor()} class="refresh-icon" id="refresh-icon">
+                        <i class="fa fa-refresh">
+                        </i>
                     </div>
                 </div>
-            </div>
-
-            <div class="MIS-container" id="MIS-container">
-                <h3 class="MIS-title">Micro Instruction View</h3>
-                <div class="MIS-box" id="MIS-box">
-
+                <div class="editor-container" id="editor-container">
+                    <textarea class="code-editor" id="code-editor">Code Editor...</textarea>
                 </div>
             </div>
-        </div>
-        <div class="memory-container">
-            <div class="headline-text">
-                <h3 class="hedline-title" id="headline-title">Memory View</h3>
-                <label class="switch">
-                    <input class="checkbox-input" id="checkbox-input" onclick="toggleMemorySlot(this.value);"
-                        type="checkbox" checked>
-                    <span class="checkbox-slider round"></span>
-                </label>
-            </div>
-            <div class="slot-container">
-                <div id="memory-view-box" class="memory-view-box"></div>
-            </div>
-            <div class="slider">
-                <input class="slider-input" id="slider-input" type="range" min="0" max="15" value="0"
-                    oninput="sliderChange(this.value)"><span id="sliderValue">0</span>
+            <div class="editor-footer" id="editor-footer">
+                <button class="run-button" id="run-button">Run</button>
             </div>
         </div>
+    </div>
+    <div class="memory-container">
+        <div class="headline-text">
+            <h3 class="hedline-title" id="headline-title">Memory View</h3>
+            <label class="switch">
+                <input class="checkbox-input" id="checkbox-input" onclick="toggleMemorySlot(this.value);"
+                    type="checkbox" checked>
+                <span class="checkbox-slider round"></span>
+            </label>
+        </div>
+        <div class="slot-container">
+            <div id="memory-view-box" class="memory-view-box"></div>
+        </div>
+        <div class="slider">
+            <input class="slider-input" id="slider-input" type="range" min="0" max="15" value="0"
+                oninput="sliderChange(this.value)"><span id="sliderValue">0</span>
+        </div>
+    </div>
     </div>
 
 
@@ -406,6 +419,7 @@
         </div>
     </footer>
     <script defer src="../script/index.js"></script>
+    <script src="https://kit.fontawesome.com/9be156cf78.js" crossorigin="anonymous"></script>
 </body>
 
 </html>
