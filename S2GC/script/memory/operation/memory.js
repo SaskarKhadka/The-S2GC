@@ -12,12 +12,14 @@ function memoryWrite() {
 }
 
 function memoryRead() {
+  const arValue = document.getElementById(arId).innerHTML;
   let memoryValue = document.getElementById(
     Arithmetics.createStandardSize(
-      parseInt(memoryCellId).toString(16).toUpperCase(),
+      parseInt(arValue).toString(16).toUpperCase(),
       4
     )
   ).innerHTML;
+
   document.getElementById(busId).innerHTML = memoryValue;
   memoryReadColors();
 }

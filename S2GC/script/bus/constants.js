@@ -34,6 +34,24 @@ const outrSize = 8;
 const inprSize = 8;
 const busSize = 32;
 
+const letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+const numbers = "0123456789";
+
 function getValue(id) {
   return document.getElementById(id).innerHTML;
 }
+
+const TokenType = {
+  EOF: "EOF",
+  IDENTIFIER: "IDENTIFIER",
+  COLON: "COLON",
+  SEMICOLON: "COLON",
+  KEYWORD: "KEYWORD",
+  AT: "AT",
+  PLUS: "PLUS",
+  MINUS: "MINUS",
+  NUMBER: "NUMBER",
+  HASHTAG: "HASHTAG",
+  DOLLAR: "DOLLAR",
+};
