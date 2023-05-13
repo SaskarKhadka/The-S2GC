@@ -13,18 +13,31 @@
   text-align: center;
   color: white;
   border-radius: 3px;
+  transition: background-color 0.2s ease;
 }
 
 .backward {
   background-color: var(--dark);
 }
 
+.backward:active {
+  background-color: var(--darker);
+}
+
 .play {
   background-color: var(--green);
 }
 
+.play:active {
+  background-color: var(--darkGreen);
+}
+
 .forward {
   background-color: var(--dark);
+}
+
+.forward:active {
+  background-color: var(--darker);
 }
 
 .pause {
@@ -34,3 +47,10 @@
 .reset {
   background-color: var(--red);
 }
+
+.pause:active,
+.reset:active {
+  background-color: var(--darkRed);
+}
+
+

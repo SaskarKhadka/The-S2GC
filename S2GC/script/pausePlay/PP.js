@@ -12,5 +12,12 @@ function pause() {
 }
 
 function reset() {
-  console.log("reset");
+  showConfirmationBox();
+  okButton.addEventListener("click", function () {
+    signalOff();
+    hideConfirmationBox();
+  });
+  cancelButton.addEventListener("click", function () {
+    hideConfirmationBox();
+  });
 }

@@ -1,4 +1,5 @@
 let scriptList = [
+  "../script/model/confirm.js",
   "../script/bus/constants.js",
   "../src/arithmetics/arithmetics.js",
   "../script/color.js",
@@ -67,8 +68,8 @@ let scriptList = [
   "../src/assembler/scanner.js",
   "../src/assembler/assembler.js",
   "../src/assembler/run.js",
-
   "../script/pausePlay/PP.js",
+  "../script/video/video.js",
 ];
 
 scriptList.forEach(function (s) {

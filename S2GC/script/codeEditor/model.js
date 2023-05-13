@@ -2,6 +2,8 @@
 var modal = document.getElementById("myModal");
 var btn = document.getElementById("myBtn");
 var span = document.getElementsByClassName("close")[0];
+const cancelButton = document.getElementById("btn1");
+const okButton = document.getElementById("btn2");
 
 btn.onclick = function () {
   modal.style.display = "block";
@@ -16,5 +18,14 @@ window.onclick = function (event) {
 };
 
 function refreshEditor() {
-  console.log("clear editor");
+  showConfirmationBox();
+
+  okButton.addEventListener("click", function () {
+    document.getElementById("code-editor").value = "Code Editor...";
+    hideConfirmationBox();
+  });
+
+  cancelButton.addEventListener("click", function () {
+    hideConfirmationBox();
+  });
 }

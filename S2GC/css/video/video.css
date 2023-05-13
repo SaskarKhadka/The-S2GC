@@ -1,0 +1,7 @@
+.video-container {
+  position: fixed;
+  display: block;
+  width: 500px;
+  height: 500px;
+  z-index: 100;
+}
