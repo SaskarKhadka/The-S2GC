@@ -33,7 +33,7 @@ class SequenceCounter {
   increamentValue() {
     if (this.#inr) {
       this.#inr = false;
-      this.#value = Arithmetics.increament(this.#value)[0];
+      this.#value = Arithmetics.increament(this.#value);
     } else {
       throw "Cannot increament Sequence Counter";
     }
