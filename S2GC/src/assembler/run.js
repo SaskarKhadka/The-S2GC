@@ -92,5 +92,5 @@ async function runInstructions() {
   }
 }
 
-const button = document.getElementById("my-button-hi");
+const button = document.getElementById("run-button");
 button.addEventListener("click", runInstructions);

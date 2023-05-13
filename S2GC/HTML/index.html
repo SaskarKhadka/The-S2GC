@@ -29,7 +29,7 @@
                 <p class="header-title">Basic Computer Emulator</p>
                 <ul class="nav-menu">
                     <li class="nav-item">
-                        <a href="#" class="nav-link">Help</a>
+                        <a href="#" class="nav-link" id="open-help">Help</a>
                     </li>
                     <li class="nav-item">
                         <a href="#" class="nav-link">About</a>
@@ -47,8 +47,6 @@
         </header>
     </section>
 
-
-    <button id="button-hi">Hi</button>
     <div id="body-content" class="body-content">
         <div class="popup_box" id="popup_box">
             <i class="fas fa-exclamation"></i>
@@ -60,15 +58,17 @@
             </div>
         </div>
 
-        <div id="video-container" class="video-container">
-            <div class="video-headline" id="video-headline">
-                Help
-            </div>
-            <div class="video-sub-headline" id="video-sub-headline">
-                The following tutorial video will help you get started.
-            </div>
-            <div class="video-player">
-                <video src="path/to/video.mp4" controls></video>
+        <div id="myModal" class="modal">
+            <div class="modal-content" id="modal-content">
+                <div class="video-headline" id="video-headline">
+                    Help
+                </div>
+                <div class="video-sub-headline" id="video-sub-headline">
+                    The following tutorial video will help you get started.
+                </div>
+                <div class="video-player">
+                    <video src="path/to/video.mp4" controls></video>
+                </div>
             </div>
         </div>
 
