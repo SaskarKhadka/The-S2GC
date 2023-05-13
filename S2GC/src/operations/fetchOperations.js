@@ -3,9 +3,9 @@ class FetchOperations {
 
   constructor() {
     this.#fetchOperations = {
-      "R'T0": [this.#pcToBus, this.#busToAR],
-      "R'T1": [this.#ramToBus, this.#busToIR],
-      "R'T2": [this.#incrementPC],
+      T0: [this.#pcToBus, this.#busToAR],
+      T1: [this.#ramToBus, this.#busToIR],
+      T2: [this.#incrementPC],
     };
   }
 
@@ -39,7 +39,7 @@ class FetchOperations {
         setTimeout(() => {
           signalOff();
           resolve();
-        }, 2000)
+        }, 50)
       );
     }
   }
