@@ -1,64 +1,157 @@
-function preProcessAC() {
-  const acValue = document
-    .getElementById(acId)
-    .innerHTML.replace("+", "0")
-    .replace("-", "1");
+function preProcessAC(forADDSUB = false) {
+  let acValue = getValue(acId);
 
-  return (
-    acValue[0] +
-    Arithmetics.createStandardSize(
-      Arithmetics.decimalToBinary(acValue.slice(1)),
-      31
-    )
-  );
+  if (parseInt(acValue) == 0) {
+    return Arithmetics.createStandardSize("0", 32);
+  } else {
+    if (forADDSUB) {
+      if (acValue[0] == "-") {
+        return Arithmetics.twosComplement(
+          Arithmetics.createStandardSize(
+            Arithmetics.decimalToBinary(acValue.slice(1)),
+            32
+          )
+        );
+      } else {
+        acValue = document.getElementById(acId).innerHTML.replace("+", "0");
+
+        return (
+          acValue[0] +
+          Arithmetics.createStandardSize(
+            Arithmetics.decimalToBinary(acValue.slice(1)),
+            31
+          )
+        );
+      }
+    } else {
+      acValue = document
+        .getElementById(acId)
+        .innerHTML.replace("+", "0")
+        .replace("-", "1");
+
+      return (
+        acValue[0] +
+        Arithmetics.createStandardSize(
+          Arithmetics.decimalToBinary(acValue.slice(1)),
+          31
+        )
+      );
+    }
+  }
 }
-function preProcessDR() {
-  const drValue = document
-    .getElementById(drId)
-    .innerHTML.replace("+", "0")
-    .replace("-", "1");
+function preProcessDR(forADDSUB = false) {
+  let drValue = getValue(drId);
 
-  return (
-    drValue[0] +
-    Arithmetics.createStandardSize(
-      Arithmetics.decimalToBinary(drValue.slice(1)),
-      31
-    )
-  );
+  if (parseInt(drValue) == 0) {
+    return Arithmetics.createStandardSize("0", 32);
+  } else {
+    if (forADDSUB) {
+      if (drValue[0] == "-") {
+        return Arithmetics.twosComplement(
+          Arithmetics.createStandardSize(
+            Arithmetics.decimalToBinary(drValue.slice(1)),
+            32
+          )
+        );
+      } else {
+        drValue = document.getElementById(drId).innerHTML.replace("+", "0");
+
+        return (
+          drValue[0] +
+          Arithmetics.createStandardSize(
+            Arithmetics.decimalToBinary(drValue.slice(1)),
+            31
+          )
+        );
+      }
+    } else {
+      drValue = document
+        .getElementById(drId)
+        .innerHTML.replace("+", "0")
+        .replace("-", "1");
+
+      return (
+        drValue[0] +
+        Arithmetics.createStandardSize(
+          Arithmetics.decimalToBinary(drValue.slice(1)),
+          31
+        )
+      );
+    }
+  }
 }
-function preProcessB() {
-  const bValue = document
-    .getElementById(bId)
-    .innerHTML.replace("+", "0")
-    .replace("-", "1");
+function preProcessB(forADDSUB = false) {
+  let bValue = getValue(bId);
 
-  return (
-    bValue[0] +
-    Arithmetics.createStandardSize(
-      Arithmetics.decimalToBinary(bValue.slice(1)),
-      31
-    )
-  );
+  if (parseInt(bValue) == 0) {
+    return Arithmetics.createStandardSize("0", 32);
+  } else {
+    if (forADDSUB) {
+      if (bValue[0] == "-") {
+        return Arithmetics.twosComplement(
+          Arithmetics.createStandardSize(
+            Arithmetics.decimalToBinary(bValue.slice(1)),
+            32
+          )
+        );
+      } else {
+        bValue = document.getElementById(bId).innerHTML.replace("+", "0");
+
+        return (
+          bValue[0] +
+          Arithmetics.createStandardSize(
+            Arithmetics.decimalToBinary(bValue.slice(1)),
+            31
+          )
+        );
+      }
+    } else {
+      bValue = document
+        .getElementById(bId)
+        .innerHTML.replace("+", "0")
+        .replace("-", "1");
+
+      return (
+        bValue[0] +
+        Arithmetics.createStandardSize(
+          Arithmetics.decimalToBinary(bValue.slice(1)),
+          31
+        )
+      );
+    }
+  }
 }
 
-function binaryToDecimal(num) {
-  const result = Arithmetics.binaryToDecimal(num.slice(1));
-  const sign = num[0] == "+" ? "0" : "1";
-  return sign + result.toString();
+function binaryToDecimal(num, forADDSUB = false) {
+  if (forADDSUB) {
+    if (num[0] == "1") {
+      let result = Arithmetics.twosComplement(num);
+      result = Arithmetics.binaryToDecimal(result.slice(1));
+      return "1" + result.toString();
+    } else {
+      const result = Arithmetics.binaryToDecimal(num.slice(1));
+      if (result == 0) return "0000";
+      else return "0" + result.toString();
+    }
+  } else {
+    const result = Arithmetics.binaryToDecimal(num.slice(1));
+    if (result == 0) return "0000";
+    else return "0" + result.toString();
+  }
 }
 
 function performADD() {
-  let result = Arithmetics.add(preProcessAC(), preProcessDR());
+  let result = Arithmetics.add(preProcessAC(true), preProcessDR(true));
   document.getElementById(aluCarryId).innerHTML = result.carry;
   document.getElementById(aluOverflowId).innerHTML = result.overflow;
-  result = binaryToDecimal(result.sum);
+  result = binaryToDecimal(result.sum, true);
   document.getElementById(aluValId).innerHTML = result;
 }
 function performSUB() {
-  let result = Arithmetics.subtract(preProcessAC(), preProcessDR());
+  let result = Arithmetics.subtract(preProcessAC(true), preProcessDR(true));
   document.getElementById(aluCarryId).innerHTML = result.carry;
   document.getElementById(aluOverflowId).innerHTML = result.overflow;
-  result = binaryToDecimal(result.sum);
+  result = binaryToDecimal(result.sum, true);
   document.getElementById(aluValId).innerHTML = result;
 }
 function performXOR() {
@@ -121,13 +214,13 @@ function performTRANSFERDR() {
     document.getElementById(drId).innerHTML;
 }
 function performDECAC() {
-  let result = Arithmetics.decreament(preProcessAC());
-  result = binaryToDecimal(result);
+  let result = Arithmetics.decreament(preProcessAC(true));
+  result = binaryToDecimal(result, true);
   document.getElementById(aluValId).innerHTML = result;
 }
 function performDECB() {
-  let result = Arithmetics.decreament(preProcessB());
-  result = binaryToDecimal(result);
+  let result = Arithmetics.decreament(preProcessB(true));
+  result = binaryToDecimal(result, true);
   document.getElementById(aluValId).innerHTML = result;
 }
 function performCOMPAC() {
@@ -141,22 +234,23 @@ function performCOMPB() {
   document.getElementById(aluValId).innerHTML = result;
 }
 function performTESTAC() {
-  let result = Arithmetics.subtract(preProcessAC(), preProcessDR());
+  let result = Arithmetics.subtract(preProcessAC(true), preProcessDR(true));
   document.getElementById(aluCarryId).innerHTML = result.carry;
   document.getElementById(aluOverflowId).innerHTML = result.overflow;
-  result = binaryToDecimal(result.sum);
+  result = binaryToDecimal(result.sum, true);
   document.getElementById(aluValId).innerHTML = result;
 }
+
 function performTESTB() {
-  let result = Arithmetics.subtract(preProcessB(), preProcessDR());
+  let result = Arithmetics.subtract(preProcessB(true), preProcessDR(true));
   document.getElementById(aluCarryId).innerHTML = result.carry;
   document.getElementById(aluOverflowId).innerHTML = result.overflow;
-  result = binaryToDecimal(result.sum);
+  result = binaryToDecimal(result.sum, true);
   document.getElementById(aluValId).innerHTML = result;
 }
 
 const ops = {
-  ADD: performAND,
+  ADD: performADD,
   SUB: performSUB,
   XOR: performXOR,
   NOR: performNOR,
@@ -184,14 +278,22 @@ function DRtoALU() {
 }
 
 function BtoALU() {
-  document.getElementById("ALu-content-value").innerHTML =
+  document.getElementById("ALU-content-value").innerHTML =
     document.getElementById("B-content-value").innerHTML;
   BtoALUColors();
 }
 
 function ALUtoB() {
-  document.getElementById("B-content-value").innerHTML =
-    document.getElementById("ALU-content-value").innerHTML;
+  const aluValue = getValue(aluValId);
+  if (parseInt(aluValue) == 0) {
+    document.getElementById("B-content-value").innerHTML = aluValue;
+  } else if (aluValue.includes("+") || aluValue.includes("-")) {
+    document.getElementById("B-content-value").innerHTML = aluValue;
+  } else {
+    const sign = aluValue[0] == 1 ? "-" : "+";
+    const value = aluValue.slice(1);
+    document.getElementById("B-content-value").innerHTML = sign + value;
+  }
   ALUtoBColors();
 }
 
@@ -202,8 +304,17 @@ function ACtoALU() {
 }
 
 function ALUtoAC() {
-  document.getElementById("AC-content-value").innerHTML =
-    document.getElementById("ALU-content-value").innerHTML;
+  const aluValue = getValue(aluValId);
+  if (parseInt(aluValue) == 0) {
+    document.getElementById("AC-content-value").innerHTML = aluValue;
+  } else if (aluValue.includes("+") || aluValue.includes("-")) {
+    document.getElementById("AC-content-value").innerHTML = aluValue;
+  } else {
+    const sign = aluValue[0] == 1 ? "-" : "+";
+    const value = aluValue.slice(1);
+    document.getElementById("AC-content-value").innerHTML = sign + value;
+  }
+
   ALUtoACColors();
 }
 
@@ -233,7 +344,6 @@ function ALUtoS() {
 }
 function ALUtoZ() {
   const aluValue = getValue(aluValId);
-
   ALUtoZColors();
   changeState("Z", parseInt(aluValue) == 0 ? "1" : "0");
 }

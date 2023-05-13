@@ -1,7 +1,6 @@
-let memoryCellId = document.getElementById("AR-content-value").innerHTML;
 function memoryWrite() {
   const memoryCellIdHex = Arithmetics.createStandardSize(
-    parseInt(memoryCellId).toString(16).toUpperCase(),
+    parseInt(getValue(arId)).toString(16).toUpperCase(),
     4
   );
   let memoryCell = document.getElementById(memoryCellIdHex);
@@ -11,7 +10,7 @@ function memoryWrite() {
   memoryWriteColors();
 }
 
-function memoryRead() {
+function memoryRead(toDR = false) {
   const arValue = document.getElementById(arId).innerHTML;
   let memoryValue = document.getElementById(
     Arithmetics.createStandardSize(
@@ -19,8 +18,27 @@ function memoryRead() {
       4
     )
   ).innerHTML;
+  if (toDR) {
+    let memoryValBin;
+    let sign;
+    if (memoryValue[0] == "+" || memoryValue[0] == "-") {
+      sign = memoryValue[0] == "+" ? "0" : "1";
+      memoryValBin = Arithmetics.decimalToBinary(memoryValue.slice(1));
+    } else {
+      sign = "0";
+      memoryValBin = Arithmetics.decimalToBinary(memoryValue);
+    }
+    const memoryValDec = Arithmetics.binaryToDecimal(
+      Arithmetics.createStandardSize(memoryValBin, 31)
+    );
+    document.getElementById(busId).innerHTML = sign + memoryValDec;
+  } else {
+    let memoryValBin = Arithmetics.decimalToBinary(memoryValue);
 
-  document.getElementById(busId).innerHTML = memoryValue;
+    document.getElementById(busId).innerHTML = Arithmetics.binaryToDecimal(
+      Arithmetics.createStandardSize(memoryValBin, 32)
+    );
+  }
   memoryReadColors();
 }
 

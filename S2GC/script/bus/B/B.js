@@ -6,8 +6,17 @@ function loadB() {
 }
 
 function incrementB() {
-  BContentID.innerHTML++;
-  BIncrementColors();
+  const bValue = parseInt(getValue(bId));
+  if (bValue == 0) {
+    BContentID.innerHTML = "+1";
+  } else {
+    if (bValue < 0) {
+      BContentID.innerHTML++;
+    } else {
+      BContentID.innerHTML = "+" + (bValue + 1).toString();
+    }
+    BIncrementColors();
+  }
 }
 
 function clearB() {
