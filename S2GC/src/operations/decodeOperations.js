@@ -1,26 +1,39 @@
+const instTypeDecoder = new Decoder(5);
+const seqCounter = new SequenceCounter(4);
+
 class DecodeOperations {
   #decodeOperations;
 
   constructor() {
     this.#decodeOperations = {
-      "R'T3": [this.#decodeAddressingModeAndInstructionType],
-      "R'T4": this.#isNotImmediateAddressing()
-        ? [this.#irToBus, this.#busToAR]
-        : [],
+      T3: [this.#decodeAddressingModeAndInstructionType],
+      T4: [this.#ifNotImmedAddIRtoBus, this.#ifNotImmedAddBusToAR],
     };
   }
 
   #isNotImmediateAddressing() {
-    return getValue(i1Id) != "1" || getValue(i0Id) != "0";
+    return getValue(i1Id) + getValue(i0Id) != "10";
+  }
+
+  #ifNotImmedAddIRtoBus() {
+    if (getValue(i1Id) + getValue(i0Id) != "10") {
+      IRtoBUS();
+    }
+  }
+  #ifNotImmedAddBusToAR() {
+    if (getValue(i1Id) + getValue(i0Id) != "10") {
+      loadAR();
+    }
   }
 
   #decodeAddressingModeAndInstructionType() {
-    const irData = getValue(irId);
-    changeState("I1", irData[0]);
-    changeState("I0", irData[1]);
-    const irBin = Arithmetics.decimalToBinary(irData);
-    const inst = Arithmetics.createStandardSize(irBin, 32).slice(2, 7);
-    instDecoder.selectOutput(inst);
+    const irData = document.getElementById(irId).innerHTML;
+    let irBin = Arithmetics.decimalToBinary(irData);
+    irBin = Arithmetics.createStandardSize(irBin, 32);
+    changeState("I1", irBin[0]);
+    changeState("I0", irBin[1]);
+    const inst = irBin.slice(2, 7);
+    instTypeDecoder.selectOutput(inst);
   }
   #irToBus() {
     IRtoBUS();
@@ -40,7 +53,7 @@ class DecodeOperations {
         setTimeout(() => {
           signalOff();
           resolve();
-        }, 2000)
+        }, 50)
       );
     }
   }

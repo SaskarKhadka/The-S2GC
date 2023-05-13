@@ -8,6 +8,8 @@ class Arithmetics {
         result += "0";
       }
       return result + num;
+    } else if (num.length > bits) {
+      return num.slice(num.length - bits);
     } else {
       return num;
     }

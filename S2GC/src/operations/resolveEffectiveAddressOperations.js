@@ -13,7 +13,16 @@ class ResolveEffectiveAddressOperations {
   }
 
   #busToDR() {
-    loadDR();
+    let busValue = getValue(busId);
+    busValue = Arithmetics.decimalToBinary(busValue).slice(7);
+    const sign = busValue[0] == "1" ? "-" : "+";
+    const value = Arithmetics.binaryToDecimal(busValue.slice(1));
+    if (value == 0) {
+      document.getElementById(drId).innerHTML = "0";
+    } else {
+      document.getElementById(drId).innerHTML = sign + value;
+    }
+    DRLoadColors();
   }
 
   #ramToBus() {
@@ -34,7 +43,7 @@ class ResolveEffectiveAddressOperations {
         setTimeout(() => {
           signalOff();
           resolve();
-        }, 2000)
+        }, 50)
       );
     }
   }

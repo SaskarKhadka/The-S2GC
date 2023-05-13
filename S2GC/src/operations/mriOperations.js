@@ -3,36 +3,28 @@ class MRIOperations {
 
   constructor() {
     this.#mriOperations = {
-      D0T6: this.#isNotImmediateAddressing()
-        ? [this.#ramToBus, this.#busToDR]
-        : [],
+      D0T6: [this.#ifNotImmedAddRamToBus, this.#ifNotImmedAddBusToDR],
       D0T7: [
         this.#acDRToALU,
         this.#andACandDR,
         this.#aluToAC,
         this.#resetCounter,
       ],
-      D1T6: this.#isNotImmediateAddressing()
-        ? [this.#ramToBus, this.#busToDR]
-        : [],
+      D1T6: [this.#ifNotImmedAddRamToBus, this.#ifNotImmedAddBusToDR],
       D1T7: [
         this.#acDRToALU,
         this.#orACandDR,
         this.#aluToAC,
         this.#resetCounter,
       ],
-      D2T6: this.#isNotImmediateAddressing()
-        ? [this.#ramToBus, this.#busToDR]
-        : [],
+      D2T6: [this.#ifNotImmedAddRamToBus, this.#ifNotImmedAddBusToDR],
       D2T7: [
         this.#acDRToALU,
         this.#xorACandDR,
         this.#aluToAC,
         this.#resetCounter,
       ],
-      D3T6: this.#isNotImmediateAddressing()
-        ? [this.#ramToBus, this.#busToDR]
-        : [],
+      D3T6: [this.#ifNotImmedAddRamToBus, this.#ifNotImmedAddBusToDR],
       D3T7: [this.#acDRToALU, this.#andACandDR, this.#aluToAC],
       D3T8: [
         this.#acToALU,
@@ -40,9 +32,7 @@ class MRIOperations {
         this.#aluToAC,
         this.#resetCounter,
       ],
-      D4T6: this.#isNotImmediateAddressing()
-        ? [this.#ramToBus, this.#busToDR]
-        : [],
+      D4T6: [this.#ifNotImmedAddRamToBus, this.#ifNotImmedAddBusToDR],
       D4T7: [this.#acDRToALU, this.#orACandDR, this.#aluToAC],
       D4T8: [
         this.#acToALU,
@@ -50,29 +40,21 @@ class MRIOperations {
         this.#aluToAC,
         this.#resetCounter,
       ],
-      D5T6: this.#isNotImmediateAddressing()
-        ? [this.#ramToBus, this.#busToDR]
-        : [],
+      D5T6: [this.#ifNotImmedAddRamToBus, this.#ifNotImmedAddBusToDR],
       D5T7: [
         this.#drToALU,
         this.#transferDR,
         this.#aluToAC,
         this.#resetCounter,
       ],
-      D6T6: this.#isNotImmediateAddressing()
-        ? [this.#ramToBus, this.#busToDR]
-        : [],
+      D6T6: [this.#ifNotImmedAddRamToBus, this.#ifNotImmedAddBusToDR],
       D6T7: [this.#drToALU, this.#transferDR, this.#aluToB, this.#resetCounter],
       D7T6: [this.#acToBus, this.#busToRam, this.#resetCounter],
       D8T6: [this.#bToBus, this.#busToRam, this.#resetCounter],
-      D9T6: this.#isNotImmediateAddressing()
-        ? [this.#ramToBus, this.#busToDR]
-        : [],
+      D9T6: [this.#ifNotImmedAddRamToBus, this.#ifNotImmedAddBusToDR],
       D9T7: [this.#incrementDR],
       D9T8: [this.#drToBus, this.#busToRam],
-      D9T9: this.#isDRZero()
-        ? [this.#incrementPC, this.#resetCounter]
-        : [this.#resetCounter],
+      D9T9: [this.#ifDRZeroIncrementPC, this.#resetCounter],
       D10T6: [this.#arToBus, this.#busToPC, this.#resetCounter],
       D11T6: [this.#pcToBus, this.#busToRam],
       D11T7: [this.#incrementAR],
@@ -85,9 +67,7 @@ class MRIOperations {
         this.#aluToAC,
         this.#resetCounter,
       ],
-      D13T6: this.#isNotImmediateAddressing()
-        ? [this.#ramToBus, this.#busToDR]
-        : [],
+      D13T6: [this.#ifNotImmedAddRamToBus, this.#ifNotImmedAddBusToDR],
       D13T7: [
         this.#acDRToALU,
         this.#addACandDR,
@@ -95,9 +75,7 @@ class MRIOperations {
         this.#aluToPSW,
         this.#resetCounter,
       ],
-      D14T6: this.#isNotImmediateAddressing()
-        ? [this.#ramToBus, this.#busToDR]
-        : [],
+      D14T6: [this.#ifNotImmedAddRamToBus, this.#ifNotImmedAddBusToDR],
       // D14T7: [this.#acToBus, this.#busToTR],
       // D14T8: [this.#drToALU, this.#transferDR, this.#aluToAC],
       // D14T9: [
@@ -116,65 +94,147 @@ class MRIOperations {
         this.#aluToPSW,
         this.#resetCounter,
       ],
-      D15T6: this.#isNotImmediateAddressing()
-        ? [this.#ramToBus, this.#busToDR]
-        : [],
+      D15T6: [this.#ifNotImmedAddRamToBus, this.#ifNotImmedAddBusToDR],
       D15T7: [
         this.#acDRToALU,
         this.#testACandDR,
         this.#aluToPSW,
         this.#resetCounter,
       ],
-      D16T6: this.#isNotImmediateAddressing()
-        ? [this.#ramToBus, this.#busToDR]
-        : [],
+      D16T6: [this.#ifNotImmedAddRamToBus, this.#ifNotImmedAddBusToDR],
       D16T7: [
         this.#acDRToALU,
         this.#testBandDR,
         this.#aluToPSW,
         this.#resetCounter,
       ],
-      D17T6: this.#zState()
-        ? [this.#arToBus, this.#busToPC, this.#resetCounter]
-        : [],
-      D18T6: !this.#zState()
-        ? [this.#arToBus, this.#busToPC, this.#resetCounter]
-        : [],
-      D19T6:
-        this.#sXORv() || this.#zState()
-          ? [this.#arToBus, this.#busToPC, this.#resetCounter]
-          : [],
-      D20T6: this.#sXORv()
-        ? [this.#arToBus, this.#busToPC, this.#resetCounter]
-        : [],
-      D21T6: !this.#sXORv() ? [this.#arToBus, this.#busToPC] : [],
-      D22T6:
-        !this.#sXORv() && !this.#zState()
-          ? [this.#arToBus, this.#busToPC, this.#resetCounter]
-          : [],
+      D17T6: [this.#ifZisSetARToBus, this.#ifZisSetBusToPC, this.#resetCounter],
+      D18T6: [
+        this.#ifZisResetARToBus,
+        this.#ifZisResetBusToPC,
+        this.#resetCounter,
+      ],
+      D19T6: [
+        this.#ifsXORvORzARToBus,
+        this.#ifsXORvORzBusToPC,
+        this.#resetCounter,
+      ],
+      D20T6: [this.#ifsXORvARToBus, this.#ifsXORvBusToPC, this.#resetCounter],
+      D21T6: [
+        this.#ifNotsXORvARToBus,
+        this.#ifNotsXORvBusToPC,
+        this.#resetCounter,
+      ],
+      D22T6: [
+        this.#ifNotsXORvAndNotzARToBus,
+        this.#ifNotsXORvAndNotzBusToPC,
+        this.#resetCounter,
+      ],
     };
   }
 
+  #ifNotsXORvAndNotzARToBus() {
+    if (getValue(sId) == getValue(zId) && getValue(zId) == "0") {
+      ARtoBUS();
+    }
+  }
+
+  #ifNotsXORvAndNotzBusToPC() {
+    if (getValue(sId) == getValue(zId) && getValue(zId) == "0") {
+      loadPC();
+    }
+  }
+
+  #ifsXORvORzARToBus() {
+    if (getValue(sId) != getValue(zId) || getValue(zId) == "1") {
+      ARtoBUS();
+    }
+  }
+
+  #ifsXORvORzBusToPC() {
+    if (getValue(sId) != getValue(zId) || getValue(zId) == "1") {
+      loadPC();
+    }
+  }
+
+  #ifsXORvARToBus() {
+    if (getValue(sId) != getValue(zId)) {
+      ARtoBUS();
+    }
+  }
+
+  #ifNotsXORvARToBus() {
+    if (getValue(sId) == getValue(zId)) {
+      ARtoBUS();
+    }
+  }
+
+  #ifsXORvBusToPC() {
+    if (getValue(sId) != getValue(zId)) {
+      loadPC();
+    }
+  }
+
+  #ifNotsXORvBusToPC() {
+    if (getValue(sId) == getValue(zId)) {
+      loadPC();
+    }
+  }
+
+  #ifZisSetARToBus() {
+    if (getValue(zId) == "1") {
+      ARtoBUS();
+    }
+  }
+
+  #ifZisResetARToBus() {
+    if (getValue(zId) == "0") {
+      ARtoBUS();
+    }
+  }
+
+  #ifZisSetBusToPC() {
+    if (getValue(zId) == "1") {
+      loadPC();
+    }
+  }
+
+  #ifZisResetBusToPC() {
+    if (getValue(zId) == "0") {
+      loadPC();
+    }
+  }
+
   #isNotImmediateAddressing() {
-    return i1FF.state() != "1" && i0FF.state() != "0";
+    return getValue(i1Id) + getValue(i0Id) != "10";
+  }
+
+  #ifNotImmedAddRamToBus() {
+    if (getValue(i1Id) + getValue(i0Id) != "10") {
+      memoryRead(true);
+    }
+  }
+  #ifNotImmedAddBusToDR() {
+    if (getValue(i1Id) + getValue(i0Id) != "10") {
+      loadDR();
+    }
   }
 
   #zState() {
-    return zFF.state() == "1";
+    return getValue(zId) == "1";
   }
 
   #sXORv() {
-    return sFF.state() != vFF.state();
+    return getValue(sId) != getValue(zId);
   }
 
   #isDRZero() {
-    const drValue = dataReg.VALUE();
-    const result = Arithmetics.binaryToDecimal(drValue);
-    return result == 0;
+    const drValue = getValue(drId);
+    return parseInt(drValue) == 0;
   }
 
   #ramToBus() {
-    memoryRead();
+    memoryRead(true);
   }
 
   #xorACandDR() {
@@ -266,8 +326,11 @@ class MRIOperations {
     incrementDR();
   }
 
-  #incrementPC() {
-    incrementPC();
+  #ifDRZeroIncrementPC() {
+    const drValue = getValue(drId);
+    if (parseInt(drValue) == 0) {
+      incrementPC();
+    }
   }
 
   #arToBus() {
@@ -299,8 +362,8 @@ class MRIOperations {
   }
 
   #resetCounter() {
-    sequenceCounter.clrFlag(true);
-    sequenceCounter.clearValue();
+    seqCounter.clrFlag(true);
+    seqCounter.clearValue();
     // clear SC
   }
 
@@ -313,7 +376,7 @@ class MRIOperations {
         setTimeout(() => {
           signalOff();
           resolve();
-        }, 2000)
+        }, 50)
       );
     }
   }

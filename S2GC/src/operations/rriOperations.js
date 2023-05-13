@@ -2,55 +2,149 @@ class RRIOperations {
   #rriOperations;
   constructor() {
     this.#rriOperations = {
-      "D31I1'I0'T5": [this.#resetCounter],
-      "D31I1'I0'T5B24": [this.#acToALU, this.#decrementAC, this.#aluToAC],
-      "D31I1'I0'T5B23": [this.#bToALU, this.#decrementB, this.#aluToB],
-      "D31I1'I0'T5B22": [this.#clearAC],
-      "D31I1'I0'T5B21": [this.#clearB],
-      "D31I1'I0'T5B20": [this.#acToALU, this.#complementAC, this.#aluToAC],
-      "D31I1'I0'T5B19": [this.#bToALU, this.#complementB, this.#aluToB],
+      // "D31I1'I0'T5": [this.#resetCounter],
+      "D31I1'I0'T5B24": [
+        this.#acToALU,
+        this.#decrementAC,
+        this.#aluToAC,
+        this.#resetCounter,
+      ],
+      "D31I1'I0'T5B23": [
+        this.#bToALU,
+        this.#decrementB,
+        this.#aluToB,
+        this.#resetCounter,
+      ],
+      "D31I1'I0'T5B22": [this.#clearAC, this.#resetCounter],
+      "D31I1'I0'T5B21": [this.#clearB, this.#resetCounter],
+      "D31I1'I0'T5B20": [
+        this.#acToALU,
+        this.#complementAC,
+        this.#aluToAC,
+        this.#resetCounter,
+      ],
+      "D31I1'I0'T5B19": [
+        this.#bToALU,
+        this.#complementB,
+        this.#aluToB,
+        this.#resetCounter,
+      ],
       "D31I1'I0'T5B18": [
         this.#acToALU,
         this.#ashrAC,
         this.#aluToAC,
         this.#updateC,
+        this.#resetCounter,
       ],
       "D31I1'I0'T5B17": [
         this.#acToALU,
         this.#ashlAC,
         this.#aluToAC,
         this.#updateCandV,
+        this.#resetCounter,
       ],
       "D31I1'I0'T5B16": [
         this.#bToALU,
         this.#ashrB,
         this.#aluToB,
         this.#updateC,
+        this.#resetCounter,
       ],
       "D31I1'I0'T5B15": [
         this.#bToALU,
         this.#ashlB,
         this.#aluToB,
         this.#updateCandV,
+        this.#resetCounter,
       ],
-      "D31I1'I0'T5B14": [this.#incrementAC],
-      "D31I1'I0'T5B13": [this.#incrementB],
-      "D31I1'I0'T5B12": this.#cState() ? [this.#incrementPC] : [],
-      "D31I1'I0'T5B11": !this.#cState() ? [this.#incrementPC] : [],
-      "D31I1'I0'T5B10": this.#zState() ? [this.#incrementPC] : [],
-      "D31I1'I0'T5B9": !this.#sState() ? [this.#incrementPC] : [],
-      "D31I1'I0'T5B8": this.#vState() ? [this.#incrementPC] : [],
-      "D31I1'I0'T5B7": !this.#vState() ? [this.#incrementPC] : [],
-      "D31I1'I0'T5B6": this.#sState() ? [this.#incrementPC] : [],
-      "D31I1'I0'T5B5": !this.#vState() ? [this.#incrementPC] : [],
-      "D31I1'I0'T5B4":
-        this.#sXORv() || this.#zState() ? [this.#incrementPC] : [],
-      "D31I1'I0'T5B3": this.#sXORv() ? [this.#incrementPC] : [],
-      "D31I1'I0'T5B2":
-        !this.#sXORv() && !this.#zState() ? [this.#incrementPC] : [],
-      "D31I1'I0'T5B1": !this.#sXORv() ? [this.#incrementPC] : [],
-      "D31I1'I0'T5B0": [this.#resetSS],
+      "D31I1'I0'T5B14": [this.#incrementAC, this.#resetCounter],
+      "D31I1'I0'T5B13": [this.#incrementB, this.#resetCounter],
+      "D31I1'I0'T5B12": [this.#ifCIncrementPC, this.#resetCounter],
+      "D31I1'I0'T5B11": [this.#ifNotCIncrementPC, this.#resetCounter],
+      "D31I1'I0'T5B10": [this.#ifZIncrementPC, this.#resetCounter],
+      "D31I1'I0'T5B9": [this.#ifNotSIncrementPC, this.#resetCounter],
+      "D31I1'I0'T5B8": [this.#ifVIncrementPC, this.#resetCounter],
+      "D31I1'I0'T5B7": [this.#ifNotVIncrementPC, this.#resetCounter],
+      "D31I1'I0'T5B6": [this.#ifSIncrementPC, this.#resetCounter],
+      "D31I1'I0'T5B5": [this.#ifNotZIncrementPC, this.#resetCounter],
+      "D31I1'I0'T5B4": [this.#ifsXORvORzIncrementPC, this.#resetCounter],
+      "D31I1'I0'T5B3": [this.#ifsXORvIncrementPC, this.#resetCounter],
+      "D31I1'I0'T5B2": [this.#ifNotsXORvAndNotzIncrementPC, this.#resetCounter],
+      "D31I1'I0'T5B1": [this.#ifNotsXORvIncrementPC, this.#resetCounter],
+      "D31I1'I0'T5B0": [this.#resetSS, this.#resetCounter],
     };
+  }
+
+  #ifCIncrementPC() {
+    if (getValue(cId) == "1") {
+      incrementPC();
+    }
+  }
+
+  #ifNotCIncrementPC() {
+    if (getValue(cId) == "0") {
+      incrementPC();
+    }
+  }
+
+  #ifZIncrementPC() {
+    if (getValue(zId) == "1") {
+      incrementPC();
+    }
+  }
+
+  #ifNotZIncrementPC() {
+    if (getValue(zId) == "0") {
+      incrementPC();
+    }
+  }
+
+  #ifSIncrementPC() {
+    if (getValue(sId) == "1") {
+      incrementPC();
+    }
+  }
+
+  #ifNotSIncrementPC() {
+    if (getValue(sId) == "0") {
+      incrementPC();
+    }
+  }
+
+  #ifVIncrementPC() {
+    if (getValue(vId) == "1") {
+      incrementPC();
+    }
+  }
+
+  #ifNotVIncrementPC() {
+    if (getValue(vId) == "0") {
+      incrementPC();
+    }
+  }
+
+  #ifsXORvORzIncrementPC() {
+    if (getValue(sId) != getValue(vId) || getValue(zId) == "1") {
+      incrementPC();
+    }
+  }
+
+  #ifNotsXORvAndNotzIncrementPC() {
+    if (getValue(sId) == getValue(vId) && getValue(zId) == "0") {
+      incrementPC();
+    }
+  }
+
+  #ifsXORvIncrementPC() {
+    if (getValue(sId) != getValue(vId)) {
+      incrementPC();
+    }
+  }
+
+  #ifNotsXORvIncrementPC() {
+    if (getValue(sId) == getValue(vId)) {
+      incrementPC();
+    }
   }
 
   #zState() {
@@ -70,12 +164,12 @@ class RRIOperations {
   }
 
   #sXORv() {
-    return sFF.state() != vFF.state();
+    return getValue(sId) != getValue(vId);
   }
 
   #resetCounter() {
-    sequenceCounter.clrFlag(true);
-    sequenceCounter.clearValue();
+    seqCounter.clrFlag(true);
+    seqCounter.clearValue();
   }
   #aluToAC() {
     ALUtoAC();
@@ -125,8 +219,7 @@ class RRIOperations {
   #ashlB() {
     setALUOperation("ASHL B");
   }
-  #aluLastToC() {}
-  #aluFirstToC() {}
+
   #incrementPC() {
     incrementPC();
   }
@@ -142,6 +235,7 @@ class RRIOperations {
   }
 
   async performOperations(condition) {
+    console.log(condition);
     if (this.#rriOperations[condition] == undefined) throw "Invalid operation";
     let operations = this.#rriOperations[condition];
     for (let operation of operations) {
@@ -150,7 +244,7 @@ class RRIOperations {
         setTimeout(() => {
           signalOff();
           resolve();
-        }, 2000)
+        }, 50)
       );
     }
   }
