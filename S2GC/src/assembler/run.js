@@ -68,12 +68,15 @@ function loadInstructionToMemory() {
   const instructions = assembler.getInstructions();
   let memAddress = 4096;
   for (let instruction of instructions) {
-    console.log(memAddress.toString(16));
+    // console.log(memAddress.toString(16));
     document.getElementById(memAddress.toString(16).toUpperCase()).innerHTML =
       Arithmetics.binaryToDecimal(instruction);
     memAddress++;
   }
 }
+// async function simulate() {
+
+// }
 
 async function runInstructions() {
   loadInstructionToMemory();
@@ -90,6 +93,9 @@ async function runInstructions() {
     }
     if (getValue(ssId) == "0") break;
   }
+  resetBusArchitecture();
+
+  // await simulate();
 }
 
 const button = document.getElementById("run-button");

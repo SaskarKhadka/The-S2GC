@@ -1,81 +1,278 @@
 class MRIOperations {
   #mriOperations;
 
+  /**
+   * RESET COUNTER COLORS
+   * ALU OPERATION COLORS
+   * if colors
+   */
+
   constructor() {
     this.#mriOperations = {
-      D0T6: [this.#ifNotImmedAddRamToBus, this.#ifNotImmedAddBusToDR],
+      D0T6: [
+        [
+          [this.#ifNotImmedAddRamToBus],
+          [[ifNotImmedAddMemoryReadColors, { needParams: false }, {}]],
+        ],
+        [
+          [this.#ifNotImmedAddBusToDR],
+          [[ifNotImmedAddDRLoadColors, { needParams: false }, {}]],
+        ],
+      ],
       D0T7: [
-        this.#acDRToALU,
-        this.#andACandDR,
-        this.#aluToAC,
-        this.#resetCounter,
+        [
+          [this.#acDRToALU],
+          [
+            [DRtoALUColors, { needParams: false }, {}],
+            [ACtoALUColors, { needParams: false }, {}],
+          ],
+        ],
+        [[this.#andACandDR], [[ALUoperationColors, { needParams: false }, {}]]],
+        [[this.#aluToAC], [[ALUtoACColors, { needParams: false }, {}]]],
+        [[this.#resetCounter], [[SCClearColors, { needParams: false }, {}]]],
       ],
-      D1T6: [this.#ifNotImmedAddRamToBus, this.#ifNotImmedAddBusToDR],
+      D1T6: [
+        [
+          [this.#ifNotImmedAddRamToBus],
+          [[ifNotImmedAddMemoryReadColors, { needParams: false }, {}]],
+        ],
+        [
+          [this.#ifNotImmedAddBusToDR],
+          [[ifNotImmedAddDRLoadColors, { needParams: false }, {}]],
+        ],
+      ],
       D1T7: [
-        this.#acDRToALU,
-        this.#orACandDR,
-        this.#aluToAC,
-        this.#resetCounter,
+        [
+          [this.#acDRToALU],
+          [
+            [DRtoALUColors, { needParams: false }, {}],
+            [ACtoALUColors, { needParams: false }, {}],
+          ],
+        ],
+        [[this.#orACandDR], [[ALUoperationColors, { needParams: false }, {}]]],
+        [[this.#aluToAC], [[ALUtoACColors, { needParams: false }, {}]]],
+        [[this.#resetCounter], [[SCClearColors, { needParams: false }, {}]]],
       ],
-      D2T6: [this.#ifNotImmedAddRamToBus, this.#ifNotImmedAddBusToDR],
+      D2T6: [
+        [
+          [this.#ifNotImmedAddRamToBus],
+          [[ifNotImmedAddMemoryReadColors, { needParams: false }, {}]],
+        ],
+        [
+          [this.#ifNotImmedAddBusToDR],
+          [[ifNotImmedAddDRLoadColors, { needParams: false }, {}]],
+        ],
+      ],
       D2T7: [
-        this.#acDRToALU,
-        this.#xorACandDR,
-        this.#aluToAC,
-        this.#resetCounter,
+        [
+          [this.#acDRToALU],
+          [
+            [DRtoALUColors, { needParams: false }, {}],
+            [ACtoALUColors, { needParams: false }, {}],
+          ],
+        ],
+        [[this.#xorACandDR], [[ALUoperationColors, { needParams: false }, {}]]],
+        [[this.#aluToAC], [[ALUtoACColors, { needParams: false }, {}]]],
+        [[this.#resetCounter], [[SCClearColors, { needParams: false }, {}]]],
       ],
-      D3T6: [this.#ifNotImmedAddRamToBus, this.#ifNotImmedAddBusToDR],
-      D3T7: [this.#acDRToALU, this.#andACandDR, this.#aluToAC],
+      D3T6: [
+        [
+          [this.#ifNotImmedAddRamToBus],
+          [[ifNotImmedAddMemoryReadColors, { needParams: false }, {}]],
+        ],
+        [
+          [this.#ifNotImmedAddBusToDR],
+          [[ifNotImmedAddDRLoadColors, { needParams: false }, {}]],
+        ],
+      ],
+      D3T7: [
+        [
+          [this.#acDRToALU],
+          [
+            [DRtoALUColors, { needParams: false }, {}],
+            [ACtoALUColors, { needParams: false }, {}],
+          ],
+        ],
+        [[this.#andACandDR], [[ALUoperationColors, { needParams: false }, {}]]],
+        [[this.#aluToAC], [[ALUtoACColors, { needParams: false }, {}]]],
+      ],
       D3T8: [
-        this.#acToALU,
-        this.#complementAC,
-        this.#aluToAC,
-        this.#resetCounter,
+        [[this.#acToALU], [[ACtoALUColors, { needParams: false }, {}]]],
+        [
+          [this.#complementAC],
+          [[ALUoperationColors, { needParams: false }, {}]],
+        ],
+        [[this.#aluToAC], [[ALUtoACColors, { needParams: false }, {}]]],
+        [[this.#resetCounter], [[SCClearColors, { needParams: false }, {}]]],
       ],
-      D4T6: [this.#ifNotImmedAddRamToBus, this.#ifNotImmedAddBusToDR],
-      D4T7: [this.#acDRToALU, this.#orACandDR, this.#aluToAC],
+      D4T6: [
+        [
+          [this.#ifNotImmedAddRamToBus],
+          [[ifNotImmedAddMemoryReadColors, { needParams: false }, {}]],
+        ],
+        [
+          [this.#ifNotImmedAddBusToDR],
+          [[ifNotImmedAddDRLoadColors, { needParams: false }, {}]],
+        ],
+      ],
+      D4T7: [
+        [
+          [this.#acDRToALU],
+          [
+            [DRtoALUColors, { needParams: false }, {}],
+            [ACtoALUColors, { needParams: false }, {}],
+          ],
+        ],
+        [[this.#orACandDR], [[ALUoperationColors, { needParams: false }, {}]]],
+        [[this.#aluToAC], [[ALUtoACColors, { needParams: false }, {}]]],
+      ],
       D4T8: [
-        this.#acToALU,
-        this.#complementAC,
-        this.#aluToAC,
-        this.#resetCounter,
+        [[this.#acToALU], [[ACtoALUColors, { needParams: false }, {}]]],
+        [
+          [this.#complementAC],
+          [[ALUoperationColors, { needParams: false }, {}]],
+        ],
+        [[this.#aluToAC], [[ALUtoACColors, { needParams: false }, {}]]],
+        [[this.#resetCounter], [[SCClearColors, { needParams: false }, {}]]],
       ],
-      D5T6: [this.#ifNotImmedAddRamToBus, this.#ifNotImmedAddBusToDR],
+      D5T6: [
+        [
+          [this.#ifNotImmedAddRamToBus],
+          [[ifNotImmedAddMemoryReadColors, { needParams: false }, {}]],
+        ],
+        [
+          [this.#ifNotImmedAddBusToDR],
+          [[ifNotImmedAddDRLoadColors, { needParams: false }, {}]],
+        ],
+      ],
       D5T7: [
-        this.#drToALU,
-        this.#transferDR,
-        this.#aluToAC,
-        this.#resetCounter,
+        [[this.#drToALU], [[DRtoALUColors, { needParams: false }, {}]]],
+        [[this.#transferDR], [[ALUoperationColors, { needParams: false }, {}]]],
+        [[this.#aluToAC], [[ALUtoACColors, { needParams: false }, {}]]],
+        [[this.#resetCounter], [[SCClearColors, { needParams: false }, {}]]],
       ],
-      D6T6: [this.#ifNotImmedAddRamToBus, this.#ifNotImmedAddBusToDR],
-      D6T7: [this.#drToALU, this.#transferDR, this.#aluToB, this.#resetCounter],
-      D7T6: [this.#acToBus, this.#busToRam, this.#resetCounter],
-      D8T6: [this.#bToBus, this.#busToRam, this.#resetCounter],
-      D9T6: [this.#ifNotImmedAddRamToBus, this.#ifNotImmedAddBusToDR],
-      D9T7: [this.#incrementDR],
-      D9T8: [this.#drToBus, this.#busToRam],
-      D9T9: [this.#ifDRZeroIncrementPC, this.#resetCounter],
-      D10T6: [this.#arToBus, this.#busToPC, this.#resetCounter],
-      D11T6: [this.#pcToBus, this.#busToRam],
-      D11T7: [this.#incrementAR],
-      D11T8: [this.#arToBus, this.#busToPC, this.#resetCounter],
-      D12T6: [this.#ramToBus, this.#busToDR],
-      D12T7: [this.#acToBus, this.#busToRam],
+      D6T6: [
+        [
+          [this.#ifNotImmedAddRamToBus],
+          [[ifNotImmedAddMemoryReadColors, { needParams: false }, {}]],
+        ],
+        [
+          [this.#ifNotImmedAddBusToDR],
+          [[ifNotImmedAddDRLoadColors, { needParams: false }, {}]],
+        ],
+      ],
+      D6T7: [
+        [[this.#drToALU], [[DRtoALUColors, { needParams: false }, {}]]],
+        [[this.#transferDR], [[ALUoperationColors, { needParams: false }, {}]]],
+        [[this.#aluToB], [[ALUtoBColors, { needParams: false }, {}]]],
+        [[this.#resetCounter], [[SCClearColors, { needParams: false }, {}]]],
+      ],
+      D7T6: [
+        [[this.#acToBus], [[ACtoBusColors, { needParams: false }, {}]]],
+        [[this.#busToRam], [[memoryWriteColors, { needParams: false }, {}]]],
+        [[this.#resetCounter], [[SCClearColors, { needParams: false }, {}]]],
+      ],
+      D8T6: [
+        [[this.#bToBus], [[BtoBusColors, { needParams: false }, {}]]],
+        [[this.#busToRam], [[memoryWriteColors, { needParams: false }, {}]]],
+        [[this.#resetCounter], [[SCClearColors, { needParams: false }, {}]]],
+      ],
+      D9T6: [
+        [
+          [this.#ifNotImmedAddRamToBus],
+          [[ifNotImmedAddMemoryReadColors, { needParams: false }, {}]],
+        ],
+        [
+          [this.#ifNotImmedAddBusToDR],
+          [[ifNotImmedAddDRLoadColors, { needParams: false }, {}]],
+        ],
+      ],
+      D9T7: [
+        [[this.#incrementDR], [[DRIncrementColors, { needParams: false }, {}]]],
+      ],
+      D9T8: [
+        [[this.#drToBus], [[DRtoBusColors, { needParams: false }, {}]]],
+        [[this.#busToRam], [[memoryWriteColors, { needParams: false }, {}]]],
+      ],
+      D9T9: [
+        [
+          [this.#ifDRZeroIncrementPC],
+          [[ifDRZeroPCIncrementColors, { needParams: false }, {}]],
+        ],
+        [[this.#resetCounter], [[SCClearColors, { needParams: false }, {}]]],
+      ],
+      D10T6: [
+        [[this.#arToBus], [[ARtoBusColors, { needParams: false }, {}]]],
+        [[this.#busToPC], [[PCLoadColors, { needParams: false }, {}]]],
+        [[this.#resetCounter], [[SCClearColors, { needParams: false }, {}]]],
+      ],
+      D11T6: [
+        [[this.#pcToBus], [[PCtoBusColors, { needParams: false }, {}]]],
+        [[this.#busToRam], [[memoryWriteColors, { needParams: false }, {}]]],
+      ],
+      D11T7: [
+        [[this.#incrementAR], [[ARIncrementColors, { needParams: false }, {}]]],
+      ],
+      D11T8: [
+        [[this.#arToBus], [[ARtoBusColors, { needParams: false }, {}]]],
+        [[this.#busToPC], [[PCLoadColors, { needParams: false }, {}]]],
+        [[this.#resetCounter], [[SCClearColors, { needParams: false }, {}]]],
+      ],
+      D12T6: [
+        [[this.#ramToBus], [[memoryReadColors, { needParams: false }, {}]]],
+        [[this.#busToDR], [[DRLoadColors, { needParams: false }, {}]]],
+      ],
+      D12T7: [
+        [[this.#acToBus], [[ACtoBusColors, { needParams: false }, {}]]],
+        [[this.#busToRam], [[memoryWriteColors, { needParams: false }, {}]]],
+      ],
       D12T8: [
-        this.#drToALU,
-        this.#transferDR,
-        this.#aluToAC,
-        this.#resetCounter,
+        [[this.#drToALU], [[DRtoALUColors, { needParams: false }, {}]]],
+        [[this.#transferDR], [[ALUoperationColors, { needParams: false }, {}]]],
+        [[this.#aluToAC], [[ALUtoACColors, { needParams: false }, {}]]],
+        [[this.#resetCounter], [[SCClearColors, { needParams: false }, {}]]],
       ],
-      D13T6: [this.#ifNotImmedAddRamToBus, this.#ifNotImmedAddBusToDR],
+      D13T6: [
+        [
+          [this.#ifNotImmedAddRamToBus],
+          [[ifNotImmedAddMemoryReadColors, { needParams: false }, {}]],
+        ],
+        [
+          [this.#ifNotImmedAddBusToDR],
+          [[ifNotImmedAddDRLoadColors, { needParams: false }, {}]],
+        ],
+      ],
       D13T7: [
-        this.#acDRToALU,
-        this.#addACandDR,
-        this.#aluToAC,
-        this.#aluToPSW,
-        this.#resetCounter,
+        [
+          [this.#acDRToALU],
+          [
+            [DRtoALUColors, { needParams: false }, {}],
+            [ACtoALUColors, { needParams: false }, {}],
+          ],
+        ],
+        [[this.#addACandDR], [[ALUoperationColors, { needParams: false }, {}]]],
+        [[this.#aluToAC], [[ALUtoACColors, { needParams: false }, {}]]],
+        [
+          [this.#aluToPSW],
+          [
+            [ALUtoCColors, { needParams: false }, {}],
+            [ALUtoZColors, { needParams: false }, {}],
+            [ALUtoVColors, { needParams: false }, {}],
+            [ALUtoSColors, { needParams: false }, {}],
+          ],
+        ],
+        [[this.#resetCounter], [[SCClearColors, { needParams: false }, {}]]],
       ],
-      D14T6: [this.#ifNotImmedAddRamToBus, this.#ifNotImmedAddBusToDR],
+      D14T6: [
+        [
+          [this.#ifNotImmedAddRamToBus],
+          [[ifNotImmedAddMemoryReadColors, { needParams: false }, {}]],
+        ],
+        [
+          [this.#ifNotImmedAddBusToDR],
+          [[ifNotImmedAddDRLoadColors, { needParams: false }, {}]],
+        ],
+      ],
       // D14T7: [this.#acToBus, this.#busToTR],
       // D14T8: [this.#drToALU, this.#transferDR, this.#aluToAC],
       // D14T9: [
@@ -88,47 +285,144 @@ class MRIOperations {
       // D14T10: [this.#acDRToALU, this.#addACandDR, this.#aluToAC],
       // D14T11: [this.#incrementAC, this.#aluToPSW, this.#resetCounter],
       D14T7: [
-        this.#acDRToALU,
-        this.#subACandDR,
-        this.#aluToAC,
-        this.#aluToPSW,
-        this.#resetCounter,
+        [
+          [this.#acDRToALU],
+          [
+            [DRtoALUColors, { needParams: false }, {}],
+            [ACtoALUColors, { needParams: false }, {}],
+          ],
+        ],
+        [[this.#subACandDR], [[ALUoperationColors, { needParams: false }, {}]]],
+        [[this.#aluToAC], [[ALUtoACColors, { needParams: false }, {}]]],
+        [
+          [this.#aluToPSW],
+          [
+            [ALUtoCColors, { needParams: false }, {}],
+            [ALUtoZColors, { needParams: false }, {}],
+            [ALUtoVColors, { needParams: false }, {}],
+            [ALUtoSColors, { needParams: false }, {}],
+          ],
+        ],
+        [[this.#resetCounter], [[SCClearColors, { needParams: false }, {}]]],
       ],
-      D15T6: [this.#ifNotImmedAddRamToBus, this.#ifNotImmedAddBusToDR],
+      D15T6: [
+        [
+          [this.#ifNotImmedAddRamToBus],
+          [[ifNotImmedAddMemoryReadColors, { needParams: false }, {}]],
+        ],
+        [
+          [this.#ifNotImmedAddBusToDR],
+          [[ifNotImmedAddDRLoadColors, { needParams: false }, {}]],
+        ],
+      ],
       D15T7: [
-        this.#acDRToALU,
-        this.#testACandDR,
-        this.#aluToPSW,
-        this.#resetCounter,
+        [
+          [this.#acDRToALU],
+          [
+            [DRtoALUColors, { needParams: false }, {}],
+            [ACtoALUColors, { needParams: false }, {}],
+          ],
+        ],
+        [
+          [this.#testACandDR],
+          [[ALUoperationColors, { needParams: false }, {}]],
+        ],
+        [
+          [this.#aluToPSW],
+          [
+            [ALUtoCColors, { needParams: false }, {}],
+            [ALUtoZColors, { needParams: false }, {}],
+            [ALUtoVColors, { needParams: false }, {}],
+            [ALUtoSColors, { needParams: false }, {}],
+          ],
+        ],
+        [[this.#resetCounter], [[SCClearColors, { needParams: false }, {}]]],
       ],
-      D16T6: [this.#ifNotImmedAddRamToBus, this.#ifNotImmedAddBusToDR],
+      D16T6: [
+        [
+          [this.#ifNotImmedAddRamToBus],
+          [[ifNotImmedAddMemoryReadColors, { needParams: false }, {}]],
+        ],
+        [
+          [this.#ifNotImmedAddBusToDR],
+          [[ifNotImmedAddDRLoadColors, { needParams: false }, {}]],
+        ],
+      ],
       D16T7: [
-        this.#acDRToALU,
-        this.#testBandDR,
-        this.#aluToPSW,
-        this.#resetCounter,
+        [
+          [this.#acDRToALU],
+          [
+            [DRtoALUColors, { needParams: false }, {}],
+            [ACtoALUColors, { needParams: false }, {}],
+          ],
+        ],
+        [[this.#testBandDR], [[ALUoperationColors, { needParams: false }, {}]]],
+        [
+          [this.#aluToPSW],
+          [
+            [ALUtoCColors, { needParams: false }, {}],
+            [ALUtoZColors, { needParams: false }, {}],
+            [ALUtoVColors, { needParams: false }, {}],
+            [ALUtoSColors, { needParams: false }, {}],
+          ],
+        ],
+        [[this.#resetCounter], [[SCClearColors, { needParams: false }, {}]]],
       ],
-      D17T6: [this.#ifZisSetARToBus, this.#ifZisSetBusToPC, this.#resetCounter],
+      D17T6: [
+        [
+          [this.#ifZisSetARToBus],
+          [[ifZisSetARtoBusColors, { needParams: false }, {}]],
+        ],
+        [
+          [this.#ifZisSetBusToPC],
+          [[ifZisSetPCLoadColors, { needParams: false }, {}]],
+        ],
+        [[this.#resetCounter], [[SCClearColors, { needParams: false }, {}]]],
+      ],
       D18T6: [
-        this.#ifZisResetARToBus,
-        this.#ifZisResetBusToPC,
-        this.#resetCounter,
+        [
+          [this.#ifZisResetARToBus],
+          [[ifZisResetARtoBusColors, { needParams: false }, {}]],
+        ],
+        [
+          [this.#ifZisResetBusToPC],
+          [[ifZisResetPCLoadColors, { needParams: false }, {}]],
+        ],
+        [[this.#resetCounter], [[SCClearColors, { needParams: false }, {}]]],
       ],
       D19T6: [
-        this.#ifsXORvORzARToBus,
-        this.#ifsXORvORzBusToPC,
-        this.#resetCounter,
+        [
+          [this.#ifsXORvORzARToBus],
+          [[ifsXORvORzARtoBusColors, { needParams: false }, {}]],
+        ],
+        [
+          [this.#ifsXORvORzBusToPC],
+          [[ifsXORvORzPCLoadColors, { needParams: false }, {}]],
+        ],
+        [[this.#resetCounter], [[SCClearColors, { needParams: false }, {}]]],
       ],
       D20T6: [this.#ifsXORvARToBus, this.#ifsXORvBusToPC, this.#resetCounter],
       D21T6: [
-        this.#ifNotsXORvARToBus,
-        this.#ifNotsXORvBusToPC,
-        this.#resetCounter,
+        [
+          [this.#ifNotsXORvARToBus],
+          [[ifNotsXORvARtoBusColors, { needParams: false }, {}]],
+        ],
+        [
+          [this.#ifNotsXORvBusToPC],
+          [[ifNotsXORvPCLoadColors, { needParams: false }, {}]],
+        ],
+        [[this.#resetCounter], [[SCClearColors, { needParams: false }, {}]]],
       ],
       D22T6: [
-        this.#ifNotsXORvAndNotzARToBus,
-        this.#ifNotsXORvAndNotzBusToPC,
-        this.#resetCounter,
+        [
+          [this.#ifNotsXORvAndNotzARToBus],
+          [[ifNotsXORvAndNotzARtoBusColors, { needParams: false }, {}]],
+        ],
+        [
+          [this.#ifNotsXORvAndNotzBusToPC],
+          [[ifNotsXORvAndNotzPCLoadColors, { needParams: false }, {}]],
+        ],
+        [[this.#resetCounter], [[SCClearColors, { needParams: false }, {}]]],
       ],
     };
   }
@@ -214,6 +508,7 @@ class MRIOperations {
       memoryRead(true);
     }
   }
+
   #ifNotImmedAddBusToDR() {
     if (getValue(i1Id) + getValue(i0Id) != "10") {
       loadDR();
@@ -371,13 +666,15 @@ class MRIOperations {
     if (this.#mriOperations[condition] == undefined) throw "Invalid operation";
     let operations = this.#mriOperations[condition];
     for (let operation of operations) {
-      operation();
-      await new Promise((resolve) =>
-        setTimeout(() => {
-          signalOff();
-          resolve();
-        }, 50)
-      );
+      myOperations.push([condition, operation[0][0]]);
+      myColors.push(operation[1]);
+      operation[0][0]();
+      // await new Promise((resolve) =>
+      //   setTimeout(() => {
+      //     signalOff();
+      //     resolve();
+      //   }, 50)
+      // );
     }
   }
 }

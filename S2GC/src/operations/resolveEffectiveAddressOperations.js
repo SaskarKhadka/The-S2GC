@@ -3,8 +3,14 @@ class ResolveEffectiveAddressOperations {
   constructor() {
     this.#decodeOperations = {
       "D31'I1'I0'T5": [],
-      "D31'I1I0'T5": [this.#irToBus, this.#busToDR],
-      "D31'I1I0T5": [this.#ramToBus, this.#busToAR],
+      "D31'I1I0'T5": [
+        [[this.#irToBus], [[IRtoBusColors, { needParams: false }, {}]]],
+        [[this.#busToDR], [[DRLoadColors, { needParams: false }, {}]]],
+      ],
+      "D31'I1I0T5": [
+        [[this.#ramToBus], [[memoryReadColors, { needParams: false }, {}]]],
+        [[this.#busToAR], [[ARLoadColors, { needParams: false }, {}]]],
+      ],
     };
   }
 
@@ -34,17 +40,21 @@ class ResolveEffectiveAddressOperations {
   }
 
   async performOperations(condition) {
+    // console.log(condition);
     if (this.#decodeOperations[condition] == undefined)
       throw "Invalid operation";
     let operations = this.#decodeOperations[condition];
     for (let operation of operations) {
-      operation();
-      await new Promise((resolve) =>
-        setTimeout(() => {
-          signalOff();
-          resolve();
-        }, 50)
-      );
+      myOperations.push([condition, operation[0][0]]);
+      myColors.push(operation[1]);
+      operation[0][0]();
+      signalOff();
+      // await new Promise((resolve) =>
+      // setTimeout(() => {
+      // signalOff();
+      // resolve();
+      // }, 50)
+      // );
     }
   }
 }

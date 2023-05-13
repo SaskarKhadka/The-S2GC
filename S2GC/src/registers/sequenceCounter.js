@@ -30,6 +30,10 @@ class SequenceCounter {
     this.#clr = newVal;
   }
 
+  setValue(value) {
+    this.#value = value;
+  }
+
   increamentValue() {
     if (this.#inr) {
       this.#inr = false;

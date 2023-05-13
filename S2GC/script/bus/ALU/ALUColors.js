@@ -19,6 +19,10 @@ function ALUtoBColors() {
   borderOn("ALU-box");
 }
 
+function ALUoperationColors() {
+  activeBoxOn("ALU-box");
+}
+
 function ACtoALUColors() {
   activeBoxOn("ALU-box");
   topArrowOn("AC-to-ALU");

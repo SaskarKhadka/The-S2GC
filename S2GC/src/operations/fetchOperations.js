@@ -3,9 +3,17 @@ class FetchOperations {
 
   constructor() {
     this.#fetchOperations = {
-      T0: [this.#pcToBus, this.#busToAR],
-      T1: [this.#ramToBus, this.#busToIR],
-      T2: [this.#incrementPC],
+      T0: [
+        [[this.#pcToBus], [[PCtoBusColors, { needParams: false }, {}]]],
+        [[this.#busToAR], [[ARLoadColors, { needParams: false }, {}]]],
+      ],
+      T1: [
+        [[this.#ramToBus], [[memoryReadColors, { needParams: false }, {}]]],
+        [[this.#busToIR], [[IRLoadColors, { needParams: false }, {}]]],
+      ],
+      T2: [
+        [[this.#incrementPC], [[PCIncrementColors, { needParams: false }, {}]]],
+      ],
     };
   }
 
@@ -30,17 +38,25 @@ class FetchOperations {
   }
 
   async performOperations(condition) {
+    console.log(condition);
     if (this.#fetchOperations[condition] == undefined)
       throw "Invalid decode operation";
     let operations = this.#fetchOperations[condition];
     for (let operation of operations) {
-      operation();
-      await new Promise((resolve) =>
-        setTimeout(() => {
-          signalOff();
-          resolve();
-        }, 50)
-      );
+      // myOperations.push([condition, operation]);
+      // operation();
+
+      myOperations.push([condition, operation[0][0]]);
+      myColors.push(operation[1]);
+      operation[0][0]();
+
+      // await new Promise((resolve) =>
+      //   setTimeout(() => {
+      //     signalOff();
+      //     resolve();
+      //   }, 50)
+      // );
+      signalOff();
     }
   }
 }

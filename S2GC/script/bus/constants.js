@@ -55,3 +55,9 @@ const TokenType = {
   HASHTAG: "HASHTAG",
   DOLLAR: "DOLLAR",
 };
+
+let firstTimeForward = true;
+let paused = false;
+let prev = false;
+let next = false;
+let play = false;

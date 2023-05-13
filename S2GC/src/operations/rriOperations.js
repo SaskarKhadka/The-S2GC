@@ -235,17 +235,19 @@ class RRIOperations {
   }
 
   async performOperations(condition) {
-    console.log(condition);
+    // console.log(condition);
     if (this.#rriOperations[condition] == undefined) throw "Invalid operation";
     let operations = this.#rriOperations[condition];
     for (let operation of operations) {
+      myOperations.push([condition, operation]);
       operation();
-      await new Promise((resolve) =>
-        setTimeout(() => {
-          signalOff();
-          resolve();
-        }, 50)
-      );
+      signalOff();
+      // await new Promise((resolve) =>
+      // setTimeout(() => {
+      // signalOff();
+      // resolve();
+      // }, 50)
+      // );
     }
   }
 }

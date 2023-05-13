@@ -6,8 +6,25 @@ class DecodeOperations {
 
   constructor() {
     this.#decodeOperations = {
-      T3: [this.#decodeAddressingModeAndInstructionType],
-      T4: [this.#ifNotImmedAddIRtoBus, this.#ifNotImmedAddBusToAR],
+      T3: [
+        [
+          [this.#decodeAddressingModeAndInstructionType],
+          [
+            [activeBoxOn, { needParams: true }, { params: "FF-I1" }],
+            [activeBoxOn, { needParams: true }, { params: "FF-I0" }],
+          ],
+        ],
+      ],
+      T4: [
+        [
+          [this.#ifNotImmedAddIRtoBus],
+          [[IRtoBusColors, { needParams: false }, {}]],
+        ],
+        [
+          [this.#ifNotImmedAddBusToAR],
+          [[ARLoadColors, { needParams: false }, {}]],
+        ],
+      ],
     };
   }
 
@@ -44,17 +61,21 @@ class DecodeOperations {
   }
 
   async performOperations(condition) {
+    console.log(condition);
     if (this.#decodeOperations[condition] == undefined)
       throw "Invalid decode operation";
     let operations = this.#decodeOperations[condition];
     for (let operation of operations) {
-      operation();
-      await new Promise((resolve) =>
-        setTimeout(() => {
-          signalOff();
-          resolve();
-        }, 50)
-      );
+      myOperations.push([condition, operation[0][0]]);
+      myColors.push(operation[1]);
+      operation[0][0]();
+      // await new Promise((resolve) =>
+      //   setTimeout(() => {
+      //     signalOff();
+      //     resolve();
+      //   }, 50)
+      // );
+      signalOff();
     }
   }
 }

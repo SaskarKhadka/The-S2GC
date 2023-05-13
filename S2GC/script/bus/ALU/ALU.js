@@ -321,6 +321,7 @@ function ALUtoAC() {
 function setALUOperation(value) {
   document.getElementById(aluOpId).innerHTML = value;
   ops[value]();
+  ALUoperationColors();
 }
 
 function ALUtoC() {
