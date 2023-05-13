@@ -3,11 +3,22 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  right: -5px;
   top: -5px;
   width: 80px;
   height: 260px;
   border: 2px solid var(--dark);
+}
+
+@media only screen and (min-width: 1300px) {
+  #Flip-Flop-container {
+    right: -5px;
+  }
+}
+
+@media only screen and (max-width: 1300px) {
+  #Flip-Flop-container {
+    left: 720px;
+  }
 }
 
 .FF {
