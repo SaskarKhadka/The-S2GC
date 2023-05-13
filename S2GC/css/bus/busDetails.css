@@ -1,8 +1,6 @@
-
 .bus-selector {
   position: absolute;
   display: flex;
-  width: 100%;
   height: 40px;
   background-color: var(--white);
   align-items: baseline;
@@ -13,6 +11,18 @@
   bottom: 50px;
 }
 
+@media only screen and (min-width: 1300px) {
+  .bus-selector {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 1300px) {
+  .bus-selector {
+    width: 800px;
+  }
+}
+
 .bus-selector span {
   font-size: 20px;
   display: inline-block;
@@ -21,8 +31,8 @@
 .selection-lines {
   position: absolute;
   bottom: 20px;
-  text-align: right;
-  width: 90%;
+  width: 100px;
+  text-align: center;
 }
 
 .selection-0,
@@ -35,12 +45,26 @@
 .selection-no {
   position: absolute;
   bottom: 0;
-  text-align: right;
-  width: 90%;
+  width: 100px;
+  text-align: center;
 }
 
 .selection-text-0,
 .selection-text-1,
 .selection-text-2 {
   padding: 2px;
+}
+
+@media only screen and (min-width: 1300px) {
+  .selection-no,
+  .selection-lines {
+    right: -5px;
+  }
+}
+
+@media only screen and (max-width: 1300px) {
+  .selection-no,
+  .selection-lines {
+    left: 620px;
+  }
 }
