@@ -48,7 +48,7 @@ function playForward() {
     const operation = myOperations[operationsIndex];
     operation[1]();
   } else {
-    console.log("Overflow");
+    createToast("warning", "Microoperation Stack Overflow!");
   }
 }
 
@@ -60,7 +60,6 @@ function playBackward() {
     }
     operationsIndex--;
     const colors = myColors[operationsIndex];
-    console.log(colors);
     for (let color of colors) {
       const colorFunc = color[0];
       if (color[1].needParams) {
@@ -72,22 +71,36 @@ function playBackward() {
     // operation[1]();
   } else {
     operationsIndex = -1;
-    // console.log("Underflow");
+    createToast("warning", "Microoperation Stack Underflow!");
   }
 }
 
 function pauseSimulation() {
   paused = true;
-  console.log("paused");
 }
 
 function resetSimulation() {
+  const rect = refreshButton.getBoundingClientRect();
+  const top = rect.top + window.pageYOffset;
+  confirmationBox.style.top = "50%";
+  document.getElementById("confirm-title").innerHTML = "Reset Bus Architecture";
   showConfirmationBox();
-  okButton.addEventListener("click", function () {
+  okButton.addEventListener("click", okButtonClick);
+  cancelButton.addEventListener("click", cancelButtonClick);
+  function okButtonClick(event) {
+    event.preventDefault();
+    hideConfirmationBox();
+    resetBusArchitecture();
     signalOff();
+    createToast("success", "Reset Bus Architecture Succesful");
+    okButton.removeEventListener("click", okButtonClick);
+    cancelButton.removeEventListener("click", cancelButtonClick);
+  }
+  function cancelButtonClick(event) {
+    event.preventDefault();
     hideConfirmationBox();
-  });
-  cancelButton.addEventListener("click", function () {
-    hideConfirmationBox();
-  });
+    createToast("error", "Reset Bus Architecture Cancled");
+    okButton.removeEventListener("click", okButtonClick);
+    cancelButton.removeEventListener("click", cancelButtonClick);
+  }
 }

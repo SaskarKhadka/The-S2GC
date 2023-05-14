@@ -49,10 +49,13 @@
     </section>
 
     <div id="body-content" class="body-content">
+
+        <ul class="notifications"></ul>
+
         <div class="popup_box" id="popup_box">
             <i class="fas fa-exclamation"></i>
-            <h4>Code Editor will be cleared!</h4>
-            <label>Are you sure to proceed?</label>
+            <h4 class="confirm-title" id="confirm-title">v</h4>
+            <!-- <label>Are you sure to proceed?</label> -->
             <div class="btns" id="btns">
                 <a href="#" class="btn1" id="btn1">Cancel</a>
                 <a href="#" class="btn2" id="btn2">Ok</a>
@@ -78,19 +81,19 @@
             <div class="common-bus-container-header">
                 <h3>Common Bus System</h3>
                 <dvi class="pause-play-box" id="pause-play-box">
-                    <div class="pause" id="pause">
+                    <div class="pause" id="pause" tooltip="Pause">
                         <i class="fa fa-pause"></i>
                     </div>
-                    <div class="backward" id="backward">
+                    <div class="backward" id="backward" tooltip="Prev">
                         <i class="fa fa-backward"></i>
                     </div>
-                    <div class="forward" id="forward">
+                    <div class="forward" id="forward" tooltip="Next">
                         <i class="fa fa-forward"></i>
                     </div>
-                    <div class="play" id="play">
+                    <div class="play" id="play" tooltip="Play">
                         <i class="fa fa-play"></i>
                     </div>
-                    <div class="reset" id="reset">
+                    <div class="reset" id="reset" tooltip="Reset">
                         <i class="fa fa-refresh"></i>
                     </div>
 
@@ -391,23 +394,23 @@
                     <div>
                         <span class="program-type" id="program-type">main.asm</span>
                     </div>
-                    <div onclick={refreshEditor()} class="refresh-icon" id="refresh-icon">
+                    <div class="refresh-icon" id="refresh-icon" tooltip="Clear">
                         <i class="fa fa-refresh">
                         </i>
                     </div>
                 </div>
                 <div class="editor-container" id="editor-container">
-                    <textarea class="code-editor" id="code-editor">Code Editor...</textarea>
+                    <textarea class="code-editor" id="code-editor" placeholder="Write Assembly Code here..."></textarea>
                 </div>
             </div>
             <div class="editor-footer" id="editor-footer">
-                <button class="run-button" id="run-button">Run</button>
+                <button class="run-button" id="run-button">Assemble Code</button>
             </div>
         </div>
     </div>
     <div class="memory-container">
         <div class="headline-text">
-            <h3 class="hedline-title" id="headline-title">Memory View</h3>
+            <h3 class="hedline-title" id="headline-title">Data View</h3>
             <label class="switch">
                 <input class="checkbox-input" id="checkbox-input" onclick="toggleMemorySlot(this.value);"
                     type="checkbox" checked>

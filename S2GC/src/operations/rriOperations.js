@@ -235,7 +235,6 @@ class RRIOperations {
   }
 
   async performOperations(condition) {
-    // console.log(condition);
     if (this.#rriOperations[condition] == undefined) throw "Invalid operation";
     let operations = this.#rriOperations[condition];
     for (let operation of operations) {

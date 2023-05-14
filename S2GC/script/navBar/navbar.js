@@ -16,17 +16,17 @@ window.onscroll = function () {
   navMenu.classList.remove("active");
 };
 
-help.addEventListener("click", function () {
+help.addEventListener("click", function helpListner() {
   hamburger.classList.remove("active");
   navMenu.classList.remove("active");
 });
 
-about.addEventListener("click", function () {
+about.addEventListener("click", function aboutListner() {
   hamburger.classList.remove("active");
   navMenu.classList.remove("active");
 });
 
-github.addEventListener("click", function () {
+github.addEventListener("click", function githubListner() {
   hamburger.classList.remove("active");
   navMenu.classList.remove("active");
 });

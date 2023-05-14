@@ -68,7 +68,6 @@ function loadInstructionToMemory() {
   const instructions = assembler.getInstructions();
   let memAddress = 4096;
   for (let instruction of instructions) {
-    // console.log(memAddress.toString(16));
     document.getElementById(memAddress.toString(16).toUpperCase()).innerHTML =
       Arithmetics.binaryToDecimal(instruction);
     memAddress++;
@@ -100,3 +99,12 @@ async function runInstructions() {
 
 const button = document.getElementById("run-button");
 button.addEventListener("click", runInstructions);
+
+// const button = document.getElementById("run-button");
+// button.addEventListener("click", function () {
+//   scanner.setCode(document.getElementById("code-editor").value);
+//   scanner.lexer();
+//   assembler.setTokens(scanner.tokens());
+//   assembler.assembleTokens();
+//   runInstructions();
+// });

@@ -61,7 +61,6 @@ class DecodeOperations {
   }
 
   async performOperations(condition) {
-    console.log(condition);
     if (this.#decodeOperations[condition] == undefined)
       throw "Invalid decode operation";
     let operations = this.#decodeOperations[condition];

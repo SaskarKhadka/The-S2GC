@@ -28,6 +28,7 @@
 }
 
 .cellData {
+  position: relative;
   border: 1px solid var(--gray);
   padding: 4px;
   text-align: center;
@@ -53,4 +54,25 @@
 .directHoverCell {
   background-color: var(--green);
   color: var(--white);
+}
+
+.cellData::before {
+  content: attr(id);
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 4px 8px;
+  border-radius: 4px;
+  background-color: #333;
+  color: #fff;
+  font-size: 12px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.cellData:hover::before {
+  opacity: 1;
+  pointer-events: auto;
 }

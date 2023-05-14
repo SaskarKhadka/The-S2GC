@@ -40,7 +40,6 @@ class ResolveEffectiveAddressOperations {
   }
 
   async performOperations(condition) {
-    // console.log(condition);
     if (this.#decodeOperations[condition] == undefined)
       throw "Invalid operation";
     let operations = this.#decodeOperations[condition];

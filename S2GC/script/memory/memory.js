@@ -55,7 +55,6 @@ function createMemoryType(type) {
             cellBody.setAttribute("onmouseenter", "addHoverEffect(this);");
             cellBody.setAttribute("onmouseleave", "removeHoverEffect(this);");
             cellBody.setAttribute("id", `${value}${chars[j]}`);
-            cellBody.setAttribute("title", `${value}${chars[j]}`);
           }
           cellBody.appendChild(cellText);
           rowBody.appendChild(cellBody);
