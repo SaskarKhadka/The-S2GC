@@ -10,6 +10,22 @@ forwardButton.addEventListener("click", playForward);
 backwardButton.addEventListener("click", playBackward);
 resetButton.addEventListener("click", resetSimulation);
 
+play === true
+  ? (playButton.style.pointerEvents = "none")
+  : (playButton.style.pointerEvents = null);
+
+paused === true
+  ? (pauseButton.style.pointerEvents = "none")
+  : (pauseButton.style.pointerEvents = null);
+
+prev === true
+  ? (backwardButton.style.pointerEvents = "none")
+  : (backwardButton.style.pointerEvents = null);
+
+next === true
+  ? (forwardButton.style.pointerEvents = "none")
+  : (forwardButton.style.pointerEvents = null);
+
 async function playSimulation() {
   // play = true;
   paused = false;
