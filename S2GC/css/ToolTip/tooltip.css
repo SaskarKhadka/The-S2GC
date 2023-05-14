@@ -1,0 +1,30 @@
+.play::before,
+.pause::before,
+.forward::before,
+.backward::before,
+.reset::before,
+.refresh-icon::before {
+  content: attr(tooltip);
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 4px 8px;
+  border-radius: 4px;
+  background-color: #333;
+  color: #fff;
+  font-size: 12px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.play:hover::before,
+.pause:hover::before,
+.forward:hover::before,
+.backward:hover::before,
+.reset:hover::before,
+.refresh-icon:hover::before {
+  opacity: 1;
+  pointer-events: auto;
+}

@@ -38,7 +38,6 @@ class FetchOperations {
   }
 
   async performOperations(condition) {
-    console.log(condition);
     if (this.#fetchOperations[condition] == undefined)
       throw "Invalid decode operation";
     let operations = this.#fetchOperations[condition];

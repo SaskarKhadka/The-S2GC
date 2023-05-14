@@ -1,5 +1,6 @@
 let scriptList = [
   "../script/model/confirm.js",
+  "../script/Toast/toast.js",
   "../script/bus/constants.js",
   "../src/arithmetics/arithmetics.js",
   "../script/color.js",

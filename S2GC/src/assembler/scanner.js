@@ -26,6 +26,10 @@ class Scanner {
     return this.#tokens;
   }
 
+  setCode(code) {
+    this.#code = code;
+  }
+
   #getChar() {
     /*
       Gets the next character in the input code
@@ -238,6 +242,8 @@ class Scanner {
     return this.#isdigit() || this.#isalpha();
   }
 }
+
+// const scanner = new Scanner();
 
 const scanner = new Scanner("LDA @15; XCHG $0; HLT;");
 // "LDB #0;\nLDA #0;\nasd: STB @15;LDB #0; efg: STB @16; LDA $16; INCB;STB @16;TESTA $16; JG jumpp;res:INCB; LDA #4;SUB @15;STB @17;TESTA @17; JL efg; LDB @15;INCB;TESTB #4; JL asd; HLT;jumpp: XCHG $16;BUN res;"

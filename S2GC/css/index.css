@@ -1,4 +1,6 @@
 @import url("./global.css");
+@import url("./ToolTip//tooltip.css");
+@import url("./Toast//toast.css");
 @import url("./navbar.css");
 @import url("./bus/commonBus.css");
 @import url("./codeEditor/code.css");

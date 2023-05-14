@@ -1,9 +1,9 @@
 const confirmationBox = document.getElementById("popup_box");
 
-function showConfirmationBox(result) {
+function showConfirmationBox() {
   confirmationBox.style.display = "block";
 }
 
-function hideConfirmationBox(result) {
+function hideConfirmationBox() {
   confirmationBox.style.display = "none";
 }

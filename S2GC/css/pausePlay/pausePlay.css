@@ -6,6 +6,7 @@
 .forward,
 .pause,
 .reset {
+  position: relative;
   margin: 5px;
   width: 25px;
   height: 25px;
