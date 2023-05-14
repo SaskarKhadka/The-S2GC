@@ -27,7 +27,7 @@ async function executeEffectiveAddressResolver() {
   condition += i1Val == "1" ? "I1" : "I1'";
   condition += i0Val == "1" ? "I0" : "I0'";
   condition += `T${state}`;
-  while (parseInt(state) == 5) {
+  if (parseInt(state) == 5) {
     await resolveEffecAddOps.performOperations(condition);
     seqCounter.inrFlag(true);
     seqCounter.increamentValue();
@@ -66,6 +66,7 @@ async function executeMRIOperationCycle() {
 
 function loadInstructionToMemory() {
   const instructions = assembler.getInstructions();
+  console.log(instructions);
   let memAddress = 4096;
   for (let instruction of instructions) {
     document.getElementById(memAddress.toString(16).toUpperCase()).innerHTML =
@@ -93,18 +94,26 @@ async function runInstructions() {
     if (getValue(ssId) == "0") break;
   }
   resetBusArchitecture();
+  // LDA #-5;asd:INCA;INCB;TESTB #5;JNZ asd;HLT;
 
   // await simulate();
 }
 
-const button = document.getElementById("run-button");
-button.addEventListener("click", runInstructions);
-
 // const button = document.getElementById("run-button");
-// button.addEventListener("click", function () {
-//   scanner.setCode(document.getElementById("code-editor").value);
-//   scanner.lexer();
-//   assembler.setTokens(scanner.tokens());
-//   assembler.assembleTokens();
-//   runInstructions();
-// });
+// button.addEventListener("click", runInstructions);
+
+const button = document.getElementById("run-button");
+button.addEventListener("click", function () {
+  try {
+    scanner.setCode(document.getElementById("code-editor").value);
+    scanner.lexer();
+    assembler.setTokens(scanner.tokens());
+    assembler.assembleTokens();
+    runInstructions();
+  } catch (ex) {
+    createToast("error", ex);
+    scanner.reset();
+    assembler.reset();
+    resetBusArchitecture();
+  }
+});

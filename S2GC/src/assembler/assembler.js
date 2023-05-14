@@ -7,10 +7,18 @@ class Assembler {
   #nextLexeme;
   #nextLine;
   #currIndex;
-  constructor(tokens) {
+  constructor() {
     this.#instructions = [];
     this.#currentMemAddress = 4096;
-    this.#tokens = tokens;
+    this.#tokens = [];
+    this.#currIndex = -1;
+    this.#labelToAddress = {};
+  }
+
+  reset() {
+    this.#instructions = [];
+    this.#currentMemAddress = 4096;
+    this.#tokens = [];
     this.#currIndex = -1;
     this.#labelToAddress = {};
   }
@@ -49,7 +57,7 @@ class Assembler {
       } else if (this.#nextToken == TokenType.IDENTIFIER) {
         this.#handleLabeledStatements();
       } else {
-        createToast("error", "Invalid Statment Type!");
+        //createToast("error", "Invalid Statment Type!");
         this.#throwError("Invalid statement type");
       }
     }
@@ -91,7 +99,7 @@ class Assembler {
       if (this.#nextToken == TokenType.IDENTIFIER) {
         binaryOperand = this.#nextLexeme;
       } else {
-        createToast("error", "Invalid operand value for jump instruction!");
+        //createToast("error", "Invalid operand value for jump instruction!");
         this.#throwError("Invalid operand value for jump instruction");
       }
     } else {
@@ -100,10 +108,10 @@ class Assembler {
         binaryAddMode = Instructions.addressingMode[this.#nextLexeme];
         this.#getToken();
       } else {
-        createToast(
-          "error",
-          "Please enter a valid addressing mode for Memory Reference Instructions!"
-        );
+        //createToast(
+        // "error",
+        // "Please enter a valid addressing mode for Memory Reference Instructions!"
+        // );
         this.#throwError(
           "Please enter a valid addressing mode for Memory Reference Instructions"
         );
@@ -130,10 +138,10 @@ class Assembler {
                 24
               );
           } else {
-            createToast(
-              "error",
-              "Invalid operand value for Memory Reference Instructions!"
-            );
+            //createToast(
+            //   "error",
+            //   "Invalid operand value for Memory Reference Instructions!"
+            // );
             this.#throwError(
               "Invalid operand value for Memory Reference Instructions"
             );
@@ -146,10 +154,10 @@ class Assembler {
               24
             );
         } else {
-          createToast(
-            "error",
-            "Invalid operand value for Memory Reference Instructions!"
-          );
+          //createToast(
+          //   "error",
+          //   "Invalid operand value for Memory Reference Instructions!"
+          // );
           this.#throwError(
             "Invalid operand value for Memory Reference Instructions"
           );
@@ -162,10 +170,10 @@ class Assembler {
             25
           );
         } else {
-          createToast(
-            "error",
-            "Invalid operand value for Memory Reference Instructions!"
-          );
+          //createToast(
+          //   "error",
+          //   "Invalid operand value for Memory Reference Instructions!"
+          // );
           this.#throwError(
             "Invalid operand value for Memory Reference Instructions"
           );
@@ -176,7 +184,7 @@ class Assembler {
     //handle semicolon
     this.#getToken();
     if (this.#nextToken != TokenType.SEMICOLON) {
-      createToast("error", "Statements must end with semicolon!");
+      //createToast("error", "Statements must end with semicolon!");
       this.#throwError("Statements must end with semicolon");
     }
     // this.#currentMemAddress++;
@@ -190,7 +198,7 @@ class Assembler {
     binCode = Instructions.rriInstructions[this.#nextLexeme];
     this.#getToken();
     if (this.#nextToken != TokenType.SEMICOLON) {
-      createToast("error", "Statements must end with semicolon!");
+      //createToast("error", "Statements must end with semicolon!");
       this.#throwError("Statements must end with semicolon");
     }
     // this.#currentMemAddress++;
@@ -215,7 +223,7 @@ class Assembler {
     this.#labelToAddress[this.#nextLexeme] = this.#currentMemAddress;
     this.#getToken();
     if (this.#nextToken != TokenType.COLON) {
-      createToast("error", "Invalid Statement!");
+      //createToast("error", "Invalid Statement!");
       this.#throwError("Invalid statement");
     }
     this.assembleTokens();
@@ -246,5 +254,5 @@ class Assembler {
 }
 
 // const assembler = new Assembler();
-const assembler = new Assembler(scanner.tokens());
-assembler.assembleTokens();
+const assembler = new Assembler();
+// assembler.assembleTokens();
