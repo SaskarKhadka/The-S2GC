@@ -66,7 +66,6 @@ async function executeMRIOperationCycle() {
 
 function loadInstructionToMemory() {
   const instructions = assembler.getInstructions();
-  console.log(instructions);
   let memAddress = 4096;
   for (let instruction of instructions) {
     document.getElementById(memAddress.toString(16).toUpperCase()).innerHTML =
@@ -80,6 +79,11 @@ function loadInstructionToMemory() {
 
 async function runInstructions() {
   loadInstructionToMemory();
+  const editedMemValues = document.querySelectorAll(".edited");
+  let values = {};
+  for (let each of editedMemValues) {
+    values[each.id] = each.innerHTML;
+  }
   document.getElementById(ssId).innerHTML = "1";
   while (true) {
     await executeFetchCycle();
@@ -94,6 +98,9 @@ async function runInstructions() {
     if (getValue(ssId) == "0") break;
   }
   resetBusArchitecture();
+
+  resetMemory(values);
+
   // LDA #-5;asd:INCA;INCB;TESTB #5;JNZ asd;HLT;
 
   // await simulate();
