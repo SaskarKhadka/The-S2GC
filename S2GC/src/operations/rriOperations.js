@@ -4,74 +4,185 @@ class RRIOperations {
     this.#rriOperations = {
       // "D31I1'I0'T5": [this.#resetCounter],
       "D31I1'I0'T5B24": [
-        this.#acToALU,
-        this.#decrementAC,
-        this.#aluToAC,
-        this.#resetCounter,
+        [[this.#acToALU], [[ACtoALUColors, { needParams: false }, {}]]],
+        [
+          [this.#decrementAC],
+          [[ALUoperationColors, { needParams: false }, {}]],
+        ],
+        [[this.#aluToAC], [[ALUtoACColors, { needParams: false }, {}]]],
+        [[this.#resetCounter], [[SCClearColors, { needParams: false }, {}]]],
       ],
       "D31I1'I0'T5B23": [
-        this.#bToALU,
-        this.#decrementB,
-        this.#aluToB,
-        this.#resetCounter,
+        [[this.#bToALU], [[BtoALUColors, { needParams: false }, {}]]],
+        [[this.#decrementB], [[ALUoperationColors, { needParams: false }, {}]]],
+        [[this.#aluToB], [[ALUtoBColors, { needParams: false }, {}]]],
+        [[this.#resetCounter], [[SCClearColors, { needParams: false }, {}]]],
       ],
-      "D31I1'I0'T5B22": [this.#clearAC, this.#resetCounter],
-      "D31I1'I0'T5B21": [this.#clearB, this.#resetCounter],
+      "D31I1'I0'T5B22": [
+        [[this.#clearAC], [[ACClearColors, { needParams: false }, {}]]],
+        [[this.#resetCounter], [[SCClearColors, { needParams: false }, {}]]],
+      ],
+      "D31I1'I0'T5B21": [
+        [[this.#clearB], [[BClearColors, { needParams: false }, {}]]],
+        [[this.#resetCounter], [[SCClearColors, { needParams: false }, {}]]],
+      ],
       "D31I1'I0'T5B20": [
-        this.#acToALU,
-        this.#complementAC,
-        this.#aluToAC,
-        this.#resetCounter,
+        [[this.#acToALU], [[ACtoALUColors, { needParams: false }, {}]]],
+        [
+          [this.#complementAC],
+          [[ALUoperationColors, { needParams: false }, {}]],
+        ],
+        [[this.#aluToAC], [[ALUtoACColors, { needParams: false }, {}]]],
+        [[this.#resetCounter], [[SCClearColors, { needParams: false }, {}]]],
       ],
       "D31I1'I0'T5B19": [
-        this.#bToALU,
-        this.#complementB,
-        this.#aluToB,
-        this.#resetCounter,
+        [[this.#bToALU], [[BtoALUColors, { needParams: false }, {}]]],
+        [
+          [this.#complementB],
+          [[ALUoperationColors, { needParams: false }, {}]],
+        ],
+        [[this.#aluToB], [[ALUtoBColors, { needParams: false }, {}]]],
+        [[this.#resetCounter], [[SCClearColors, { needParams: false }, {}]]],
       ],
       "D31I1'I0'T5B18": [
-        this.#acToALU,
-        this.#ashrAC,
-        this.#aluToAC,
-        this.#updateC,
-        this.#resetCounter,
+        [[this.#acToALU], [[ACtoALUColors, { needParams: false }, {}]]],
+        [[this.#ashrAC], [[ALUoperationColors, { needParams: false }, {}]]],
+        [[this.#aluToAC], [[ALUtoACColors, { needParams: false }, {}]]],
+        [[this.#updateC], [[ALUtoCColors, { needParams: false }, {}]]],
+        [[this.#resetCounter], [[SCClearColors, { needParams: false }, {}]]],
       ],
       "D31I1'I0'T5B17": [
-        this.#acToALU,
-        this.#ashlAC,
-        this.#aluToAC,
-        this.#updateCandV,
-        this.#resetCounter,
+        [[this.#acToALU], [[ACtoALUColors, { needParams: false }, {}]]],
+        [[this.#ashlAC], [[ALUoperationColors, { needParams: false }, {}]]],
+        [[this.#aluToAC], [[ALUtoACColors, { needParams: false }, {}]]],
+        [
+          [this.#updateCandV],
+          [
+            [ALUtoCColors, { needParams: false }, {}],
+            [ALUtoVColors, { needParams: false }, {}],
+          ],
+        ],
+        [[this.#resetCounter], [[SCClearColors, { needParams: false }, {}]]],
       ],
       "D31I1'I0'T5B16": [
-        this.#bToALU,
-        this.#ashrB,
-        this.#aluToB,
-        this.#updateC,
-        this.#resetCounter,
+        [[this.#bToALU], [[BtoALUColors, { needParams: false }, {}]]],
+        [[this.#ashrB], [[ALUoperationColors, { needParams: false }, {}]]],
+        [[this.#aluToB], [[ALUtoBColors, { needParams: false }, {}]]],
+        [[this.#updateC], [[ALUtoCColors, { needParams: false }, {}]]],
+        [[this.#resetCounter], [[SCClearColors, { needParams: false }, {}]]],
       ],
       "D31I1'I0'T5B15": [
-        this.#bToALU,
-        this.#ashlB,
-        this.#aluToB,
-        this.#updateCandV,
-        this.#resetCounter,
+        [[this.#bToALU], [[BtoALUColors, { needParams: false }, {}]]],
+        [[this.#ashlB], [[ALUoperationColors, { needParams: false }, {}]]],
+        [[this.#aluToB], [[ALUtoBColors, { needParams: false }, {}]]],
+        [
+          [this.#updateCandV],
+          [
+            [ALUtoCColors, { needParams: false }, {}],
+            [ALUtoVColors, { needParams: false }, {}],
+          ],
+        ],
+        [[this.#resetCounter], [[SCClearColors, { needParams: false }, {}]]],
       ],
-      "D31I1'I0'T5B14": [this.#incrementAC, this.#resetCounter],
-      "D31I1'I0'T5B13": [this.#incrementB, this.#resetCounter],
-      "D31I1'I0'T5B12": [this.#ifCIncrementPC, this.#resetCounter],
-      "D31I1'I0'T5B11": [this.#ifNotCIncrementPC, this.#resetCounter],
-      "D31I1'I0'T5B10": [this.#ifZIncrementPC, this.#resetCounter],
-      "D31I1'I0'T5B9": [this.#ifNotSIncrementPC, this.#resetCounter],
-      "D31I1'I0'T5B8": [this.#ifVIncrementPC, this.#resetCounter],
-      "D31I1'I0'T5B7": [this.#ifNotVIncrementPC, this.#resetCounter],
-      "D31I1'I0'T5B6": [this.#ifSIncrementPC, this.#resetCounter],
-      "D31I1'I0'T5B5": [this.#ifNotZIncrementPC, this.#resetCounter],
-      "D31I1'I0'T5B4": [this.#ifsXORvORzIncrementPC, this.#resetCounter],
-      "D31I1'I0'T5B3": [this.#ifsXORvIncrementPC, this.#resetCounter],
-      "D31I1'I0'T5B2": [this.#ifNotsXORvAndNotzIncrementPC, this.#resetCounter],
-      "D31I1'I0'T5B1": [this.#ifNotsXORvIncrementPC, this.#resetCounter],
-      "D31I1'I0'T5B0": [this.#resetSS, this.#resetCounter],
+      "D31I1'I0'T5B14": [
+        [[this.#incrementAC], [[ACIncrementColors, { needParams: false }, {}]]],
+        [[this.#resetCounter], [[SCClearColors, { needParams: false }, {}]]],
+      ],
+      "D31I1'I0'T5B13": [
+        [[this.#incrementB], [[BIncrementColors, { needParams: false }, {}]]],
+        [[this.#resetCounter], [[SCClearColors, { needParams: false }, {}]]],
+      ],
+      "D31I1'I0'T5B12": [
+        [
+          [this.#ifCIncrementPC],
+          [[ifCPCIncrementColors, { needParams: false }, {}]],
+        ],
+        [[this.#resetCounter], [[SCClearColors, { needParams: false }, {}]]],
+      ],
+      "D31I1'I0'T5B11": [
+        [
+          [this.#ifNotCIncrementPC],
+          [[ifNotCPCIncrementColors, { needParams: false }, {}]],
+        ],
+        [[this.#resetCounter], [[SCClearColors, { needParams: false }, {}]]],
+      ],
+      "D31I1'I0'T5B10": [
+        [
+          [this.#ifZIncrementPC],
+          [[ifZPCIncrementColors, { needParams: false }, {}]],
+        ],
+        [[this.#resetCounter], [[SCClearColors, { needParams: false }, {}]]],
+      ],
+      "D31I1'I0'T5B9": [
+        [
+          [this.#ifNotSIncrementPC],
+          [[ifNotSPCIncrementColors, { needParams: false }, {}]],
+        ],
+        [[this.#resetCounter], [[SCClearColors, { needParams: false }, {}]]],
+      ],
+      "D31I1'I0'T5B8": [
+        [
+          [this.#ifVIncrementPC],
+          [[ifVPCIncrementColors, { needParams: false }, {}]],
+        ],
+        [[this.#resetCounter], [[SCClearColors, { needParams: false }, {}]]],
+      ],
+      "D31I1'I0'T5B7": [
+        [
+          [this.#ifNotVIncrementPC],
+          [[ifNotVPCIncrementColors, { needParams: false }, {}]],
+        ],
+        [[this.#resetCounter], [[SCClearColors, { needParams: false }, {}]]],
+      ],
+      "D31I1'I0'T5B6": [
+        [
+          [this.#ifSIncrementPC],
+          [[ifSPCIncrementColors, { needParams: false }, {}]],
+        ],
+        [[this.#resetCounter], [[SCClearColors, { needParams: false }, {}]]],
+      ],
+      "D31I1'I0'T5B5": [
+        [
+          [this.#ifNotZIncrementPC],
+          [[ifNotZPCIncrementColors, { needParams: false }, {}]],
+        ],
+        [[this.#resetCounter], [[SCClearColors, { needParams: false }, {}]]],
+      ],
+      "D31I1'I0'T5B4": [
+        [
+          [this.#ifsXORvORzIncrementPC],
+          [[ifsXORvORzPCIncrementColors, { needParams: false }, {}]],
+        ],
+        [[this.#resetCounter], [[SCClearColors, { needParams: false }, {}]]],
+      ],
+      "D31I1'I0'T5B3": [
+        [
+          [this.#ifsXORvIncrementPC],
+          [[ifsXORvPCIncrementColors, { needParams: false }, {}]],
+        ],
+        [[this.#resetCounter], [[SCClearColors, { needParams: false }, {}]]],
+      ],
+      "D31I1'I0'T5B2": [
+        [
+          [this.#ifNotsXORvAndNotzIncrementPC],
+          [[ifNotsXORvAndNotzPCIncrementColors, { needParams: false }, {}]],
+        ],
+        [[this.#resetCounter], [[SCClearColors, { needParams: false }, {}]]],
+      ],
+      "D31I1'I0'T5B1": [
+        [
+          [this.#ifNotsXORvIncrementPC],
+          [[ifNotsXORvPCIncrementColors, { needParams: false }, {}]],
+        ],
+        [[this.#resetCounter], [[SCClearColors, { needParams: false }, {}]]],
+      ],
+      "D31I1'I0'T5B0": [
+        [
+          [this.#resetSS],
+          [[activeBoxOn, { needParams: true }, { params: "FF-SS" }]],
+        ],
+        [[this.#resetCounter], [[SCClearColors, { needParams: false }, {}]]],
+      ],
     };
   }
 
@@ -239,15 +350,16 @@ class RRIOperations {
     if (this.#rriOperations[condition] == undefined) throw "Invalid operation";
     let operations = this.#rriOperations[condition];
     for (let operation of operations) {
-      myOperations.push([condition, operation]);
-      operation();
-      signalOff();
+      myOperations.push([condition, operation[0][0]]);
+      myColors.push(operation[1]);
+      operation[0][0]();
       // await new Promise((resolve) =>
       // setTimeout(() => {
       // signalOff();
       // resolve();
       // }, 50)
       // );
+      // signalOff();
     }
   }
 }
