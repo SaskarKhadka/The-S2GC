@@ -54,6 +54,7 @@ let scriptList = [
   "../src/assembler/run.js",
   "../script/pausePlay/PP.js",
   "../script/video/video.js",
+  "../script/about/about.js",
 ];
 
 scriptList.forEach(function (s) {
