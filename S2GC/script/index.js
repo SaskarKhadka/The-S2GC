@@ -37,6 +37,7 @@ let scriptList = [
   "../script/bus/SC/SC.js",
   "../script/bus/SC/SCColors.js",
   "../script/codeEditor/model.js",
+  "../script/codeEditor/highlight.js",
   "../src/decoder/decoder.js",
   "../src/registers/sequenceCounter.js",
   "../src/operations/decodeOperations.js",
