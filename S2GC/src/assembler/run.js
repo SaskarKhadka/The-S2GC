@@ -111,11 +111,18 @@ async function runInstructions() {
 
 const button = document.getElementById("run-button");
 button.addEventListener("click", function () {
+  const textareaValue = document.getElementById("code-editor").value;
+  const isHLTFound = textareaValue.includes("HLT;");
   try {
-    scanner.setCode(document.getElementById("code-editor").value);
+    scanner.setCode(textareaValue);
     scanner.lexer();
     assembler.setTokens(scanner.tokens());
     assembler.assembleTokens();
+    if (!isHLTFound) {
+      createToast("error", "Progarm must ends with HLT;");
+      return;
+    }
+    removeDisableClassList();
     runInstructions();
   } catch (ex) {
     createToast("error", ex);

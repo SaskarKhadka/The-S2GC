@@ -4,29 +4,57 @@ const forwardButton = document.getElementById("forward");
 const backwardButton = document.getElementById("backward");
 const resetButton = document.getElementById("reset");
 
+const pauseIcon = document.getElementById("pause-icon");
+const playIcon = document.getElementById("play-icon");
+const forwardIcon = document.getElementById("forward-icon");
+const backwardIcon = document.getElementById("backward-icon");
+const resetIcon = document.getElementById("reset-icon");
+
 pauseButton.addEventListener("click", pauseSimulation);
 playButton.addEventListener("click", playSimulation);
 forwardButton.addEventListener("click", playForward);
 backwardButton.addEventListener("click", playBackward);
 resetButton.addEventListener("click", resetSimulation);
 
-play === true
-  ? (playButton.style.pointerEvents = "none")
-  : (playButton.style.pointerEvents = null);
+function addDisableClassList() {
+  playButton.classList.add("disabled-div");
+  pauseButton.classList.add("disabled-div");
+  forwardButton.classList.add("disabled-div");
+  backwardButton.classList.add("disabled-div");
+  resetButton.classList.add("disabled-div");
 
-paused === true
-  ? (pauseButton.style.pointerEvents = "none")
-  : (pauseButton.style.pointerEvents = null);
+  playIcon.classList.add("disabled-icon");
+  pauseIcon.classList.add("disabled-icon");
+  forwardIcon.classList.add("disabled-icon");
+  backwardIcon.classList.add("disabled-icon");
+  resetIcon.classList.add("disabled-icon");
+}
+function removeDisableClassList() {
+  playButton.classList.remove("disabled-div");
+  pauseButton.classList.remove("disabled-div");
+  forwardButton.classList.remove("disabled-div");
+  backwardButton.classList.remove("disabled-div");
+  resetButton.classList.remove("disabled-div");
 
-prev === true
-  ? (backwardButton.style.pointerEvents = "none")
-  : (backwardButton.style.pointerEvents = null);
-
-next === true
-  ? (forwardButton.style.pointerEvents = "none")
-  : (forwardButton.style.pointerEvents = null);
+  playIcon.classList.remove("disabled-icon");
+  pauseIcon.classList.remove("disabled-icon");
+  forwardIcon.classList.remove("disabled-icon");
+  backwardIcon.classList.remove("disabled-icon");
+  resetIcon.classList.remove("disabled-icon");
+}
+function disablePlay() {
+  playButton.classList.add("disabled-div");
+  playIcon.classList.add("disabled-icon");
+}
+function disablePause() {
+  pauseButton.classList.add("disabled-div");
+  pauseIcon.classList.add("disabled-icon");
+}
+addDisableClassList();
 
 async function playSimulation() {
+  removeDisableClassList();
+  disablePlay();
   // play = true;
   paused = false;
   while (!paused) {
@@ -56,6 +84,7 @@ async function playSimulation() {
   // }
 }
 function playForward() {
+  removeDisableClassList();
   signalOff();
   if (operationsIndex < myOperations.length - 1) {
     const currentState = getCurrentState();
@@ -69,6 +98,7 @@ function playForward() {
 }
 
 function playBackward() {
+  removeDisableClassList();
   signalOff();
   if (operationsIndex > 0) {
     if (!stack.isEmpty()) {
@@ -92,6 +122,8 @@ function playBackward() {
 }
 
 function pauseSimulation() {
+  removeDisableClassList();
+  disablePause();
   paused = true;
 }
 
@@ -105,6 +137,8 @@ function resetSimulation() {
   cancelButton.addEventListener("click", cancelButtonClick);
   function okButtonClick(event) {
     event.preventDefault();
+    pauseSimulation();
+    addDisableClassList();
     hideConfirmationBox();
     resetBusArchitecture();
     signalOff();

@@ -81,22 +81,32 @@
             <div class="common-bus-container-header">
                 <h3>Common Bus System</h3>
                 <dvi class="pause-play-box" id="pause-play-box">
-                    <div class="pause" id="pause" tooltip="Pause">
-                        <i class="fa fa-pause"></i>
+                    <div id="pause-icon">
+                        <div class="pause" id="pause" tooltip="Pause">
+                            <i class="fa fa-pause"></i>
+                        </div>
                     </div>
-                    <div class="backward" id="backward" tooltip="Prev">
-                        <i class="fa fa-backward"></i>
+                    <div id="backward-icon">
+                        <div class="backward" id="backward" tooltip="Prev">
+                            <i class="fa fa-backward"></i>
+                        </div>
                     </div>
-                    <div class="forward" id="forward" tooltip="Next">
-                        <i class="fa fa-forward"></i>
-                    </div>
-                    <div class="play" id="play" tooltip="Play">
-                        <i class="fa fa-play"></i>
-                    </div>
-                    <div class="reset" id="reset" tooltip="Reset">
-                        <i class="fa fa-refresh"></i>
+                    <div id="forward-icon">
+                        <div class="forward" id="forward" tooltip="Next">
+                            <i class="fa fa-forward" id="forward-icon"></i>
+                        </div>
                     </div>
 
+                    <div id="play-icon">
+                        <div class="play" id="play" tooltip="Play">
+                            <i class="fa fa-play"></i>
+                        </div>
+                    </div>
+                    <div id="reset-icon">
+                        <div class="reset" id="reset" tooltip="Reset">
+                            <i class="fa fa-refresh"></i>
+                        </div>
+                    </div>
                 </dvi>
             </div>
             <div class="common-bus-box" id="common-bus-box">
@@ -400,6 +410,7 @@
                     </div>
                 </div>
                 <div class="editor-container" id="editor-container">
+                    <textarea class="line-number" id="line-number" readonly></textarea>
                     <textarea class="code-editor" id="code-editor" is="highlighted-code" language="avrasm"
                         placeholder="write assembly code here..."></textarea>
                 </div>
