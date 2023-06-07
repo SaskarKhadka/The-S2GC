@@ -1,7 +1,7 @@
 const hamburger = document.querySelector(".hamburger");
 const navMenu = document.querySelector(".nav-menu");
 const help = document.getElementById("open-help");
-const about = document.getElementById("about");
+const about = document.getElementById("about-btn");
 const github = document.getElementById("github");
 
 hamburger.addEventListener("click", mobileMenu);

@@ -449,7 +449,21 @@
             </div>
         </div>
         <div class="editor-box" id="editor-box">
-            <h3>Code Editor</h3>
+            <div class="editor-box-header">
+                <h3>Code Editor</h3>
+                <button class="example-button">Examples</button>
+            </div>
+
+            <div class="example-container" id="example-container">
+                <div class="example-header" id="example-header">
+                    <h2>Examples</h2>
+                    <button class="close-button">&times;</button>
+                </div>
+                <div class="example-body" id="example-body">
+                    <div class="example-card-container"></div>
+                </div>
+            </div>
+
             <div class="editor-body" id="editor-body">
                 <div class="editor-header" id="editor-header">
                     <div>
@@ -462,8 +476,9 @@
                 </div>
                 <div class="editor-container" id="editor-container">
                     <textarea class="line-number" id="line-number" readonly></textarea>
-                    <textarea class="code-editor" id="code-editor" is="highlighted-code" language="avrasm"
+                    <textarea class="code-editor" id="code-editor" is="highlighted-code" language="armasm"
                         placeholder="write assembly code here..."></textarea>
+                    <!-- armasm, arm, avrasm, x86asm, mips, mipsasm-->
                 </div>
             </div>
             <div class="editor-footer" id="editor-footer">

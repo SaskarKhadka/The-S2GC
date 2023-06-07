@@ -2,6 +2,11 @@
   height: 600px;
   text-align: center;
 }
+.editor-box-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 .editor-body {
   height: 470px;
 }
@@ -59,7 +64,6 @@
   position: relative;
   display: flex;
   width: 30px;
-  padding-left: 10px;
   cursor: pointer;
   align-items: center;
 }
@@ -83,8 +87,20 @@
   cursor: pointer;
   transition: background-color 0.2s ease;
 }
+.example-button {
+  width: 100px;
+  height: 40px;
+  background-color: var(--dark);
+  color: var(--white);
+  font-weight: bold;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  border-radius: 3px;
+}
 
-.run-button:active {
+.run-button:active,
+.example-button:active {
   background-color: var(--darker);
 }
 

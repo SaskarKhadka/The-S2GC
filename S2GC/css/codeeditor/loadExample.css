@@ -1,0 +1,77 @@
+.example-container {
+  position: absolute;
+  height: 520px;
+  display: none;
+  padding: 20px;
+  background-color: var(--white);
+  color: var(--dark);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  z-index: 11;
+  overflow-y: auto;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+.example-container::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, and Opera */
+}
+
+@media only screen and (min-width: 768px) {
+  .example-container {
+    width: 20%;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .example-container {
+    width: 90%;
+  }
+}
+
+.example-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 50px;
+}
+
+.close-button {
+  border: none;
+  background: none;
+  color: var(--dark);
+  font-size: 32px;
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 3px 0 0 3px;
+  transition: color 0.3s ease;
+}
+
+.close-button:hover {
+  color: var(--red);
+}
+
+.example-card-container {
+  padding-top: 20px;
+}
+
+.example-card {
+  display: flex;
+  min-height: 50px;
+  text-align: left;
+  padding: 5px;
+  margin-bottom: 10px;
+  background-color: var(--white);
+  color: var(--dark);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.example-card:hover {
+  background-color: var(--green);
+  color: var(--white);
+}
+
+.example-card button {
+  height: 100%;
+}
