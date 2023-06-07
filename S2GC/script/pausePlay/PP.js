@@ -68,7 +68,7 @@ async function playSimulation() {
       setTimeout(() => {
         // signalOff();
         resolve();
-      }, 2000)
+      }, 500)
     );
   }
   // while (!paused && !queue.isEmpty()) {
