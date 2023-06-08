@@ -2,20 +2,50 @@
   height: 600px;
   text-align: center;
 }
+.editor-box-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 .editor-body {
   height: 470px;
 }
-.code-editor {
-  width: 100%;
+.editor-container {
+  display: flex;
+}
+
+.line-number {
+  width: 35px;
   height: 450px;
   resize: none;
-  font-size: 16px;
+  font-size: 15px;
+  line-height: 20px;
+  font-weight: 300;
+  text-align: center;
+  color: var(--lightGray);
+  background-color: rgb(13, 17, 23);
+  overflow-y: hidden;
+  outline: none;
+}
+
+.code-editor {
+  flex: 1;
+  height: 450px;
+  resize: none;
+  line-height: 20px;
+  font-size: 15px;
   font-weight: bold;
-  border: 2px solid var(--dark);
+  border: 2px solid rgb(13, 17, 23);
+  text-align: left;
+  outline: none;
 }
 .code-editor::placeholder {
   color: var(--lightGray);
   font-style: italic;
+}
+
+.hljs {
+  text-align: left;
 }
 
 .editor-header {
@@ -34,7 +64,6 @@
   position: relative;
   display: flex;
   width: 30px;
-  padding-left: 10px;
   cursor: pointer;
   align-items: center;
 }
@@ -58,9 +87,29 @@
   cursor: pointer;
   transition: background-color 0.2s ease;
 }
+.example-button {
+  width: 100px;
+  height: 40px;
+  background-color: var(--dark);
+  color: var(--white);
+  font-weight: bold;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  border-radius: 3px;
+}
 
-.run-button:active {
+.run-button:active,
+.example-button:active {
   background-color: var(--darker);
+}
+
+.run-button:disabled {
+  pointer-events: none;
+}
+
+.disableButtonContainer {
+  cursor: not-allowed;
 }
 
 @media only screen and (min-width: 768px) {
@@ -73,5 +122,6 @@
   .editor-box {
     width: 90%;
     margin-left: 5%;
+    margin-top: 20px;
   }
 }

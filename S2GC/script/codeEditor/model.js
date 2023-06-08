@@ -14,6 +14,8 @@ refreshButton.addEventListener("click", function () {
   function okButtonClick(event) {
     event.preventDefault();
     document.getElementById("code-editor").value = "";
+    document.getElementById("line-number").value = "";
+    toggleButtonState();
     hideConfirmationBox();
     createToast("success", "Code Editor Cleared!");
     okButton.removeEventListener("click", okButtonClick);

@@ -18,7 +18,7 @@
     <meta name="author" content="Chandan Kumar Mahato" />
 
     <title>S2GC</title>
-    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="./css/index.css">
 </head>
 
 <body class="scroll">
@@ -29,10 +29,14 @@
                 <p class="header-title">Basic Computer Emulator</p>
                 <ul class="nav-menu">
                     <li class="nav-item">
+                        <a href="https://drive.google.com/file/d/1qwUNDRNk8jRwtZbfsT6xMD-uB-ftBgD7/view"
+                            class="nav-link" id="Docs" target="_blank">Docs</a>
+                    </li>
+                    <li class="nav-item">
                         <a href="#" class="nav-link" id="open-help">Help</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link" id="about">About</a>
+                        <a href="#" class="nav-link" id="about-btn">Developers</a>
                     </li>
                     <li class="nav-item">
                         <a href="https://github.com/SaskarKhadka/The-S2GC" target="_blank" class="nav-link"
@@ -55,10 +59,16 @@
         <div class="popup_box" id="popup_box">
             <i class="fas fa-exclamation"></i>
             <h4 class="confirm-title" id="confirm-title">v</h4>
-            <!-- <label>Are you sure to proceed?</label> -->
             <div class="btns" id="btns">
                 <a href="#" class="btn1" id="btn1">Cancel</a>
                 <a href="#" class="btn2" id="btn2">Ok</a>
+            </div>
+        </div>
+
+        <div id="about-modal" class="about-modal">
+            <div id="about-modal-content" class="about-modal-content">
+                <span class="about-close">&times;</span>
+                <div id="people" class="people"></div>
             </div>
         </div>
 
@@ -73,7 +83,7 @@
                     The following tutorial video will help you get started.
                 </div>
                 <div class="video-player">
-                    <video src="../assets/test.mp4" controls></video>
+                    <video src="./assets/test.mp4" controls></video>
                 </div>
             </div>
         </div>
@@ -81,22 +91,32 @@
             <div class="common-bus-container-header">
                 <h3>Common Bus System</h3>
                 <dvi class="pause-play-box" id="pause-play-box">
-                    <div class="pause" id="pause" tooltip="Pause">
-                        <i class="fa fa-pause"></i>
+                    <div id="pause-icon">
+                        <div class="pause" id="pause" tooltip="Pause">
+                            <i class="fa fa-pause"></i>
+                        </div>
                     </div>
-                    <div class="backward" id="backward" tooltip="Prev">
-                        <i class="fa fa-backward"></i>
+                    <div id="backward-icon">
+                        <div class="backward" id="backward" tooltip="Prev">
+                            <i class="fa fa-backward"></i>
+                        </div>
                     </div>
-                    <div class="forward" id="forward" tooltip="Next">
-                        <i class="fa fa-forward"></i>
-                    </div>
-                    <div class="play" id="play" tooltip="Play">
-                        <i class="fa fa-play"></i>
-                    </div>
-                    <div class="reset" id="reset" tooltip="Reset">
-                        <i class="fa fa-refresh"></i>
+                    <div id="forward-icon">
+                        <div class="forward" id="forward" tooltip="Next">
+                            <i class="fa fa-forward" id="forward-icon"></i>
+                        </div>
                     </div>
 
+                    <div id="play-icon">
+                        <div class="play" id="play" tooltip="Play">
+                            <i class="fa fa-play"></i>
+                        </div>
+                    </div>
+                    <div id="reset-icon">
+                        <div class="reset" id="reset" tooltip="Reset">
+                            <i class="fa fa-refresh"></i>
+                        </div>
+                    </div>
                 </dvi>
             </div>
             <div class="common-bus-box" id="common-bus-box">
@@ -388,7 +408,21 @@
             </div>
         </div>
         <div class="editor-box" id="editor-box">
-            <h3>Code Editor</h3>
+            <div class="editor-box-header">
+                <h3>Code Editor</h3>
+                <button class="example-button">Examples</button>
+            </div>
+
+            <div class="example-container" id="example-container">
+                <div class="example-header" id="example-header">
+                    <h2>Examples</h2>
+                    <button class="close-button">&times;</button>
+                </div>
+                <div class="example-body" id="example-body">
+                    <div class="example-card-container"></div>
+                </div>
+            </div>
+
             <div class="editor-body" id="editor-body">
                 <div class="editor-header" id="editor-header">
                     <div>
@@ -400,7 +434,10 @@
                     </div>
                 </div>
                 <div class="editor-container" id="editor-container">
-                    <textarea class="code-editor" id="code-editor" placeholder="Write Assembly Code here..."></textarea>
+                    <textarea class="line-number" id="line-number" readonly></textarea>
+                    <textarea class="code-editor" id="code-editor" is="highlighted-code" language="armasm"
+                        placeholder="write assembly code here..."></textarea>
+                    <!-- armasm, arm, avrasm, x86asm, mips, mipsasm-->
                 </div>
             </div>
             <div class="editor-footer" id="editor-footer">
@@ -445,7 +482,7 @@
             </p>
         </div>
     </footer>
-    <script defer src="../script/index.js"></script>
+    <script defer src="./script/index.js"></script>
     <script src="https://kit.fontawesome.com/9be156cf78.js" crossorigin="anonymous"></script>
 </body>
 

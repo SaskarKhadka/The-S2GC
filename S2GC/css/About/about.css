@@ -1,0 +1,98 @@
+.about-modal {
+  display: none;
+  position: fixed;
+  z-index: 100;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+
+.about-modal-content {
+  background-color: #333; /* Dark background color */
+  margin: 50px auto;
+  padding: 20px;
+  border-radius: 8px;
+  width: 70%;
+  max-width: 500px;
+}
+
+.about-close {
+  color: #fff; /* White color for cross button */
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.about-close:hover,
+.about-close:focus {
+  color: #ff0000; /* Red color when hovered or focused */
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.people {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.person {
+  width: 45%;
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.person:nth-child(1),
+.person:nth-child(2) {
+  align-self: flex-start;
+}
+
+.person:nth-child(3),
+.person:nth-child(4) {
+  align-self: flex-end;
+}
+
+.person img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.person-name {
+  text-align: center;
+  margin-top: 10px;
+  color: #fff;
+}
+
+.person-links {
+  display: flex;
+  justify-content: center;
+}
+
+.person-links a {
+  display: inline-block;
+  margin: 0 5px;
+  font-size: 24px;
+  color: var(--white);
+}
+
+.portfolio-link a {
+  display: flex;
+  align-items: center;
+  color: #fff;
+  text-decoration: none;
+}
+
+.portfolio-link i {
+  margin-right: 5px;
+}
+
+button {
+  padding: 10px;
+  font-size: 16px;
+}
