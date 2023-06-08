@@ -24,7 +24,7 @@ async function playSimulation() {
       setTimeout(() => {
         // signalOff();
         resolve();
-      }, 2000)
+      }, 200)
     );
   }
   // while (!paused && !queue.isEmpty()) {
@@ -48,7 +48,7 @@ function playForward() {
     const operation = myOperations[operationsIndex];
     operation[1]();
   } else {
-    createToast("warning", "Microoperation Stack Overflow!");
+    createToast("Warning", "Microoperation Stack Overflow!");
   }
 }
 

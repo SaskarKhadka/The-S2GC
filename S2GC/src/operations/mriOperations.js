@@ -401,7 +401,18 @@ class MRIOperations {
         ],
         [[this.#resetCounter], [[SCClearColors, { needParams: false }, {}]]],
       ],
-      D20T6: [this.#ifsXORvARToBus, this.#ifsXORvBusToPC, this.#resetCounter],
+      D20T6: [
+        [
+          [this.#ifsXORvARToBus],
+          [[ifsXORvARtoBusColors, { needParams: false }, {}]],
+        ],
+        [
+          [this.#ifsXORvBusToPC],
+          [[ifsXORvPCLoadColors, { needParams: false }, {}]],
+        ],
+        [[this.#resetCounter], [[SCClearColors, { needParams: false }, {}]]],
+      ],
+
       D21T6: [
         [
           [this.#ifNotsXORvARToBus],
@@ -663,6 +674,7 @@ class MRIOperations {
   }
 
   async performOperations(condition) {
+    print(condition);
     if (this.#mriOperations[condition] == undefined) throw "Invalid operation";
     let operations = this.#mriOperations[condition];
     for (let operation of operations) {
