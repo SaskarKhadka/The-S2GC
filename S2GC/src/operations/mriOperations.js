@@ -674,7 +674,6 @@ class MRIOperations {
   }
 
   async performOperations(condition) {
-    print(condition);
     if (this.#mriOperations[condition] == undefined) throw "Invalid operation";
     let operations = this.#mriOperations[condition];
     for (let operation of operations) {

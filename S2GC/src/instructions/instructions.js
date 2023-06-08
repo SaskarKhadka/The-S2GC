@@ -79,7 +79,7 @@ class Instructions {
       instruction == "JL" ||
       instruction == "JLE" ||
       instruction == "JG" ||
-      instruction == "JLE"
+      instruction == "JGE"
     );
   }
 

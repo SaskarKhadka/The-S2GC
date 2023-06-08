@@ -57,7 +57,7 @@ async function playSimulation() {
   disablePlay();
   // play = true;
   paused = false;
-  while (!paused) {
+  while (!paused && operationsIndex < myOperations.length - 1) {
     signalOff();
     const currentState = getCurrentState();
     stack.push(currentState);
@@ -68,20 +68,9 @@ async function playSimulation() {
       setTimeout(() => {
         // signalOff();
         resolve();
-      }, 200)
+      }, 20)
     );
   }
-  // while (!paused && !queue.isEmpty()) {
-  //   const operations = queue.dequeue();
-  //   operations[1]();
-  //   await new Promise((resolve) =>
-  //     setTimeout(() => {
-  //       signalOff();
-  //       resolve();
-  //     }, 2000)
-  //   );
-  //   stack.push(operations);
-  // }
 }
 function playForward() {
   removeDisableClassList();
