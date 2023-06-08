@@ -4,6 +4,17 @@
   left: 560px; /*change this*/
 }
 
+@media screen and (max-width: 2600px) and (min-width: 1700px) {
+  .IR-container {
+    left: 710px;
+  }
+}
+@media screen and (min-width: 2600px) {
+  .IR-container {
+    left: 1205px;
+  }
+}
+
 .IR-box {
   width: 100px;
   height: 40px;

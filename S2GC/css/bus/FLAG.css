@@ -4,6 +4,16 @@
   left: 625px;
 }
 
+@media screen and (max-width: 2600px) and (min-width: 1700px) {
+  .FLAG-container {
+    left: 712px;
+  }
+}
+@media screen and (min-width: 2600px) {
+  .FLAG-container {
+    left: 1095px;
+  }
+}
 .FLAG-C,
 .FLAG-V,
 .FLAG-S,

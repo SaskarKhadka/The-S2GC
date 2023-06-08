@@ -3,6 +3,16 @@
   bottom: 450px;
   left: 150px;
 }
+@media screen and (max-width: 2600px) and (min-width: 1700px) {
+  .INPR-container {
+    left: 235px;
+  }
+}
+@media screen and (min-width: 2600px) {
+  .INPR-container {
+    left: 420px;
+  }
+}
 
 .INPR-box {
   width: 80px;
