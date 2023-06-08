@@ -3,6 +3,16 @@
   bottom: 350px;
   left: 610px;
 }
+@media screen and (max-width: 2600px) and (min-width: 1700px) {
+  .TR-container {
+    left: 790px;
+  }
+}
+@media screen and (min-width: 2600px) {
+  .TR-container {
+    left: 1390px;
+  }
+}
 
 .TR-box {
   width: 100px;

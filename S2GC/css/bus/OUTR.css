@@ -4,6 +4,18 @@
   left: 725px;
 }
 
+@media screen and (max-width: 2600px) and (min-width: 1700px) {
+  .OUTR-container {
+    left: 975px;
+  }
+}
+
+@media screen and (min-width: 2600px) {
+  .OUTR-container {
+    left: 1540px;
+  }
+}
+
 .OUTR-box {
   width: 80px;
   height: 40px;

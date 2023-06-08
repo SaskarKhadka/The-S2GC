@@ -3,6 +3,16 @@
   bottom: 225px; /*change this*/
   left: 425px; /*change this*/
 }
+@media screen and (max-width: 2600px) and (min-width: 1700px) {
+  .AC-container {
+    left: 545px;
+  }
+}
+@media screen and (min-width: 2600px) {
+  .AC-container {
+    left: 945px;
+  }
+}
 
 .AC-box {
   width: 100px;

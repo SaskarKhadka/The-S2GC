@@ -49,7 +49,9 @@ function activeBoxOn(boxID) {
   IDArray.push({ id: "boxID", value: boxID });
   let element = document.getElementById(boxID);
   element.style.setProperty("background-color", "var(--activeBoxOn)");
-  element.style.setProperty("color", "var(--activeBoxOnText)");
+  if (boxID != "bus-selector") {
+    element.style.setProperty("color", "var(--activeBoxOnText)");
+  }
 }
 
 function borderOn(boxBorderID) {

@@ -3,6 +3,12 @@
   bottom: 425px;
   left: 275px;
 }
+@media screen and (max-width: 2600px) and (min-width: 1700px) {
+  .ALU-container {
+    left: 360px;
+  }
+}
+
 .ALU-box {
   position: relative;
   width: 300px;
@@ -12,6 +18,7 @@
   justify-content: center;
   align-items: center;
 }
+
 .ALU-content {
   position: absolute;
   top: 40%;
@@ -151,4 +158,19 @@
 }
 .AC-to-ALU-bottom::before {
   border-width: 0px;
+}
+
+@media screen and (min-width: 2600px) {
+  .ALU-container {
+    left: 545px;
+  }
+  .ALU-box {
+    width: 500px;
+  }
+  .B-to-ALU {
+    left: 210px;
+  }
+  .AC-to-ALU {
+    left: 450px;
+  }
 }
