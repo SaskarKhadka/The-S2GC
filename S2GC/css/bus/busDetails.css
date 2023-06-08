@@ -1,14 +1,50 @@
 .bus-selector {
   position: absolute;
-  display: flex;
   height: 40px;
   background-color: var(--white);
   align-items: baseline;
   border: 1px solid var(--dark);
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 20px;
+  line-height: 40px;
   bottom: 50px;
+}
+
+.bus-selector-0,
+.bus-selector-1,
+.bus-selector-2,
+.bus-selector-3,
+.bus-selector-4,
+.bus-selector-5,
+.bus-selector-6,
+.bus-selector-7 {
+  position: absolute;
+}
+
+.bus-selector-1 {
+  left: 20px;
+}
+.bus-selector-2 {
+  left: 110px;
+}
+.bus-selector-3 {
+  left: 200px;
+}
+
+.bus-selector-6 {
+  left: 295px;
+}
+.bus-selector-0 {
+  left: 395px;
+}
+
+.bus-selector-7 {
+  left: 495px;
+}
+.bus-selector-4 {
+  left: 585px;
+}
+
+.bus-selector-5 {
+  left: 680px;
 }
 
 @media only screen and (min-width: 1300px) {
