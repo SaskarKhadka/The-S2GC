@@ -33,16 +33,16 @@ HLT;
   {
     title: "Sequential Search",
     code: `//Sequential Search for 
-//20 in memory location 1-5
+//20 in memory location 1-10
 LDB #1;
 LOOP: STB @30;
 LDA $30;
-INCB;
 TESTA #20;
-JZ LOOP;
+JZ KEY_FOUND;
+INCB;
 TESTB #11;
 JNZ LOOP;
-HLT;
+KEY_FOUND: HLT;
 `,
   },
   {
